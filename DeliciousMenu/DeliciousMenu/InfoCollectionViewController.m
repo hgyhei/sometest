@@ -12,12 +12,14 @@
 #import "JHAPISDK.h"
 #import "JHOpenidSupplier.h"
 #import "infoModel.h"
+#import "UIImage+corner.h"
 #import "UIImageView+WebCache.h"
 @interface InfoCollectionViewController ()<UISearchBarDelegate>
 @property BOOL isSearch;
 @property NSString* tagId;
 @property NSString * searchText;
 @property NSMutableArray *dataSource;
+@property NSInteger refreshFlag;
 @end
 
 @implementation InfoCollectionViewController
@@ -29,7 +31,6 @@ static int pn=0;
     _isSearch = false;
     return self;
 }
-
 -(id)initWithSearchText:(NSString *) searchText{
     self=[super initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc]init]];
     _searchText = searchText;
@@ -39,10 +40,26 @@ static int pn=0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
+  
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:InfoCollectionreuseIdentifier bundle:nil] forCellWithReuseIdentifier:InfoCollectionreuseIdentifier];
-    [self setupRefresh];
+  
 
+}
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+
+
+}
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+     [self setupRefresh];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    NSLog(@"viewWillDisappear");
+    [super viewWillDisappear:YES];
+    [self.view removeFromSuperview];
 }
 - (void)setupNav{
 
@@ -82,6 +99,7 @@ static int pn=0;
 }
 -(void)setupRefresh{
     // 下拉刷新
+    
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         pn = 0;
         if (!_isSearch) {
@@ -92,9 +110,14 @@ static int pn=0;
         }
         [self.collectionView.mj_header endRefreshing];
     }];
-    [self.collectionView.mj_header beginRefreshing];
+    if ( _refreshFlag != 1) {
+        [self.collectionView.mj_header beginRefreshing];
+          _refreshFlag = 1;
+    }
+  
     
     // 上拉刷新
+
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         pn += 10;
         if(!_isSearch){
@@ -187,9 +210,16 @@ static int pn=0;
     
 
 }
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(100,100);
+    CGFloat margin  = 15;
+    CGFloat width = (self.view.width - 3 * margin) / 2;
+    return CGSizeMake(width,width);
+}
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(15, 15, 15, 15);
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -201,12 +231,15 @@ static int pn=0;
     InfoCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:InfoCollectionreuseIdentifier forIndexPath:indexPath];
     infoModel *model = [_dataSource objectAtIndex:indexPath.row];
     // Configure the cell
+   
+    [cell.infoimg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:nil ];
+   
+    
   
-    [cell.infoimg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:nil];
+    cell.infolabel.text = model.title;
+    cell.infolabel.textColor = [UIColor blackColor];
     
-    
-    cell.infotext.text = model.title;
-    cell.infotext.font = [UIFont systemFontOfSize:15];
+    cell.infolabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

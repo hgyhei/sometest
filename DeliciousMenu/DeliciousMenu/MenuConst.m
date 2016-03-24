@@ -13,11 +13,11 @@ NSString * const OpenID=@"JHdb05e45abe21dab35da0661d7bb1397d";
 NSString * const APPID=@"46";
 NSString * const Method_Get=@"GET";
 NSString * const Method_Post=@"POST";
+
 NSMutableArray * SearchArray;
 NSMutableArray * favSource;
 NSMutableArray * favModels;
 UIImage * defaultImage ;
-
 FMDatabase * db;
 //API
 //菜谱大全
@@ -28,8 +28,12 @@ NSString *const API_category=@"http://apis.juhe.cn/cook/category";
 NSString *const API_queryByTag=@"http://apis.juhe.cn/cook/index";
 //按菜谱ID查看详细
 NSString *const API_queryByID=@"http://apis.juhe.cn/cook/queryid";
+NSString *const MenuFirstViewControllerNotification=@"MenuFirstViewControllerNotification";
 NSString *const MenuLeftReuseIdentifier = @"MenuLeftTableViewCell";
 NSString *const InfoCollectionreuseIdentifier = @"InfoCollectionViewCell";
 NSString *const StepViewreuseIdentifier = @"StepTableViewCell";
 NSString *const BurViewreuseIdentifier = @"BurTableViewCell";
+NSString *const FirstVarietyMenuIdentifier = @"FirstVarietyMenuTableViewCell";
+NSString *const SecondVarietyMenuIdentifier = @"SecondVarityTableViewCell";
+NSString *const VarietyDetailCollectionViewIdentifier =  @"VarietyDetailCollectionViewCell";
 @end

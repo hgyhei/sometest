@@ -12,6 +12,8 @@
 #import "StepTableViewCell.h"
 #import "BurTableViewCell.h"
 #import "MenuConst.h"
+#import "NSString+Extension.h"
+#import "UIImage+initWithColor.h"
 @interface DetailTableViewController ()
 @property (nonatomic,strong) infoModel *dataSource;
 @property (nonatomic,strong) NSMutableArray *materialModel;
@@ -25,9 +27,49 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:StepViewreuseIdentifier bundle:nil] forCellReuseIdentifier:StepViewreuseIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:BurViewreuseIdentifier bundle:nil] forCellReuseIdentifier:BurViewreuseIdentifier];
+     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
+    [self setupNavButtonItem];
+    self.tableView.contentInset = UIEdgeInsetsMake(-88, 0, -50, 0);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self setupHeaderView];
+    [self setupFooterView];
+}
+- (void)setupHeaderView{
+    UIView *headerView = [[UIView alloc]init];
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
+      [img sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] ];
+    [headerView addSubview:img];
+    CGSize TitleSize = [_dataSource.title sizeWithFont:[UIFont systemFontOfSize:20]];
+    CGFloat titleX = (self.view.width - TitleSize.width)/ 2 ;
+    CGFloat titleY = 260;
+    UILabel *namelabel = [[UILabel alloc]initWithFrame:(CGRect){{titleX, titleY}, TitleSize}];
+    namelabel.text = _dataSource.title;
+    [headerView addSubview:namelabel];
+   
+    CGSize imtroSize = [_dataSource.imtro sizeWithFont:[UIFont systemFontOfSize:14] maxW:self.view.width - 25];
+   
+    CGFloat imtroX =  25;
+    CGFloat imtroY = CGRectGetMaxY(namelabel.frame) + 10;
+    UILabel *imtrolabel = [[UILabel alloc]initWithFrame:(CGRect){{imtroX, imtroY}, imtroSize}];
+    imtrolabel.text = _dataSource.imtro;
+   [imtrolabel setNumberOfLines:0];
+    imtrolabel.font = [UIFont systemFontOfSize:14];
+    [headerView addSubview:imtrolabel];
+    CGFloat headviewHeight = CGRectGetMaxY(imtrolabel.frame) + imtroSize.height;
+    headerView.frame = CGRectMake(0, 0, self.view.width, headviewHeight);
+    self.tableView.tableHeaderView = headerView;
+
+}
+- (void)setupFooterView{
+ UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 60)];
+    self.tableView.tableFooterView = footerView;
+
+}
+- (void)setupNavButtonItem{
     _favButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"xin"] style:UIBarButtonItemStylePlain target:self action:@selector(addInFavSource)];
     
     _delButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"del"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteFromFavSource)];
+    
     if (![favModels containsObject:_dataSource]) {
         self.navigationItem.rightBarButtonItem=_favButton;
     }
@@ -93,53 +135,50 @@
     
         return self;
 }
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat sectionHeaderHeight = 40;
+    if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    }
+    else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 1 + _dataSource.steps.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section==0) {//图片及标题
-        return 1;
-    }
-    else if (section==1){//材料
+   
+     if (section==0){//材料
         if (_materialModel.count%2!=0) {
             return _materialModel.count/2+1;
         }else{
             return _materialModel.count/2;
         }
     }else{//步骤
-        return _dataSource.steps.count;
+        return 1;
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.section==0||indexPath.section==2){
-        CGSize constraint=CGSizeMake(self.tableView.frame.size.width/3*2, 200000.0f);
-        CGSize size=[((StepModel*)[_dataSource.steps objectAtIndex:indexPath.row ]).step sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
-        CGFloat height=MAX(size.height, 90);
-        if (indexPath.section==0) {
-            height+=10;
-        }
+    if(indexPath.section == 0){
+        return 44;
         
-        return height;
-        return 90;
+     
     }
     
-    else
-        return 44;
+    else{
+        CGSize constraint=CGSizeMake(self.tableView.frame.size.width/3*2, 200000.0f);
+    CGSize size=[((StepModel*)[_dataSource.steps objectAtIndex:indexPath.row ]).step sizeWithFont:[UIFont systemFontOfSize:18] constrainedToSize:constraint lineBreakMode:NSLineBreakByWordWrapping];
+    CGFloat height=MAX(size.height, 90);
+    
+        return height;}
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section==0) {
-        StepTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StepViewreuseIdentifier forIndexPath:indexPath];
-        // StepModel* model=((StepModel*)[_dataSource.steps objectAtIndex:0]);
-        [cell.imgView sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] ];
-        [cell.textView setText:_dataSource.imtro];
-        cell.currFont=[UIFont systemFontOfSize:12];
-        [cell initText];
-        return cell;
-    }
-    else if(indexPath.section==1){//材料
+
+     if(indexPath.section==0){//材料
         BurTableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:BurViewreuseIdentifier];
         if ((indexPath.row+1)*2<=_materialModel.count) {
             StepModel * m=(StepModel*)[_materialModel objectAtIndex:indexPath.row*2];
@@ -158,9 +197,9 @@
         }
         return cell;
     }
-    else if(indexPath.section==2){
+    else {
         StepTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StepViewreuseIdentifier forIndexPath:indexPath];
-        StepModel* model=((StepModel*)[_dataSource.steps objectAtIndex:indexPath.row]);
+        StepModel* model=((StepModel*)[_dataSource.steps objectAtIndex:indexPath.section -1]);
         [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:defaultImage];
         [cell.textView setText:model.step];
         cell.currFont=[UIFont systemFontOfSize:16];
@@ -170,37 +209,38 @@
     
     return nil;
 }
--(NSString*) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return _dataSource.title;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 45;
 }
--(UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    CGRect frame=CGRectMake(10, 0, tableView.frame.size.width, 30);
-    UIView *view=[[UIView alloc]initWithFrame:frame];
-    UILabel* text=[[UILabel alloc]initWithFrame:frame];
-    [text setTextColor:[UIColor blueColor]];
-    if (section==0) {//菜名标题
+- (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if (section == 0) {
+        CGRect frame=CGRectMake(0, 0, tableView.width, 45);
+        UIView *view=[[UIView alloc]initWithFrame:frame];
+        view.backgroundColor = [UIColor lightGrayColor];
+        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
         
-        [view setBackgroundColor:[UIColor orangeColor]];
-        [text setText:_dataSource.title];
+        label.text = @"材料";
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:18];
+       
+        [view addSubview:label];
+        return  view;
     }
-    else if (section==1) {
-        [view setBackgroundColor:[UIColor orangeColor]];
-        [text setText:@"材料准备"];
-    }
-    else if(section==2){
-        [view setBackgroundColor:[UIColor orangeColor]];
-        [text setText:@"开始制作"];
-        
-    }
+    else{
     
-    UIBezierPath *maskPath=[UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:UIRectCornerTopLeft|UIRectCornerTopRight cornerRadii:CGSizeMake(5, 5)];
-    CAShapeLayer *maskLayer=[[CAShapeLayer alloc]init];
-    maskLayer.frame=view.bounds;
-    maskLayer.path=maskPath.CGPath;
-    view.layer.mask=maskLayer;
-    [view addSubview:text];
-    return view;
+        CGRect frame=CGRectMake(0, 0, tableView.width, 45);
+        UIView *view=[[UIView alloc]initWithFrame:frame];
+        view.backgroundColor = [UIColor whiteColor];
+        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
+        label.text = @"步骤";
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:18];
+        
+        [view addSubview:label];
+        return view;
+    
+    
+    }
 }
 
 

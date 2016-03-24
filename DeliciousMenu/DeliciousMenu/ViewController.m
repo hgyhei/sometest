@@ -60,7 +60,7 @@
      
     }
     else{
-        return ((TagModel*)[_dataSource objectAtIndex:_leftIndex]).list.count;
+        return ((TagModel*)[self.dataSource objectAtIndex:_leftIndex]).list.count;
      
     }
 }
@@ -106,7 +106,7 @@
         [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
     }
     else if (tableView.tag==102){
-               Tag_ListModel *molde=(Tag_ListModel*)((TagModel*)[_dataSource objectAtIndex:_leftIndex]).list[indexPath.row];
+               Tag_ListModel *molde=(Tag_ListModel*)((TagModel*)[self.dataSource objectAtIndex:_leftIndex]).list[indexPath.row];
          InfoCollectionViewController *vc=[[InfoCollectionViewController alloc]initWithTagId:molde.id];
         [vc setTitle:molde.name];
         [self.navigationController pushViewController:vc animated:YES];

@@ -9,6 +9,7 @@ PODS:
   - SDWebImage (3.7.5):
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
+  - WMPageController (1.4.0)
 
 DEPENDENCIES:
   - FMDB
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - MJRefresh
   - Reachability
   - SDWebImage
+  - WMPageController
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
@@ -25,5 +27,6 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  WMPageController: 6515091ceca9ad834e52d041611d33cb8999ac83
 
 COCOAPODS: 0.39.0

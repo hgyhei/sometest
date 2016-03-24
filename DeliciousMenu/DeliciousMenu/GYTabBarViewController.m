@@ -15,8 +15,12 @@
 #import "SearchViewController.h"
 #import "JHAPISDK.h"
 #import "JHOpenidSupplier.h"
-@interface GYTabBarViewController ()
+#import <WMPageController.h>
+#import "MenufirstViewController.h"
+#import "MenuSecondViewController.h"
 
+@interface GYTabBarViewController ()
+@property (nonatomic,strong) WMPageController *page;
 @end
 @implementation GYTabBarViewController
 -(void)initConst{
@@ -126,7 +130,7 @@
  
     [self initConst];
     [self initDB];
-    
+    [self initNotificationCenter];
     
     [[JHOpenidSupplier shareSupplier] registerJuheAPIByOpenId:OpenID];
 
@@ -138,10 +142,51 @@
     [self addChildVc:search title:@"搜索" image:@"home" selectedImage:@"home"];
     MarkViewController *mark = [[MarkViewController alloc]init];
     [self addChildVc:mark title:@"收藏" image:@"home" selectedImage:@"home"];
-    CalendarViewController *calendar = [[CalendarViewController alloc]init];
-     [self addChildVc:calendar title:@"浏览" image:@"home" selectedImage:@"home"];
+//    CalendarViewController *calendar = [[CalendarViewController alloc]init];
+//     [self addChildVc:calendar title:@"浏览" image:@"home" selectedImage:@"home"];
+    WMPageController *page = [self p_defaultController];
+     [self addChildVc:page title:@"浏览" image:@"home" selectedImage:@"home"];
+    _page = page;
 }
-
+- (void)initNotificationCenter{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MenuFirstViewFooterClick) name:MenuFirstViewControllerNotification object:nil];
+}
+- (void)MenuFirstViewFooterClick{
+    _page.selectIndex = 1;
+}
+- (WMPageController *)p_defaultController {
+    NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
+    NSMutableArray *titles = [[NSMutableArray alloc] init];
+    for (int i = 0; i < 3; i++) {
+        Class vcClass;
+        NSString *title;
+        switch (i % 3) {
+            case 0:
+                vcClass = [MenufirstViewController class];
+                
+                title = @"菜式菜品";
+                break;
+            case 1:
+                vcClass = [MenuSecondViewController class];
+                title = @"分类";
+                break;
+            default:
+                vcClass = [MarkViewController class];
+                title = @"Fluency";
+                break;
+        }
+        [viewControllers addObject:vcClass];
+        [titles addObject:title];
+    }
+    WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
+    
+  
+   
+    pageVC.menuItemWidth = 85;
+    pageVC.postNotification = YES;
+    pageVC.bounces = YES;
+    return pageVC;
+}
 
 - (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {

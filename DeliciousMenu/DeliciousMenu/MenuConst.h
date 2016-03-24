@@ -26,12 +26,15 @@ extern NSString *const API_category; //http://apis.juhe.cn/cook/category
 extern NSString *const API_queryByTag;//http://apis.juhe.cn/cook/index
 //按菜谱ID查看详细
 extern NSString *const API_queryByID;//http://apis.juhe.cn/cook/queryid
-
+extern NSString *const MenuFirstViewControllerNotification;
 
 extern NSString *const MenuLeftReuseIdentifier;
 extern NSString *const InfoCollectionreuseIdentifier;
 extern NSString *const StepViewreuseIdentifier;
 extern NSString *const BurViewreuseIdentifier;
+extern NSString *const FirstVarietyMenuIdentifier;
+extern NSString *const SecondVarietyMenuIdentifier;
+extern NSString *const VarietyDetailCollectionViewIdentifier;
 #define ALERT_MESSAGE(msg) {\
 MBProgressHUD *hud=[MBProgressHUD showHUDAddedTo: [UIApplication sharedApplication].keyWindow animated:YES];\
 hud.mode=MBProgressHUDModeText;\

@@ -2,7 +2,7 @@
 //  InfoCollectionViewCell.h
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/22.
+//  Created by tarena on 16/3/24.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 
@@ -10,6 +10,6 @@
 
 @interface InfoCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *infoimg;
-@property (weak, nonatomic) IBOutlet UILabel *infotext;
 
+@property (weak, nonatomic) IBOutlet UILabel *infolabel;
 @end

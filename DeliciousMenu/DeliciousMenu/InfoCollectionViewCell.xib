@@ -7,27 +7,24 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="InfoCollectionViewCell" id="gTV-IL-0wX" customClass="InfoCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="177"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="177"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aYQ-jd-yI6">
-                        <rect key="frame" x="15" y="10" width="70" height="70"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nhn-yN-Zfp">
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                         <animations/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="70" id="9Q2-eE-c0z"/>
-                            <constraint firstAttribute="width" constant="70" id="CpM-Le-9Em"/>
+                            <constraint firstAttribute="width" constant="150" id="Wwg-nC-7Z1"/>
+                            <constraint firstAttribute="height" constant="150" id="v8J-zc-0U8"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJN-4l-XOA">
-                        <rect key="frame" x="0.0" y="80" width="100" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ0-cS-Muj">
+                        <rect key="frame" x="0.0" y="150" width="150" height="27"/>
                         <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="5RA-CM-POz"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -36,17 +33,26 @@
             </view>
             <animations/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="gJN-4l-XOA" secondAttribute="trailing" id="1wE-Ot-FIj"/>
-                <constraint firstAttribute="bottom" secondItem="gJN-4l-XOA" secondAttribute="bottom" id="6BF-4G-p2F"/>
-                <constraint firstItem="aYQ-jd-yI6" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="GNh-x0-hGb"/>
-                <constraint firstItem="gJN-4l-XOA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Lhc-Hh-I3q"/>
-                <constraint firstItem="aYQ-jd-yI6" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="gUp-aU-E7J"/>
-                <constraint firstAttribute="trailing" secondItem="aYQ-jd-yI6" secondAttribute="trailing" constant="15" id="mSD-pe-wCJ"/>
+                <constraint firstItem="ZZ0-cS-Muj" firstAttribute="top" secondItem="nhn-yN-Zfp" secondAttribute="bottom" id="4dL-mN-C52"/>
+                <constraint firstAttribute="trailing" secondItem="nhn-yN-Zfp" secondAttribute="trailing" id="7Ey-St-TJz"/>
+                <constraint firstItem="nhn-yN-Zfp" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="81P-Uy-TBs"/>
+                <constraint firstAttribute="trailing" secondItem="ZZ0-cS-Muj" secondAttribute="trailing" id="9lr-8b-twI"/>
+                <constraint firstAttribute="bottom" secondItem="ZZ0-cS-Muj" secondAttribute="bottom" id="Lce-rE-krF"/>
+                <constraint firstItem="nhn-yN-Zfp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dPS-2c-nij"/>
+                <constraint firstAttribute="bottom" secondItem="nhn-yN-Zfp" secondAttribute="bottom" id="qaW-rL-D8j"/>
+                <constraint firstItem="ZZ0-cS-Muj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vi7-o2-SNC"/>
             </constraints>
+            <size key="customSize" width="171" height="177"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="qaW-rL-D8j"/>
+                </mask>
+            </variation>
             <connections>
-                <outlet property="infoimg" destination="aYQ-jd-yI6" id="sfo-n2-nDm"/>
-                <outlet property="infotext" destination="gJN-4l-XOA" id="GdN-gN-apL"/>
+                <outlet property="infoimg" destination="nhn-yN-Zfp" id="rX5-QQ-9YB"/>
+                <outlet property="infolabel" destination="ZZ0-cS-Muj" id="Y7d-DM-Oe7"/>
             </connections>
+            <point key="canvasLocation" x="432.5" y="357.5"/>
         </collectionViewCell>
     </objects>
 </document>

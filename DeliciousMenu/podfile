@@ -6,3 +6,4 @@ pod 'MJRefresh'
 pod "MBProgressHUD"
 pod 'Reachability'
 pod 'FMDB'
+pod 'WMPageController'

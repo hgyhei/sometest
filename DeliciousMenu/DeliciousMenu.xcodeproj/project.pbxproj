@@ -19,13 +19,10 @@
 		850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72A91CA13D6B00FE674F /* CalendarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72AD1CA1703400FE674F /* fmdbMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72AC1CA1703400FE674F /* fmdbMethod.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A1B1CA1050D00F33F9C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 851F3A1A1CA1050D00F33F9C /* libc++.tbd */; };
-		851F3A1F1CA1096E00F33F9C /* InfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A1D1CA1096E00F33F9C /* InfoCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		851F3A201CA1096E00F33F9C /* InfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851F3A1E1CA1096E00F33F9C /* InfoCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		851F3A241CA10D1300F33F9C /* GYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A231CA10D1300F33F9C /* GYTabBarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A271CA10D1B00F33F9C /* GYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A261CA10D1B00F33F9C /* GYNavigationController.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A2C1CA10D3B00F33F9C /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A291CA10D3B00F33F9C /* UIBarButtonItem+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A2D1CA10D3B00F33F9C /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A2B1CA10D3B00F33F9C /* UIButton+Extension.m */; settings = {ASSET_TAGS = (); }; };
-		851F3A301CA10D4400F33F9C /* UIColor+RGBA.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A2F1CA10D4400F33F9C /* UIColor+RGBA.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A371CA10FFC00F33F9C /* MenuConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A361CA10FFC00F33F9C /* MenuConst.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A3E1CA1115600F33F9C /* JuheApisSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 851F3A3D1CA1115600F33F9C /* JuheApisSDK.a */; settings = {ASSET_TAGS = (); }; };
 		851F3A411CA11DBE00F33F9C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A401CA11DBE00F33F9C /* DetailTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +31,8 @@
 		851F3A4A1CA1250800F33F9C /* BurTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A461CA1250800F33F9C /* BurTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A4B1CA1250800F33F9C /* BurTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851F3A471CA1250800F33F9C /* BurTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		851F3A4E1CA12DD400F33F9C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A4D1CA12DD400F33F9C /* SearchViewController.m */; settings = {ASSET_TAGS = (); }; };
+		854DE0F21CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854DE0F01CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		854DE0F31CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854DE0F11CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		85A038011CA0D4D100432635 /* CALayer+MaskLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A037FC1CA0D4D100432635 /* CALayer+MaskLayer.m */; settings = {ASSET_TAGS = (); }; };
 		85A038021CA0D4D100432635 /* UIView+GlowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A037FE1CA0D4D100432635 /* UIView+GlowView.m */; settings = {ASSET_TAGS = (); }; };
 		85A038031CA0D4D100432635 /* UIView+SetRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A038001CA0D4D100432635 /* UIView+SetRect.m */; settings = {ASSET_TAGS = (); }; };
@@ -46,6 +45,22 @@
 		85A0382A1CA0F56300432635 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A038291CA0F56300432635 /* CoreLocation.framework */; };
 		85A0382C1CA0F56C00432635 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A0382B1CA0F56C00432635 /* CoreTelephony.framework */; };
 		85A0382F1CA0F7AE00432635 /* InfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A0382E1CA0F7AE00432635 /* InfoCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		85DBDFEB1CA27438005C1297 /* MenufirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */; settings = {ASSET_TAGS = (); }; };
+		85DBDFED1CA274F1005C1297 /* FirstMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */; settings = {ASSET_TAGS = (); }; };
+		85DBDFF61CA2A18F005C1297 /* MenuSingleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DBDFF51CA2A18F005C1297 /* MenuSingleView.m */; settings = {ASSET_TAGS = (); }; };
+		85DBDFF91CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DBDFF81CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		85DBDFFC1CA2BD57005C1297 /* VarietyDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17631CA371970067EF5E /* UIButton+ClickBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17621CA371970067EF5E /* UIButton+ClickBlock.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17661CA3855E0067EF5E /* MenuSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */; settings = {ASSET_TAGS = (); }; };
+		85DC176A1CA38B300067EF5E /* SecondVarityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17681CA38B300067EF5E /* SecondVarityTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		85DC176B1CA38B300067EF5E /* SecondVarityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DC17691CA38B300067EF5E /* SecondVarityTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		85DC17721CA3A7300067EF5E /* InfoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17701CA3A7300067EF5E /* InfoCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17731CA3A7300067EF5E /* InfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DC17711CA3A7300067EF5E /* InfoCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		85DC17791CA3AF640067EF5E /* UIImage+corner.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17781CA3AF640067EF5E /* UIImage+corner.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17821CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17801CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17831CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DC17811CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		85DC17861CA3BD980067EF5E /* UIImage+initWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17851CA3BD980067EF5E /* UIImage+initWithColor.m */; settings = {ASSET_TAGS = (); }; };
+		85DC17891CA3C2340067EF5E /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17881CA3C2340067EF5E /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		BDDE41538180F04465F5477C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A39EA96AE99457D52B6E881 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -92,9 +107,6 @@
 		850F72AB1CA1703400FE674F /* fmdbMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmdbMethod.h; sourceTree = "<group>"; };
 		850F72AC1CA1703400FE674F /* fmdbMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdbMethod.m; sourceTree = "<group>"; };
 		851F3A1A1CA1050D00F33F9C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		851F3A1C1CA1096E00F33F9C /* InfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCollectionViewCell.h; sourceTree = "<group>"; };
-		851F3A1D1CA1096E00F33F9C /* InfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCollectionViewCell.m; sourceTree = "<group>"; };
-		851F3A1E1CA1096E00F33F9C /* InfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		851F3A221CA10D1300F33F9C /* GYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYTabBarViewController.h; sourceTree = "<group>"; };
 		851F3A231CA10D1300F33F9C /* GYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GYTabBarViewController.m; sourceTree = "<group>"; };
 		851F3A251CA10D1B00F33F9C /* GYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GYNavigationController.h; sourceTree = "<group>"; };
@@ -103,8 +115,6 @@
 		851F3A291CA10D3B00F33F9C /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		851F3A2A1CA10D3B00F33F9C /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		851F3A2B1CA10D3B00F33F9C /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
-		851F3A2E1CA10D4400F33F9C /* UIColor+RGBA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBA.h"; sourceTree = "<group>"; };
-		851F3A2F1CA10D4400F33F9C /* UIColor+RGBA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBA.m"; sourceTree = "<group>"; };
 		851F3A351CA10FFC00F33F9C /* MenuConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuConst.h; sourceTree = "<group>"; };
 		851F3A361CA10FFC00F33F9C /* MenuConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuConst.m; sourceTree = "<group>"; };
 		851F3A3B1CA1115600F33F9C /* JHAPISDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAPISDK.h; sourceTree = "<group>"; };
@@ -120,6 +130,9 @@
 		851F3A471CA1250800F33F9C /* BurTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BurTableViewCell.xib; sourceTree = "<group>"; };
 		851F3A4C1CA12DD400F33F9C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		851F3A4D1CA12DD400F33F9C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		854DE0EF1CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVarietyMenuTableViewCell.h; sourceTree = "<group>"; };
+		854DE0F01CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVarietyMenuTableViewCell.m; sourceTree = "<group>"; };
+		854DE0F11CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstVarietyMenuTableViewCell.xib; sourceTree = "<group>"; };
 		85A037F91CA0D48500432635 /* Menu_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu_PrefixHeader.pch; sourceTree = "<group>"; };
 		85A037FB1CA0D4D100432635 /* CALayer+MaskLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+MaskLayer.h"; sourceTree = "<group>"; };
 		85A037FC1CA0D4D100432635 /* CALayer+MaskLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+MaskLayer.m"; sourceTree = "<group>"; };
@@ -140,6 +153,34 @@
 		85A0382B1CA0F56C00432635 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		85A0382D1CA0F7AE00432635 /* InfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCollectionViewController.h; sourceTree = "<group>"; };
 		85A0382E1CA0F7AE00432635 /* InfoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCollectionViewController.m; sourceTree = "<group>"; };
+		85DBDFE91CA27438005C1297 /* MenufirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenufirstViewController.h; sourceTree = "<group>"; };
+		85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenufirstViewController.m; sourceTree = "<group>"; };
+		85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FirstMenu.plist; sourceTree = "<group>"; };
+		85DBDFF41CA2A18F005C1297 /* MenuSingleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSingleView.h; sourceTree = "<group>"; };
+		85DBDFF51CA2A18F005C1297 /* MenuSingleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSingleView.m; sourceTree = "<group>"; };
+		85DBDFF71CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuVarietyBaseTableViewCell.h; sourceTree = "<group>"; };
+		85DBDFF81CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuVarietyBaseTableViewCell.m; sourceTree = "<group>"; };
+		85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VarietyDetailTableViewController.h; sourceTree = "<group>"; };
+		85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VarietyDetailTableViewController.m; sourceTree = "<group>"; };
+		85DC17611CA371970067EF5E /* UIButton+ClickBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+ClickBlock.h"; sourceTree = "<group>"; };
+		85DC17621CA371970067EF5E /* UIButton+ClickBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+ClickBlock.m"; sourceTree = "<group>"; };
+		85DC17641CA3855E0067EF5E /* MenuSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSecondViewController.h; sourceTree = "<group>"; };
+		85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSecondViewController.m; sourceTree = "<group>"; };
+		85DC17671CA38B300067EF5E /* SecondVarityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVarityTableViewCell.h; sourceTree = "<group>"; };
+		85DC17681CA38B300067EF5E /* SecondVarityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondVarityTableViewCell.m; sourceTree = "<group>"; };
+		85DC17691CA38B300067EF5E /* SecondVarityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondVarityTableViewCell.xib; sourceTree = "<group>"; };
+		85DC176F1CA3A7300067EF5E /* InfoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCollectionViewCell.h; sourceTree = "<group>"; };
+		85DC17701CA3A7300067EF5E /* InfoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCollectionViewCell.m; sourceTree = "<group>"; };
+		85DC17711CA3A7300067EF5E /* InfoCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		85DC17771CA3AF640067EF5E /* UIImage+corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+corner.h"; sourceTree = "<group>"; };
+		85DC17781CA3AF640067EF5E /* UIImage+corner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+corner.m"; sourceTree = "<group>"; };
+		85DC177F1CA3B8480067EF5E /* VarietyDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VarietyDetailCollectionViewCell.h; sourceTree = "<group>"; };
+		85DC17801CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VarietyDetailCollectionViewCell.m; sourceTree = "<group>"; };
+		85DC17811CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VarietyDetailCollectionViewCell.xib; sourceTree = "<group>"; };
+		85DC17841CA3BD980067EF5E /* UIImage+initWithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+initWithColor.h"; sourceTree = "<group>"; };
+		85DC17851CA3BD980067EF5E /* UIImage+initWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+initWithColor.m"; sourceTree = "<group>"; };
+		85DC17871CA3C2340067EF5E /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		85DC17881CA3C2340067EF5E /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		876E373885A485D840CDC9FC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,11 +249,12 @@
 		850775881CA03AB8002D6ED8 /* DeliciousMenu */ = {
 			isa = PBXGroup;
 			children = (
-				851F3A211CA10D0800F33F9C /* main */,
-				851F3A381CA1115600F33F9C /* JuheApisSDK */,
 				851F3A341CA10FAE00F33F9C /* controller */,
 				85A0380D1CA0DA1100432635 /* view */,
 				85A038061CA0D59F00432635 /* Model */,
+				850F73081CA2710700FE674F /* variety */,
+				851F3A211CA10D0800F33F9C /* main */,
+				851F3A381CA1115600F33F9C /* JuheApisSDK */,
 				8507759A1CA03AB8002D6ED8 /* Info.plist */,
 				850775891CA03AB8002D6ED8 /* Supporting Files */,
 				850F72AB1CA1703400FE674F /* fmdbMethod.h */,
@@ -226,6 +268,7 @@
 			children = (
 				8507758A1CA03AB8002D6ED8 /* main.m */,
 				85A038041CA0D4DD00432635 /* TagList.plist */,
+				85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */,
 				85A037F91CA0D48500432635 /* Menu_PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
@@ -247,6 +290,28 @@
 				850775B01CA03AB8002D6ED8 /* Info.plist */,
 			);
 			path = DeliciousMenuUITests;
+			sourceTree = "<group>";
+		};
+		850F73081CA2710700FE674F /* variety */ = {
+			isa = PBXGroup;
+			children = (
+				85DBDFEE1CA2A071005C1297 /* view */,
+				850F73091CA2713500FE674F /* controller */,
+			);
+			name = variety;
+			sourceTree = "<group>";
+		};
+		850F73091CA2713500FE674F /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				85DBDFE91CA27438005C1297 /* MenufirstViewController.h */,
+				85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */,
+				85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */,
+				85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */,
+				85DC17641CA3855E0067EF5E /* MenuSecondViewController.h */,
+				85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */,
+			);
+			name = controller;
 			sourceTree = "<group>";
 		};
 		851F3A211CA10D0800F33F9C /* main */ = {
@@ -340,8 +405,10 @@
 		85A037FA1CA0D4BD00432635 /* category */ = {
 			isa = PBXGroup;
 			children = (
-				851F3A2E1CA10D4400F33F9C /* UIColor+RGBA.h */,
-				851F3A2F1CA10D4400F33F9C /* UIColor+RGBA.m */,
+				85DC17871CA3C2340067EF5E /* NSString+Extension.h */,
+				85DC17881CA3C2340067EF5E /* NSString+Extension.m */,
+				85DC17841CA3BD980067EF5E /* UIImage+initWithColor.h */,
+				85DC17851CA3BD980067EF5E /* UIImage+initWithColor.m */,
 				851F3A281CA10D3B00F33F9C /* UIBarButtonItem+Extension.h */,
 				851F3A291CA10D3B00F33F9C /* UIBarButtonItem+Extension.m */,
 				851F3A2A1CA10D3B00F33F9C /* UIButton+Extension.h */,
@@ -352,6 +419,10 @@
 				85A037FE1CA0D4D100432635 /* UIView+GlowView.m */,
 				85A037FF1CA0D4D100432635 /* UIView+SetRect.h */,
 				85A038001CA0D4D100432635 /* UIView+SetRect.m */,
+				85DC17611CA371970067EF5E /* UIButton+ClickBlock.h */,
+				85DC17621CA371970067EF5E /* UIButton+ClickBlock.m */,
+				85DC17771CA3AF640067EF5E /* UIImage+corner.h */,
+				85DC17781CA3AF640067EF5E /* UIImage+corner.m */,
 			);
 			name = category;
 			sourceTree = "<group>";
@@ -379,9 +450,29 @@
 				85A038181CA0E4D500432635 /* MenuLeftTableViewCell.h */,
 				85A038191CA0E4D500432635 /* MenuLeftTableViewCell.m */,
 				85A0381A1CA0E4D500432635 /* MenuLeftTableViewCell.xib */,
-				851F3A1C1CA1096E00F33F9C /* InfoCollectionViewCell.h */,
-				851F3A1D1CA1096E00F33F9C /* InfoCollectionViewCell.m */,
-				851F3A1E1CA1096E00F33F9C /* InfoCollectionViewCell.xib */,
+				85DC176F1CA3A7300067EF5E /* InfoCollectionViewCell.h */,
+				85DC17701CA3A7300067EF5E /* InfoCollectionViewCell.m */,
+				85DC17711CA3A7300067EF5E /* InfoCollectionViewCell.xib */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		85DBDFEE1CA2A071005C1297 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				85DBDFF41CA2A18F005C1297 /* MenuSingleView.h */,
+				85DBDFF51CA2A18F005C1297 /* MenuSingleView.m */,
+				85DBDFF71CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.h */,
+				85DBDFF81CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m */,
+				854DE0EF1CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.h */,
+				854DE0F01CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m */,
+				854DE0F11CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib */,
+				85DC17671CA38B300067EF5E /* SecondVarityTableViewCell.h */,
+				85DC17681CA38B300067EF5E /* SecondVarityTableViewCell.m */,
+				85DC17691CA38B300067EF5E /* SecondVarityTableViewCell.xib */,
+				85DC177F1CA3B8480067EF5E /* VarietyDetailCollectionViewCell.h */,
+				85DC17801CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m */,
+				85DC17811CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -507,13 +598,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				851F3A201CA1096E00F33F9C /* InfoCollectionViewCell.xib in Resources */,
+				85DBDFED1CA274F1005C1297 /* FirstMenu.plist in Resources */,
+				85DC176B1CA38B300067EF5E /* SecondVarityTableViewCell.xib in Resources */,
 				851F3A4B1CA1250800F33F9C /* BurTableViewCell.xib in Resources */,
 				85A0381C1CA0E4D500432635 /* MenuLeftTableViewCell.xib in Resources */,
+				85DC17731CA3A7300067EF5E /* InfoCollectionViewCell.xib in Resources */,
+				854DE0F31CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib in Resources */,
 				850775991CA03AB8002D6ED8 /* LaunchScreen.storyboard in Resources */,
 				851F3A491CA1250800F33F9C /* StepTableViewCell.xib in Resources */,
 				850775961CA03AB8002D6ED8 /* Assets.xcassets in Resources */,
 				850775941CA03AB8002D6ED8 /* Main.storyboard in Resources */,
+				85DC17831CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib in Resources */,
 				85A038051CA0D4DD00432635 /* TagList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,29 +682,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85DC17791CA3AF640067EF5E /* UIImage+corner.m in Sources */,
 				850775911CA03AB8002D6ED8 /* ViewController.m in Sources */,
+				85DC17661CA3855E0067EF5E /* MenuSecondViewController.m in Sources */,
 				850F72AD1CA1703400FE674F /* fmdbMethod.m in Sources */,
 				85A038091CA0D5C100432635 /* TagModel.m in Sources */,
+				85DBDFEB1CA27438005C1297 /* MenufirstViewController.m in Sources */,
 				85A0382F1CA0F7AE00432635 /* InfoCollectionViewController.m in Sources */,
 				851F3A371CA10FFC00F33F9C /* MenuConst.m in Sources */,
 				851F3A271CA10D1B00F33F9C /* GYNavigationController.m in Sources */,
-				851F3A1F1CA1096E00F33F9C /* InfoCollectionViewCell.m in Sources */,
+				85DC176A1CA38B300067EF5E /* SecondVarityTableViewCell.m in Sources */,
 				85A038031CA0D4D100432635 /* UIView+SetRect.m in Sources */,
+				85DC17861CA3BD980067EF5E /* UIImage+initWithColor.m in Sources */,
+				85DBDFF91CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m in Sources */,
+				854DE0F21CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m in Sources */,
 				85A0381B1CA0E4D500432635 /* MenuLeftTableViewCell.m in Sources */,
 				85A0380C1CA0D5CD00432635 /* infoModel.m in Sources */,
 				850F72A71CA13D5F00FE674F /* MarkViewController.m in Sources */,
 				851F3A2C1CA10D3B00F33F9C /* UIBarButtonItem+Extension.m in Sources */,
 				8507758E1CA03AB8002D6ED8 /* AppDelegate.m in Sources */,
 				851F3A2D1CA10D3B00F33F9C /* UIButton+Extension.m in Sources */,
+				85DC17891CA3C2340067EF5E /* NSString+Extension.m in Sources */,
+				85DC17631CA371970067EF5E /* UIButton+ClickBlock.m in Sources */,
 				851F3A411CA11DBE00F33F9C /* DetailTableViewController.m in Sources */,
 				851F3A4E1CA12DD400F33F9C /* SearchViewController.m in Sources */,
 				85A038021CA0D4D100432635 /* UIView+GlowView.m in Sources */,
+				85DBDFFC1CA2BD57005C1297 /* VarietyDetailTableViewController.m in Sources */,
 				8507758B1CA03AB8002D6ED8 /* main.m in Sources */,
-				851F3A301CA10D4400F33F9C /* UIColor+RGBA.m in Sources */,
+				85DBDFF61CA2A18F005C1297 /* MenuSingleView.m in Sources */,
 				851F3A241CA10D1300F33F9C /* GYTabBarViewController.m in Sources */,
+				85DC17721CA3A7300067EF5E /* InfoCollectionViewCell.m in Sources */,
 				850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */,
 				851F3A4A1CA1250800F33F9C /* BurTableViewCell.m in Sources */,
 				85A038011CA0D4D100432635 /* CALayer+MaskLayer.m in Sources */,
+				85DC17821CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m in Sources */,
 				851F3A481CA1250800F33F9C /* StepTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -753,7 +859,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/tarena/Desktop/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "/Users/tarena/Desktop/08-NSURLSession&AFN/sometest/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch";
 				INFOPLIST_FILE = DeliciousMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -771,7 +877,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/tarena/Desktop/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch;
+				GCC_PREFIX_HEADER = "/Users/tarena/Desktop/08-NSURLSession&AFN/sometest/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch";
 				INFOPLIST_FILE = DeliciousMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

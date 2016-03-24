@@ -49,6 +49,7 @@
                 <outlet property="imgView" destination="PwD-i0-fYT" id="uYa-P7-kIW"/>
                 <outlet property="textView" destination="NbZ-Nf-RAd" id="Oco-1i-6Hk"/>
             </connections>
+            <point key="canvasLocation" x="339" y="373"/>
         </tableViewCell>
     </objects>
     <resources>
