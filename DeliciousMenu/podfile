@@ -7,3 +7,4 @@ pod "MBProgressHUD"
 pod 'Reachability'
 pod 'FMDB'
 pod 'WMPageController'
+pod 'iCarousel'

@@ -18,13 +18,47 @@
 #import <WMPageController.h>
 #import "MenufirstViewController.h"
 #import "MenuSecondViewController.h"
-
+#import "UIBarButtonItem+Extension.h"
+#import "MenuHomeViewController.h"
 @interface GYTabBarViewController ()
 @property (nonatomic,strong) WMPageController *page;
+@property (nonatomic,strong) NSMutableArray *controllersArray;
 @end
 @implementation GYTabBarViewController
--(void)initConst{
-    defaultImage=[UIImage imageNamed:@"tran"];
+- (NSMutableArray *)controllersArray{
+    if (!_controllersArray) {
+        _controllersArray = [NSMutableArray array];
+    }
+    return _controllersArray;
+}
+
+
+- (void)viewDidLoad
+{
+   
+    [super viewDidLoad];
+    
+    [self initConst];
+    [self initDB];
+    [self initNotificationCenter];
+    [self setupTabBar];
+    
+    [[JHOpenidSupplier shareSupplier] registerJuheAPIByOpenId:OpenID];
+
+    self.view.backgroundColor = [UIColor whiteColor];
+    MenuHomeViewController *page = [self p_defaultController];
+    [self addChildVc:page title:@"浏览" image:@"home" selectedImage:@"home"];
+    _page = page;
+ 
+    SearchViewController *search = [[SearchViewController alloc]init];
+    [self addChildVc:search title:@"搜索" image:@"home" selectedImage:@"home"];
+    MarkViewController *mark = [[MarkViewController alloc]init];
+    [self addChildVc:mark title:@"收藏" image:@"home" selectedImage:@"home"];
+   
+   
+}
+- (void)initConst{
+    defaultImage = [UIImage imageNamed:@"coffee"];
     //收藏数据
     favSource=[NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:@"fav"]];
     favModels=[NSMutableArray array];
@@ -37,12 +71,12 @@
         
     }
 }
--(void)initDB{
+- (void)initDB{
     // 首先获取iPhone上Sqlite3的数据库文件的地址
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:@"Cache"];
-//    NSLog(@"%@",path);
+    //    NSLog(@"%@",path);
     /*
      1、当数据库文件不存在时，fmdb会自己创建一个。
      2、 如果你传入的参数是空串：@"" ，则fmdb会在临时文件目录下创建这个数据库，数据库断开连接时，数据库文件被删除。
@@ -108,7 +142,7 @@
     {
         // just print out what we've got in a number of formats.
         NSInteger count = [rs intForColumn:@"count"];
- 
+        
         
         if (0 == count)
         {
@@ -122,39 +156,32 @@
     
     return NO;
 }
-
-- (void)viewDidLoad
-{
-   
-    [super viewDidLoad];
- 
-    [self initConst];
-    [self initDB];
-    [self initNotificationCenter];
-    
-    [[JHOpenidSupplier shareSupplier] registerJuheAPIByOpenId:OpenID];
-
-    self.view.backgroundColor = [UIColor whiteColor];
-
-    ViewController *home = [[ViewController alloc]init];
-    [self addChildVc:home title:@"菜谱大师" image:@"home" selectedImage:@"home"];
-    SearchViewController *search = [[SearchViewController alloc]init];
-    [self addChildVc:search title:@"搜索" image:@"home" selectedImage:@"home"];
-    MarkViewController *mark = [[MarkViewController alloc]init];
-    [self addChildVc:mark title:@"收藏" image:@"home" selectedImage:@"home"];
-//    CalendarViewController *calendar = [[CalendarViewController alloc]init];
-//     [self addChildVc:calendar title:@"浏览" image:@"home" selectedImage:@"home"];
-    WMPageController *page = [self p_defaultController];
-     [self addChildVc:page title:@"浏览" image:@"home" selectedImage:@"home"];
-    _page = page;
-}
 - (void)initNotificationCenter{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MenuFirstViewFooterClick) name:MenuFirstViewControllerNotification object:nil];
+}
+- (void)setupTabBar
+{
+    CGFloat buttonWidth = 60;
+    
+    CGFloat margin = (self.view.width - 3 * (buttonWidth)) / 4;
+    for (int i= 0; i < 3; i++) {
+        UIButton *btn = [[UIButton alloc]init];
+        CGFloat btnx = (margin) * (i + 1)+  buttonWidth * i;
+        CGFloat btny = self.view.height - buttonWidth - 10;
+        
+        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"btn%d",i]] forState:UIControlStateNormal];
+        btn.tag = i;
+        btn.frame = CGRectMake(btnx, btny, buttonWidth, buttonWidth);
+        [self.view addSubview:btn];
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    
 }
 - (void)MenuFirstViewFooterClick{
     _page.selectIndex = 1;
 }
-- (WMPageController *)p_defaultController {
+- (MenuHomeViewController *)p_defaultController {
     NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
     NSMutableArray *titles = [[NSMutableArray alloc] init];
     for (int i = 0; i < 3; i++) {
@@ -178,7 +205,7 @@
         [viewControllers addObject:vcClass];
         [titles addObject:title];
     }
-    WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
+    MenuHomeViewController *pageVC = [[MenuHomeViewController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
     
   
    
@@ -196,23 +223,27 @@
     childVc.tabBarItem.image = [UIImage imageNamed:image];
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
-    // 设置文字的样式
-//    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-//    textAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
-//    NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
-//    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-//    [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
-//    [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
-    
-    
     // 先给外面传进来的小控制器 包装 一个导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
-    // 添加为子控制器
-  
-    
- 
     [self addChildViewController:nav];
+    [self.controllersArray addObject:nav];
 }
+
+- (void)btnClick:(UIButton *)btn
+
+{
+    UINavigationController *nav = [self.controllersArray objectAtIndex:btn.tag];
+   
+    [nav popToRootViewControllerAnimated:YES];
+    self.selectedIndex = btn.tag;
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [self.tabBar setHidden:YES];
+}
+
+
 //- (void)viewWillAppear:(BOOL)animated
 //{
 //   [super viewWillAppear:animated];

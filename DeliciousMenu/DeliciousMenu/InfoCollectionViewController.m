@@ -232,7 +232,7 @@ static int pn=0;
     infoModel *model = [_dataSource objectAtIndex:indexPath.row];
     // Configure the cell
    
-    [cell.infoimg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:nil ];
+    [cell.infoimg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:defaultImage ];
    
     
   

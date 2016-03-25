@@ -25,19 +25,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTableView];
+     self.automaticallyAdjustsScrollViewInsets = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    [self setupNavButtonItem];
+
+   
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    
+ [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
+}
+- (void)alphaNavChontroller:(CGFloat)barAlpha{
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:barAlpha]] forBarMetrics:UIBarMetricsDefault];
+    
+}
+- (void)setupTableView{
     [self.tableView registerNib:[UINib nibWithNibName:StepViewreuseIdentifier bundle:nil] forCellReuseIdentifier:StepViewreuseIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:BurViewreuseIdentifier bundle:nil] forCellReuseIdentifier:BurViewreuseIdentifier];
-     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:0 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
-    [self setupNavButtonItem];
-    self.tableView.contentInset = UIEdgeInsetsMake(-88, 0, -50, 0);
+   
+//    self.tableView.contentOffset = CGPointMake(0, 40);
+  
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setupHeaderView];
     [self setupFooterView];
+
 }
+
 - (void)setupHeaderView{
     UIView *headerView = [[UIView alloc]init];
     UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
-      [img sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] ];
+      [img sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] placeholderImage:defaultImage];
     [headerView addSubview:img];
     CGSize TitleSize = [_dataSource.title sizeWithFont:[UIFont systemFontOfSize:20]];
     CGFloat titleX = (self.view.width - TitleSize.width)/ 2 ;
@@ -55,7 +76,7 @@
    [imtrolabel setNumberOfLines:0];
     imtrolabel.font = [UIFont systemFontOfSize:14];
     [headerView addSubview:imtrolabel];
-    CGFloat headviewHeight = CGRectGetMaxY(imtrolabel.frame) + imtroSize.height;
+    CGFloat headviewHeight = CGRectGetMaxY(imtrolabel.frame) + 20;
     headerView.frame = CGRectMake(0, 0, self.view.width, headviewHeight);
     self.tableView.tableHeaderView = headerView;
 
@@ -71,6 +92,7 @@
     _delButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"del"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteFromFavSource)];
     
     if (![favModels containsObject:_dataSource]) {
+        
         self.navigationItem.rightBarButtonItem=_favButton;
     }
     else{//取消收藏按钮
@@ -80,12 +102,12 @@
 }
 -(void)addInFavSource{
     
-    NSLog(@"我收藏了%@",_dataSource.title);
+  
   
         [favModels insertObject:_dataSource atIndex:0];
         [favSource insertObject:[NSKeyedArchiver archivedDataWithRootObject:_dataSource] atIndex:0];//归档
         [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
-        NSLog(@"%@",favSource);
+    
         self.navigationItem.rightBarButtonItem=_delButton;
     
     
@@ -144,6 +166,25 @@
     else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
         scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
     }
+ 
+   
+    CGFloat offset = self.tableView.contentOffset.y;
+         NSLog(@"%lf",offset);
+    if (offset >= 150) {
+      
+        CGFloat delta = (offset - 150)/ 64.f ;
+       
+        
+        [self alphaNavChontroller:delta];
+        if (offset >=214) {
+            
+                self.title = _dataSource.title;
+        }
+    }
+    else{
+        self.title = nil;
+    }
+  
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1 + _dataSource.steps.count;
@@ -231,8 +272,11 @@
         CGRect frame=CGRectMake(0, 0, tableView.width, 45);
         UIView *view=[[UIView alloc]initWithFrame:frame];
         view.backgroundColor = [UIColor whiteColor];
-        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
-        label.text = @"步骤";
+        UILabel *label=[[UILabel alloc]init];
+        NSString *text = [NSString stringWithFormat:@"- 步骤%ld -",section];
+        CGSize textsize = [text sizeWithFont:[UIFont systemFontOfSize:18]];
+        label.frame = CGRectMake((view.width - textsize.width)/2 , 10, textsize.width, textsize.height);
+        label.text = text;
         label.textColor = [UIColor blackColor];
         label.font = [UIFont systemFontOfSize:18];
         

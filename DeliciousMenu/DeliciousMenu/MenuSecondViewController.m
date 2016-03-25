@@ -42,17 +42,19 @@
     TagModel *model = self.dataSource[0];
     UIButton *styleOneButton = [[UIButton alloc]initWithFrame:CGRectMake(margin, margin, buttonStyleOneWidth, buttonStyleOneWidth)];
    
+    [styleOneButton setBackgroundImage:[UIImage imageNamed:@"19b6d1d5524f58e6d29b60c1e2cf4fa5"] forState:UIControlStateNormal];
     [styleOneButton addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    styleOneButton.backgroundColor = [UIColor redColor];
+    [styleOneButton setTitle:model.name forState:UIControlStateNormal];
+    [styleOneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     __weak typeof (self)WeakSelf = self;
+    
     styleOneButton.buttonClickBlock = ^(void){
         VarietyDetailTableViewController *vc = [[VarietyDetailTableViewController alloc]initWithModel:model];
         vc.title = model.name;
-        [WeakSelf.navigationController pushViewController:vc animated:YES];
 
-    
+        [WeakSelf.navigationController pushViewController:vc animated:YES];
     };
-    [styleOneButton setTitle:model.name forState:UIControlStateNormal];
+  
     [headerView addSubview:styleOneButton];
     //
     for (int i = 0; i < 4; i++) {
@@ -60,8 +62,9 @@
         CGFloat x = (margin * 2 + buttonStyleOneWidth) + i % 2 * (margin + buttonStyleTwoWidth);
         CGFloat y = i / 2 * (margin + buttonStyleTwoWidth) + margin;
         UIButton *styleTwoButton = [[UIButton alloc]initWithFrame:CGRectMake(x, y, buttonStyleTwoWidth, buttonStyleTwoWidth)];
-        styleTwoButton.backgroundColor = [UIColor redColor];
+       
          [styleTwoButton addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [styleTwoButton setImage:[UIImage imageNamed:@"55"] forState:UIControlStateNormal];
         styleTwoButton.buttonClickBlock = ^(void){
             VarietyDetailTableViewController *vc = [[VarietyDetailTableViewController alloc]initWithModel:model];
             vc.title = model.name;
@@ -74,7 +77,7 @@
           [headerView addSubview:styleTwoButton];
         
     }
-    headerView.backgroundColor = [UIColor orangeColor];
+    headerView.backgroundColor = BackGroundLineColor;
     self.tableView.tableHeaderView = headerView;
     
 
@@ -148,7 +151,7 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
-    lineView.backgroundColor = [UIColor lightGrayColor];
+    lineView.backgroundColor = BackGroundLineColor;
     return lineView;
 
 }

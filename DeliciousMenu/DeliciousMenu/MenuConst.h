@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import <MBProgressHUD.h>
+#define BackGroundLineColor [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
 extern NSString *const OpenID;
 extern NSString *const APPID;
 extern NSString *const Method_Get;
@@ -28,6 +30,8 @@ extern NSString *const API_queryByTag;//http://apis.juhe.cn/cook/index
 extern NSString *const API_queryByID;//http://apis.juhe.cn/cook/queryid
 extern NSString *const MenuFirstViewControllerNotification;
 
+extern CGFloat  const MarkCollectionItemWidth;
+
 extern NSString *const MenuLeftReuseIdentifier;
 extern NSString *const InfoCollectionreuseIdentifier;
 extern NSString *const StepViewreuseIdentifier;
@@ -35,6 +39,7 @@ extern NSString *const BurViewreuseIdentifier;
 extern NSString *const FirstVarietyMenuIdentifier;
 extern NSString *const SecondVarietyMenuIdentifier;
 extern NSString *const VarietyDetailCollectionViewIdentifier;
+extern NSString *const MarkCollectionViewIdentifier;
 #define ALERT_MESSAGE(msg) {\
 MBProgressHUD *hud=[MBProgressHUD showHUDAddedTo: [UIApplication sharedApplication].keyWindow animated:YES];\
 hud.mode=MBProgressHUDModeText;\

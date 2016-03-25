@@ -20,7 +20,6 @@
     [super viewDidLoad];
     [self setupSearch];
     [self setupHistoryTableView];
- 
     [self setupClearButton];
 }
 
@@ -70,15 +69,14 @@
    
 }
 - (void)setupClearButton{
-    UIButton *btn_clear=[[UIButton alloc]initWithFrame:CGRectMake(100, 400, 100, 100)];
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
+    UIButton *btn_clear=[[UIButton alloc]initWithFrame:CGRectMake(50, 10, self.view.width -100, 40)];
     [btn_clear setTitle:@"清除历史记录" forState:UIControlStateNormal];
-    [btn_clear setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    btn_clear.layer.borderColor=[UIColor orangeColor].CGColor;
-    btn_clear.layer.borderWidth=1;
-    btn_clear.layer.cornerRadius=5;
-    
+    [btn_clear setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn_clear.backgroundColor = [UIColor orangeColor];
     [btn_clear addTarget:self action:@selector(clearHistory:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn_clear];
+    [footerView addSubview:btn_clear];
+    _histroyTableView.tableFooterView = footerView;
 }
 -(void)clearHistory:(UIButton *)button{
     NSLog(@"清除按钮被点击");

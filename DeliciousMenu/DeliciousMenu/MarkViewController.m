@@ -10,7 +10,8 @@
 #import <UIImageView+WebCache.h>
 #import "infoModel.h"
 #import "DetailTableViewController.h"
-@interface MarkViewController ()
+#import "UIBarButtonItem+Extension.h"
+@interface MarkViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView * tableView;
 @end
 
@@ -24,7 +25,9 @@
     _tableView=[[UITableView alloc]initWithFrame:self.view.bounds];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+    _tableView.tableFooterView=[[UIView alloc]init];
     [self.view addSubview:_tableView];
+     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailTableViewController *vc=[[DetailTableViewController alloc]initWithInfoModel:(infoModel *)[favModels objectAtIndex:indexPath.row]];
