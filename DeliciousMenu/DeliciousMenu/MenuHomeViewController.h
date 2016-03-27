@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WMPageController.h>
 @interface MenuHomeViewController : WMPageController<UINavigationControllerDelegate>
-
+@property (nonatomic,strong) UIButton *markButton;
 
 @end

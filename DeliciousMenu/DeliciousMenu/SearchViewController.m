@@ -21,6 +21,7 @@
     [self setupSearch];
     [self setupHistoryTableView];
     [self setupClearButton];
+   
 }
 
 - (void)setupSearch{

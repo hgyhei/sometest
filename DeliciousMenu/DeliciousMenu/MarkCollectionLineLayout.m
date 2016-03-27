@@ -82,18 +82,20 @@ static CGFloat const MarkScaleFactor = 0.6;
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
+    NSArray * original   = [super layoutAttributesForElementsInRect:rect];
+    NSArray * attributes = [[NSArray alloc] initWithArray:original copyItems:YES];
     // 0.计算可见的矩形框
     CGRect visiableRect;
     visiableRect.size = self.collectionView.frame.size;
     visiableRect.origin = self.collectionView.contentOffset;
     
     // 1.取得默认的cell的UICollectionViewLayoutAttributes
-    NSArray *array = [super layoutAttributesForElementsInRect:rect];
+//    NSArray *array = [super layoutAttributesForElementsInRect:rect];
     // 计算屏幕最中间的x
     CGFloat centerX = self.collectionView.contentOffset.x + self.collectionView.frame.size.width * 0.5;
     
     // 2.遍历所有的布局属性
-    for (UICollectionViewLayoutAttributes *attrs in array) {
+    for (UICollectionViewLayoutAttributes *attrs in attributes) {
         // 如果不在屏幕上,直接跳过
         if (!CGRectIntersectsRect(visiableRect, attrs.frame)) continue;
         
@@ -107,6 +109,6 @@ static CGFloat const MarkScaleFactor = 0.6;
         attrs.transform = CGAffineTransformMakeScale(scale, scale);
     }
     
-    return array;
+    return attributes;
 }
 @end

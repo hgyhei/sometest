@@ -7,11 +7,9 @@
 //
 
 #import "GYTabBarViewController.h"
-#import "GYNavigationController.h"
 #import "MarkViewController.h"
 #import "CalendarViewController.h"
 #import "UIButton+Extension.h"
-#import "ViewController.h"
 #import "SearchViewController.h"
 #import "JHAPISDK.h"
 #import "JHOpenidSupplier.h"
@@ -47,13 +45,13 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     MenuHomeViewController *page = [self p_defaultController];
-    [self addChildVc:page title:@"浏览" image:@"home" selectedImage:@"home"];
+    [self addChildVc:page title:@"主页" image:@"home" selectedImage:@"home"];
     _page = page;
  
     SearchViewController *search = [[SearchViewController alloc]init];
     [self addChildVc:search title:@"搜索" image:@"home" selectedImage:@"home"];
-    MarkViewController *mark = [[MarkViewController alloc]init];
-    [self addChildVc:mark title:@"收藏" image:@"home" selectedImage:@"home"];
+    CalendarViewController *mark = [[CalendarViewController alloc]init];
+    [self addChildVc:mark title:@"浏览" image:@"home" selectedImage:@"home"];
    
    
 }
@@ -225,6 +223,7 @@
     
     // 先给外面传进来的小控制器 包装 一个导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+   
     [self addChildViewController:nav];
     [self.controllersArray addObject:nav];
 }

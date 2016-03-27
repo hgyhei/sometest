@@ -30,7 +30,7 @@ NSString *const API_queryByTag=@"http://apis.juhe.cn/cook/index";
 //按菜谱ID查看详细
 NSString *const API_queryByID=@"http://apis.juhe.cn/cook/queryid";
 
-CGFloat  const  MarkCollectionItemWidth = 100;
+CGFloat  const  MarkCollectionItemWidth = 250;
 
 
 
@@ -42,6 +42,6 @@ NSString *const BurViewreuseIdentifier = @"BurTableViewCell";
 NSString *const FirstVarietyMenuIdentifier = @"FirstVarietyMenuTableViewCell";
 NSString *const SecondVarietyMenuIdentifier = @"SecondVarityTableViewCell";
 NSString *const VarietyDetailCollectionViewIdentifier =  @"VarietyDetailCollectionViewCell";
-NSString *const MarkCollectionViewIdentifier =  @"MarkCollectionViewIdentifier";
+NSString *const MarkCollectionViewIdentifier =  @"MarkCollectionViewCell";
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import "PingTransition.h"
-#import "ViewController.h"
-#import "SecondViewController.h"
+#import "MenuHomeViewController.h"
+#import "MarkViewController.h"
 
 
 @interface PingTransition ()
@@ -26,14 +26,14 @@
     
     self.transitionContext = transitionContext;
 
-    ViewController * fromVC = (ViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    SecondViewController *toVC = (SecondViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    MenuHomeViewController * fromVC = (MenuHomeViewController *)[transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    MarkViewController *toVC = (MarkViewController *)[transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *contView = [transitionContext containerView];
 
-    UIButton *button = fromVC.button;
+    UIButton *button = fromVC.markButton;
     
     
-    UIBezierPath *maskStartBP =  [UIBezierPath bezierPathWithOvalInRect:button.frame];    
+    UIBezierPath *maskStartBP =  [UIBezierPath bezierPathWithOvalInRect:button.frame];
     [contView addSubview:fromVC.view];
     [contView addSubview:toVC.view];
 
@@ -99,17 +99,17 @@
     [maskLayer addAnimation:keyFrame forKey:nil];
     maskLayer.speed = 0.0;
     
-    
+ 
     POPAnimatableProperty* pop = [POPAnimatableProperty propertyWithName:@"timeOffset" initializer:^(POPMutableAnimatableProperty *prop) {
-        // read value
+         read value
         prop.readBlock = ^(CAShapeLayer *obj, CGFloat values[]) {
             values[0] = obj.timeOffset;
         };
-        // write value
+         write value
         prop.writeBlock = ^(CAShapeLayer *obj, const CGFloat values[]) {
             obj.timeOffset = values[0];
         };
-        // dynamics threshold
+         dynamics threshold
         prop.threshold = 0.1;
     }];
     
@@ -117,20 +117,18 @@
     POPSpringAnimation *popSpring = [POPSpringAnimation animation];
     popSpring.fromValue = @(0.0);
     popSpring.toValue =  @(100.f);
-    popSpring.springBounciness = 1.0;//弹性
-    popSpring.springSpeed = 20.0;//速度
-    popSpring.dynamicsTension = 700;//张力
-    popSpring.dynamicsFriction = 5; // 摩擦力
+    popSpring.springBounciness = 1.0;弹性
+    popSpring.springSpeed = 20.0;速度
+    popSpring.dynamicsTension = 700;张力
+    popSpring.dynamicsFriction = 5;  摩擦力
     popSpring.dynamicsMass = 1;
     popSpring.property = pop;
     popSpring.delegate = self;
     [maskLayer pop_addAnimation:popSpring forKey:nil];
-    
+ 
   */
   
-//    kPOPShapeLayerStrokeStart
-    
-    //创建一个关于 path 的 CABasicAnimation 动画来从 circleMaskPathInitial.CGPath 到 circleMaskPathFinal.CGPath 。同时指定它的 delegate 来在完成动画时做一些清除工作
+
     
 }
 

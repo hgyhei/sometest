@@ -58,7 +58,7 @@
     
     UIView *headerView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
     NSArray *images = @[@"19b6d1d5524f58e6d29b60c1e2cf4fa5",@"19b6d1d5524f58e6d29b60c1e2cf4fa5",@"19b6d1d5524f58e6d29b60c1e2cf4fa5"];
-    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) images:images autoPlay:YES delay:10.0];
+    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) images:images autoPlay:YES delay:3.0];
     loopView.delegate = self;
     [headerView addSubview:loopView];
     
@@ -66,15 +66,16 @@
 
     TagModel *firstmodel = (TagModel *)self.dataSource[0];
     NSUInteger number = firstmodel.list.count;
-    UIScrollView *firstitemScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(10, 150, self.view.width-20, 100)];
+    UIScrollView *firstitemScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150, self.view.width, 100)];
     firstitemScrollView.contentSize = CGSizeMake(100 * number, 0);
     firstitemScrollView.showsHorizontalScrollIndicator = NO;
-    CGFloat btnwidth = 60;
+   
     CGFloat margin = 20;
+     CGFloat btnwidth = (self.view.width - 8 * margin) / 4;
     for (int i = 0; i < number; i++) {
         Tag_ListModel *listmodel = firstmodel.list[i];
         CGFloat x = (margin + i *(margin * 2 + btnwidth));
-        MenuSingleView *singleView = [[MenuSingleView alloc]initWithFrame:CGRectMake(x, 10, 60, 100)];
+        MenuSingleView *singleView = [[MenuSingleView alloc]initWithFrame:CGRectMake(x, 10, btnwidth, 90)];
         singleView.descText = listmodel.name;
         singleView.buttonImg = @"place";
         __weak typeof(self) WeakSelf = self;

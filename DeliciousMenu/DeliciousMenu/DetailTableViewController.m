@@ -26,16 +26,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
-     self.automaticallyAdjustsScrollViewInsets = YES;
+     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
+   
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     [self setupNavButtonItem];
 
    
 }
+- (void)viewWillAppear:(BOOL)animated{
+  self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
+      self.navigationController.navigationBar.translucent = YES;
+
+}
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:YES];
     
+    self.navigationController.navigationBar.translucent = NO;
  [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
 }
 - (void)alphaNavChontroller:(CGFloat)barAlpha{
@@ -46,9 +56,6 @@
 - (void)setupTableView{
     [self.tableView registerNib:[UINib nibWithNibName:StepViewreuseIdentifier bundle:nil] forCellReuseIdentifier:StepViewreuseIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:BurViewreuseIdentifier bundle:nil] forCellReuseIdentifier:BurViewreuseIdentifier];
-   
-//    self.tableView.contentOffset = CGPointMake(0, 40);
-  
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setupHeaderView];
     [self setupFooterView];
@@ -87,9 +94,9 @@
 
 }
 - (void)setupNavButtonItem{
-    _favButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"xin"] style:UIBarButtonItemStylePlain target:self action:@selector(addInFavSource)];
-    
-    _delButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"del"] style:UIBarButtonItemStylePlain target:self action:@selector(deleteFromFavSource)];
+    _favButton = [UIBarButtonItem itemWithTarget:self action:@selector(addInFavSource) image:@"iconfont-weishoucang"highImage:@"iconfont-shanchu"];
+   
+    _delButton = [UIBarButtonItem itemWithTarget:self action:@selector(deleteFromFavSource) image:@"iconfont-shanchu"highImage:@"iconfont-weishoucang"];
     
     if (![favModels containsObject:_dataSource]) {
         
@@ -121,7 +128,7 @@
     [favSource removeObjectAtIndex:index];
     [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
     self.navigationItem.rightBarButtonItem=_favButton;
-    NSLog(@"删除收藏成功");
+   
     ALERT_MESSAGE(@"已从我的收藏中删除");
 }
 
@@ -148,7 +155,7 @@
     }
     if (_dataSource.steps==nil) {
         _dataSource.steps=[fmdbMethod getStepsCacheWithCookId:_dataSource.id];
-        NSLog(@"从缓存中取出步骤");
+      
     }
     
     //缓存历史浏览
@@ -157,6 +164,7 @@
     
         return self;
 }
+//解决group的headerview粘性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     CGFloat sectionHeaderHeight = 40;
@@ -169,7 +177,7 @@
  
    
     CGFloat offset = self.tableView.contentOffset.y;
-         NSLog(@"%lf",offset);
+//         NSLog(@"%lf",offset);
     if (offset >= 150) {
       
         CGFloat delta = (offset - 150)/ 64.f ;

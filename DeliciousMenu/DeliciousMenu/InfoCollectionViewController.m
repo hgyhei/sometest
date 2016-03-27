@@ -37,30 +37,31 @@ static int pn=0;
     _isSearch = true;
     return self;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
-  
+     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:InfoCollectionreuseIdentifier bundle:nil] forCellWithReuseIdentifier:InfoCollectionreuseIdentifier];
-  
+     self.navigationController.navigationBar.translucent = NO;
 
+}
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillDisappear:YES];
-
+    [self.navigationController setNavigationBarHidden:NO];
 
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
      [self setupRefresh];
+    
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    NSLog(@"viewWillDisappear");
-    [super viewWillDisappear:YES];
-    [self.view removeFromSuperview];
-}
+
 - (void)setupNav{
 
     if (_isSearch) {
@@ -163,11 +164,11 @@ static int pn=0;
     else{
         if (pn == 0) {
             _dataSource = [NSMutableArray arrayWithArray:[fmdbMethod getCacheWithUrl:url]];
-            NSLog(@"从缓存中取出");
+          
         }
         else{
             [_dataSource addObjectsFromArray:[fmdbMethod getCacheWithUrl:url]];
-              NSLog(@"从缓存中取出");
+             
         }
         [self.collectionView reloadData];
     }
@@ -186,7 +187,7 @@ static int pn=0;
                         Success:^(id responseObject){
                             int error_code = [[responseObject objectForKey:@"error_code"] intValue];
                             if (!error_code) {
-                                //  NSLog(@" %@", responseObject);
+                              
                                 
                                 if (pn==0) {
                                     _dataSource=[infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
@@ -200,7 +201,7 @@ static int pn=0;
                                 [self.collectionView reloadData];
                                 
                             }else{
-                                NSLog(@" %@", responseObject);
+                              
                                 ALERT_MESSAGE(@"没有搜索到相关菜谱")
                             }
                             

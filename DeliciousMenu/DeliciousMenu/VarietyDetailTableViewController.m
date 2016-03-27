@@ -25,10 +25,14 @@
     [super viewDidLoad];
 //    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
      self.tableView.tableFooterView = [[UIView alloc]init];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
 }
 
 #pragma mark - Table view data source
 
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
