@@ -1,9 +1,9 @@
 //
 //  BurTableViewCell.m
-//  cookbook
+//  DeliciousMenu
 //
-//  Created by 张逢阳 on 15/8/13.
-//  Copyright (c) 2015年 张逢阳. All rights reserved.
+//  Created by hgy on 16/3/24.
+//  Copyright © 2016年 hgy. All rights reserved.
 //
 
 #import "BurTableViewCell.h"

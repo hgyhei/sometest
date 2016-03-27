@@ -2,7 +2,7 @@
 //  SearchViewController.m
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/22.
+//  Created by hgy on 16/3/22.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 
@@ -25,13 +25,13 @@
 }
 
 - (void)setupSearch{
-    CGRect  frame=self.navigationController.navigationBar.frame;
-    frame.origin.y=0;
-    UIView *titleView=[[UIView alloc]initWithFrame:frame];
+    CGRect  frame = self.navigationController.navigationBar.frame;
+    frame.origin.y = 0;
+    UIView *titleView = [[UIView alloc]initWithFrame:frame];
     [titleView setBackgroundColor:[UIColor clearColor]];
-    frame.size.width-=20;
+    frame.size.width -= 20;
     _searchBar=[[UISearchBar alloc]initWithFrame:frame];
-    _searchBar.backgroundColor=[UIColor clearColor];
+    _searchBar.backgroundColor = [UIColor clearColor];
     [_searchBar setTintColor:[UIColor grayColor]];
     [_searchBar setPlaceholder:@"菜谱搜索"];
     //去除搜索框背景
@@ -49,17 +49,17 @@
     }
     
     
-    _searchBar.delegate=self;
-    _searchBar.layer.cornerRadius=2;
-    //searchBar.layer.masksToBounds=YES;
+    _searchBar.delegate = self;
+    _searchBar.layer.cornerRadius = 2;
+    //searchBar.layer.masksToBounds = YES;
     [titleView addSubview:_searchBar];
     self.navigationItem.titleView=titleView;
 
 }
 - (void)setupHistoryTableView{
-    _histroyTableView=[[UITableView alloc]initWithFrame:self.view.bounds];
-    _histroyTableView.delegate=self;
-    _histroyTableView.dataSource=self;
+    _histroyTableView = [[UITableView alloc]initWithFrame:self.view.bounds];
+    _histroyTableView.delegate = self;
+    _histroyTableView.dataSource = self;
     [self.view addSubview:_histroyTableView];
     [self getData];
 }

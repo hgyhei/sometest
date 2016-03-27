@@ -2,7 +2,7 @@
 //  InfoCollectionViewController.m
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/22.
+//  Created by hgy on 16/3/22.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 
@@ -41,7 +41,7 @@ static int pn=0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
-     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
+   
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:InfoCollectionreuseIdentifier bundle:nil] forCellWithReuseIdentifier:InfoCollectionreuseIdentifier];
      self.navigationController.navigationBar.translucent = NO;
@@ -97,10 +97,12 @@ static int pn=0;
         [titleView addSubview:searchBar];
         self.navigationItem.titleView = titleView;
         }
+      self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
 }
+
 -(void)setupRefresh{
-    // 下拉刷新
     
+    // 下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         pn = 0;
         if (!_isSearch) {
@@ -133,7 +135,7 @@ static int pn=0;
 
 }
 - (void)getDataByTagId{
-     NSString *url=[NSString stringWithFormat:@"%@?cid=%@&pn=%d&rn=%d",API_queryByTag,_tagId,pn,10];
+     NSString *url = [NSString stringWithFormat:@"%@?cid=%@&pn=%d&rn=%d",API_queryByTag,_tagId,pn,10];
     if (![fmdbMethod urlContains:url]) {
         JHAPISDK *juheapi = [JHAPISDK shareJHAPISDK];
         NSDictionary *parms = @{
@@ -173,9 +175,10 @@ static int pn=0;
         [self.collectionView reloadData];
     }
    }
+
 - (void)getDataBySearchText{
     JHAPISDK *juheapi = [JHAPISDK shareJHAPISDK];
-    NSDictionary *parms=@{
+    NSDictionary *parms = @{
                           @"menu":_searchText,
                           @"pn": [NSString stringWithFormat:@"%d",pn],
                           @"rn":@"10"

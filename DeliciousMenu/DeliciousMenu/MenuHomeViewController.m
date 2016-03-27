@@ -2,7 +2,7 @@
 //  MenuHomeViewController.m
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/25.
+//  Created by hgy on 16/3/25.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 
@@ -20,7 +20,7 @@
 - (void)viewDidLoad{
    
     [super viewDidLoad];
-      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
     
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -30,27 +30,21 @@
     
 
 }
-
+//转场按钮
 - (void)setupNarItem{
    
+    
     UIButton *markbtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.width -54, 0, 44, 44)];
     
     [markbtn setImage:[UIImage imageNamed:@"iconfont-shoucang"] forState:UIControlStateNormal];
     [markbtn addTarget:self action:@selector(mark) forControlEvents:UIControlEventTouchUpInside];
     _markButton = markbtn;
-    
-  
-
     [self.navigationController.navigationBar addSubview:_markButton];
   
 
     
 }
-- (void)search{
-        SearchViewController *search = [[SearchViewController alloc]init];
-        [self.navigationController pushViewController:search animated:YES];
-   
-}
+
 - (void)mark{
     MarkViewController *mark = [[MarkViewController alloc]init];
     [UIView animateWithDuration:1.0f animations:^{

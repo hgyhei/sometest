@@ -2,7 +2,7 @@
 //  UIImage+initWithColor.m
 //  nav
 //
-//  Created by tarena on 16/3/17.
+//  Created by hgy on 16/3/17.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 

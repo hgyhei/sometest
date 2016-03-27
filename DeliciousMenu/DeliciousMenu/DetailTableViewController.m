@@ -2,7 +2,7 @@
 //  DetailTableViewController.m
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/22.
+//  Created by hgy on 16/3/22.
 //  Copyright © 2016年 hgy. All rights reserved.
 //
 
@@ -28,12 +28,12 @@
     [self setupTableView];
      self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
-   
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     [self setupNavButtonItem];
 
    
 }
+
 - (void)viewWillAppear:(BOOL)animated{
   self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
       self.navigationController.navigationBar.translucent = YES;
@@ -54,6 +54,7 @@
     
 }
 - (void)setupTableView{
+    
     [self.tableView registerNib:[UINib nibWithNibName:StepViewreuseIdentifier bundle:nil] forCellReuseIdentifier:StepViewreuseIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:BurViewreuseIdentifier bundle:nil] forCellReuseIdentifier:BurViewreuseIdentifier];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -123,11 +124,11 @@
 }
 
 -(void)deleteFromFavSource{
-    NSUInteger index= [favModels indexOfObject:_dataSource];
+    NSUInteger index = [favModels indexOfObject:_dataSource];
     [favModels removeObjectAtIndex:index];
     [favSource removeObjectAtIndex:index];
     [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
-    self.navigationItem.rightBarButtonItem=_favButton;
+    self.navigationItem.rightBarButtonItem = _favButton;
    
     ALERT_MESSAGE(@"已从我的收藏中删除");
 }
@@ -137,24 +138,24 @@
     self = [super init];
     _dataSource = model;
     _materialModel = [[NSMutableArray alloc]init];
-    NSArray *t_ings=  [model.ingredients componentsSeparatedByString:@";"];
+    NSArray *t_ings =  [model.ingredients componentsSeparatedByString:@";"];
     for (NSString* item in t_ings) {
-        StepModel *a=[[StepModel alloc]init];
-        NSArray *info=[item componentsSeparatedByString:@","];
-        a.img=[info objectAtIndex:0];
-        a.step=[info objectAtIndex:1];
+        StepModel *a = [[StepModel alloc]init];
+        NSArray *info = [item componentsSeparatedByString:@","];
+        a.img = [info objectAtIndex:0];
+        a.step = [info objectAtIndex:1];
         [_materialModel addObject:a];
     }
-    NSArray *t_burs=[model.burden componentsSeparatedByString:@";"];
+    NSArray *t_burs = [model.burden componentsSeparatedByString:@";"];
     for (NSString* item in t_burs) {
-        StepModel *a=[[StepModel alloc]init];
-        NSArray *info=[item componentsSeparatedByString:@","];
-        a.img=[info objectAtIndex:0];
-        a.step=[info objectAtIndex:1];
+        StepModel *a = [[StepModel alloc]init];
+        NSArray *info = [item componentsSeparatedByString:@","];
+        a.img = [info objectAtIndex:0];
+        a.step = [info objectAtIndex:1];
         [_materialModel addObject:a];
     }
-    if (_dataSource.steps==nil) {
-        _dataSource.steps=[fmdbMethod getStepsCacheWithCookId:_dataSource.id];
+    if (_dataSource.steps == nil) {
+        _dataSource.steps = [fmdbMethod getStepsCacheWithCookId:_dataSource.id];
       
     }
     
@@ -263,10 +264,10 @@
 }
 - (UIView*) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        CGRect frame=CGRectMake(0, 0, tableView.width, 45);
-        UIView *view=[[UIView alloc]initWithFrame:frame];
+        CGRect frame = CGRectMake(0, 0, tableView.width, 45);
+        UIView *view = [[UIView alloc]initWithFrame:frame];
         view.backgroundColor = [UIColor lightGrayColor];
-        UILabel *label=[[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
         
         label.text = @"材料";
         label.textColor = [UIColor blackColor];
@@ -277,10 +278,10 @@
     }
     else{
     
-        CGRect frame=CGRectMake(0, 0, tableView.width, 45);
-        UIView *view=[[UIView alloc]initWithFrame:frame];
+        CGRect frame = CGRectMake(0, 0, tableView.width, 45);
+        UIView *view = [[UIView alloc]initWithFrame:frame];
         view.backgroundColor = [UIColor whiteColor];
-        UILabel *label=[[UILabel alloc]init];
+        UILabel *label = [[UILabel alloc]init];
         NSString *text = [NSString stringWithFormat:@"- 步骤%ld -",section];
         CGSize textsize = [text sizeWithFont:[UIFont systemFontOfSize:18]];
         label.frame = CGRectMake((view.width - textsize.width)/2 , 10, textsize.width, textsize.height);

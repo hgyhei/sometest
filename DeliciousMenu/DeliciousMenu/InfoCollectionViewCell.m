@@ -2,9 +2,8 @@
 //  InfoCollectionViewCell.m
 //  DeliciousMenu
 //
-//  Created by tarena on 16/3/24.
-//  Copyright © 2016年 hgy. All rights reserved.
-//
+//  Created by hgy on 16/3/24.
+//  Copyright © 2016年 hgy. All rights reserved.//
 
 #import "InfoCollectionViewCell.h"
 
