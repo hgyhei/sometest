@@ -15,15 +15,14 @@
 #import "UIBarButtonItem+Extension.h"
 #import "MarkCollectionLineLayout.h"
 #import "MarkCollectionViewCell.h"
-@interface MarkViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
-@property (strong,nonatomic) UICollectionView *collectionView;
+@interface MarkViewController ()
 @end
 static NSString *const ID = @"image";
 @implementation MarkViewController
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [_collectionView reloadData];
+    [self.collectionView reloadData];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.delegate = self;
    self.title = @"收藏";
@@ -67,26 +66,35 @@ static NSString *const ID = @"image";
    
      
 }
+- (id)init{
+    self= [super initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc]init]];
+    
+    return self;
+}
 - (void)setCollection{
 
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 66, self.view.width, self.view.height * 0.7) collectionViewLayout:[[MarkCollectionLineLayout alloc] init]];
-    collectionView.dataSource = self;
-    collectionView.delegate = self;
-    collectionView.backgroundColor = [UIColor whiteColor];
-    collectionView.showsHorizontalScrollIndicator = NO;
-    [collectionView registerNib:[UINib nibWithNibName:MarkCollectionViewIdentifier bundle:nil] forCellWithReuseIdentifier:MarkCollectionViewIdentifier];
-    [self.view addSubview:collectionView];
-    self.collectionView = collectionView;
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, self.view.height * 0.8 , self.view.width, self.view.height * 0.2)];
-    footerView.backgroundColor = [UIColor whiteColor];
-    
-    [self.view addSubview:footerView];
+ 
+
+ 
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    self.collectionView.showsHorizontalScrollIndicator = NO;
+    [self.collectionView registerNib:[UINib nibWithNibName:MarkCollectionViewIdentifier bundle:nil] forCellWithReuseIdentifier:MarkCollectionViewIdentifier];
+   
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
    return favModels.count;
 }
-
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat margin  = 15;
+    CGFloat width = (self.view.width - 3 * margin) / 2;
+    return CGSizeMake(width,width * 1.3);
+}
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(15, 15, 15, 15);
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
      MarkCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MarkCollectionViewIdentifier forIndexPath:indexPath];
@@ -94,6 +102,7 @@ static NSString *const ID = @"image";
     
     infoModel * model=(infoModel*)[favModels objectAtIndex:indexPath.row];
     [ cell.markImg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"tran"]];
+    cell.markName.text = model.title;
 //
 //    cell.textLabel.text=model.title;
 //    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];

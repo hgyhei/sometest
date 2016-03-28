@@ -20,7 +20,7 @@
                             <constraint firstAttribute="height" constant="90" id="2Xb-Zd-tSP"/>
                             <constraint firstAttribute="width" constant="90" id="pQB-H3-ncV"/>
                         </constraints>
-                        <state key="normal" backgroundImage="10001"/>
+                        <state key="normal" backgroundImage="1"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUO-6L-oda">
                         <rect key="frame" x="115" y="10" width="90" height="90"/>
@@ -29,7 +29,7 @@
                             <constraint firstAttribute="height" constant="90" id="6Qq-vs-KLP"/>
                             <constraint firstAttribute="width" constant="90" id="Dmb-uK-mdN"/>
                         </constraints>
-                        <state key="normal" backgroundImage="10001"/>
+                        <state key="normal" backgroundImage="1"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dad-A5-4jo">
                         <rect key="frame" x="220" y="10" width="90" height="90"/>
@@ -38,7 +38,7 @@
                             <constraint firstAttribute="width" constant="90" id="T1X-hV-0vy"/>
                             <constraint firstAttribute="height" constant="90" id="p9b-c8-5pV"/>
                         </constraints>
-                        <state key="normal" backgroundImage="10001"/>
+                        <state key="normal" backgroundImage="1"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Duj-Ms-HCY">
                         <rect key="frame" x="10" y="110" width="90" height="19"/>
@@ -103,6 +103,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="10001" width="33" height="33"/>
+        <image name="1" width="33" height="33"/>
     </resources>
 </document>

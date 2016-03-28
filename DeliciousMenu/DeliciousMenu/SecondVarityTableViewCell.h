@@ -11,6 +11,8 @@
 @interface SecondVarityTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *leftHalfButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightHalfButton;
+@property (weak, nonatomic) IBOutlet UIImageView *leftHalfImg;
+@property (weak, nonatomic) IBOutlet UIImageView *rightHalfImg;
 
 
 @end

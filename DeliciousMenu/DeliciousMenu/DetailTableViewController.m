@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setData];
     [self setupTableView];
      self.automaticallyAdjustsScrollViewInsets = NO;
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
@@ -33,7 +34,40 @@
 
    
 }
+- (void)setData{
 
+    _materialModel = [[NSMutableArray alloc]init];
+    NSArray *t_ings =  [_dataSource.ingredients componentsSeparatedByString:@";"];
+    for (NSString* item in t_ings) {
+        StepModel *a = [[StepModel alloc]init];
+        NSArray *info = [item componentsSeparatedByString:@","];
+        a.img = [info objectAtIndex:0];
+        a.step = [info objectAtIndex:1];
+        [_materialModel addObject:a];
+    }
+    
+    NSArray *t_burs = [_dataSource.burden componentsSeparatedByString:@";"];
+    for (NSString* item in t_burs) {
+        StepModel *a = [[StepModel alloc]init];
+        NSArray *info = [item componentsSeparatedByString:@","];
+        a.img = [info objectAtIndex:0];
+        a.step = [info objectAtIndex:1];
+        [_materialModel addObject:a];
+    }
+   
+    //缓存历史浏览
+    dispatch_queue_t queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(queue, ^{
+        if (_dataSource.steps == nil) {
+            _dataSource.steps = [fmdbMethod getStepsCacheWithCookId:_dataSource.id];
+            
+        }
+        [fmdbMethod setCacheWithInfoModel:_dataSource];
+    });
+    
+
+}
 - (void)viewWillAppear:(BOOL)animated{
   self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
       self.navigationController.navigationBar.translucent = YES;
@@ -65,7 +99,7 @@
 
 - (void)setupHeaderView{
     UIView *headerView = [[UIView alloc]init];
-    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
+    UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, DetailTableViewHeaderViewHeight)];
       [img sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] placeholderImage:defaultImage];
     [headerView addSubview:img];
     CGSize TitleSize = [_dataSource.title sizeWithFont:[UIFont systemFontOfSize:20]];
@@ -137,33 +171,7 @@
 {
     self = [super init];
     _dataSource = model;
-    _materialModel = [[NSMutableArray alloc]init];
-    NSArray *t_ings =  [model.ingredients componentsSeparatedByString:@";"];
-    for (NSString* item in t_ings) {
-        StepModel *a = [[StepModel alloc]init];
-        NSArray *info = [item componentsSeparatedByString:@","];
-        a.img = [info objectAtIndex:0];
-        a.step = [info objectAtIndex:1];
-        [_materialModel addObject:a];
-    }
-    NSArray *t_burs = [model.burden componentsSeparatedByString:@";"];
-    for (NSString* item in t_burs) {
-        StepModel *a = [[StepModel alloc]init];
-        NSArray *info = [item componentsSeparatedByString:@","];
-        a.img = [info objectAtIndex:0];
-        a.step = [info objectAtIndex:1];
-        [_materialModel addObject:a];
-    }
-    if (_dataSource.steps == nil) {
-        _dataSource.steps = [fmdbMethod getStepsCacheWithCookId:_dataSource.id];
-      
-    }
-    
-    //缓存历史浏览
-    [fmdbMethod setCacheWithInfoModel:_dataSource];
-    
-    
-        return self;
+            return self;
 }
 //解决group的headerview粘性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -266,7 +274,7 @@
     if (section == 0) {
         CGRect frame = CGRectMake(0, 0, tableView.width, 45);
         UIView *view = [[UIView alloc]initWithFrame:frame];
-        view.backgroundColor = [UIColor lightGrayColor];
+        view.backgroundColor = BackGroundLineColor;
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(view.width / 2 -20, 10, 40, 20)];
         
         label.text = @"材料";

@@ -10,18 +10,22 @@
 #import "SearchViewController.h"
 #import "MarkViewController.h"
 #import "PingTransition.h"
+#import "FirstStyleTransition.h"
 #import "UIImage+initWithColor.h"
+#import "UIBarButtonItem+Extension.h"
 @implementation MenuHomeViewController
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     self.navigationController.delegate = self;
-//     self.navigationController.navigationBarHidden = YES;
-    [self setupNarItem];
+//  self.navigationController.navigationBarHidden = YES;
+    
+    
 }
 - (void)viewDidLoad{
    
     [super viewDidLoad];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
-    
+
 }
 - (void)viewWillDisappear:(BOOL)animated{
 
@@ -30,18 +34,29 @@
     
 
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+ [self setupNarItem];
+
+}
 //转场按钮
 - (void)setupNarItem{
-   
-    
     UIButton *markbtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.width -54, 0, 44, 44)];
     
     [markbtn setImage:[UIImage imageNamed:@"iconfont-shoucang"] forState:UIControlStateNormal];
     [markbtn addTarget:self action:@selector(mark) forControlEvents:UIControlEventTouchUpInside];
     _markButton = markbtn;
     [self.navigationController.navigationBar addSubview:_markButton];
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(search) image:@"iconfont-sousuo-2" highImage:@"iconfont-sousuo-2"];
+   
+    _markButton.alpha = 0.0f;
+    [UIView animateWithDuration:0.5f delay:0.0f options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        _markButton.alpha = 1.0f;
+    } completion:nil];
   
-
+    
     
 }
 
@@ -53,6 +68,11 @@
     [self.navigationController pushViewController:mark animated:YES];
     
 }
+- (void)search{
+    SearchViewController *search = [[SearchViewController alloc]init];
+    
+    [self.navigationController pushViewController:search animated:YES];
+}
 ////#pragma mark - UINavigationControllerDelegate
 - (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
@@ -63,8 +83,10 @@
             PingTransition *ping = [PingTransition new];
             return ping;
         }
-        else{
-        
+        else if([toVC isKindOfClass:[SearchViewController class]]){
+            FirstStyleTransition *ging = [FirstStyleTransition new];
+            return ging;
+        }else{
             return nil;
         }
       

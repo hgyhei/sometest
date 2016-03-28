@@ -52,6 +52,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="vbr-MX-pdL"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="Button">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -62,6 +63,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="aNn-aG-gRM"/>
                         </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="Button">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -100,7 +102,9 @@
             <animations/>
             <connections>
                 <outlet property="leftHalfButton" destination="a5j-Dv-eYJ" id="0Kq-dK-7Xv"/>
+                <outlet property="leftHalfImg" destination="txl-6A-Lqm" id="gDf-5U-r5Q"/>
                 <outlet property="rightHalfButton" destination="FUO-7r-5BD" id="Yd1-dl-vVW"/>
+                <outlet property="rightHalfImg" destination="dr6-CN-8Ah" id="zOf-T7-Njx"/>
             </connections>
             <point key="canvasLocation" x="166" y="284.5"/>
         </tableViewCell>

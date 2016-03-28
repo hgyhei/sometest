@@ -31,6 +31,7 @@ extern NSString *const API_queryByID;//http://apis.juhe.cn/cook/queryid
 extern NSString *const MenuFirstViewControllerNotification;
 
 extern CGFloat  const MarkCollectionItemWidth;
+extern CGFloat  const DetailTableViewHeaderViewHeight;
 
 extern NSString *const MenuLeftReuseIdentifier;
 extern NSString *const InfoCollectionreuseIdentifier;

@@ -10,5 +10,6 @@
 
 @interface MarkCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *markImg;
+@property (weak, nonatomic) IBOutlet UILabel *markName;
 
 @end

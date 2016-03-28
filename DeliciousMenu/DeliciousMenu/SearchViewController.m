@@ -7,8 +7,11 @@
 //
 
 #import "SearchViewController.h"
+#import "MenuHomeViewController.h"
+#import "FirstBackTransition.h"
+#import "UIBarButtonItem+Extension.h"
 #import "InfoCollectionViewController.h"
-@interface SearchViewController ()<UISearchBarDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SearchViewController ()<UISearchBarDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UISearchBar *searchBar;
 @property (nonatomic,strong) UITableView *histroyTableView;
 
@@ -23,13 +26,21 @@
     [self setupClearButton];
    
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.navigationController.delegate = self;
+     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(dissmissKeyboard) image:@"iconfont-bohaojianpanzhankai"highImage:@"iconfont-bohaojianpanzhankai"];
+}
+- (void)dissmissKeyboard{
+    [_searchBar resignFirstResponder];
+}
 
 - (void)setupSearch{
     CGRect  frame = self.navigationController.navigationBar.frame;
     frame.origin.y = 0;
     UIView *titleView = [[UIView alloc]initWithFrame:frame];
     [titleView setBackgroundColor:[UIColor clearColor]];
-    frame.size.width -= 20;
+    frame.size.width -= 80;
     _searchBar=[[UISearchBar alloc]initWithFrame:frame];
     _searchBar.backgroundColor = [UIColor clearColor];
     [_searchBar setTintColor:[UIColor grayColor]];
@@ -48,16 +59,57 @@
         }
     }
     
-    
+//    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];
+//    [topView setBarStyle:UIBarStyleBlackTranslucent];
+//    
+//    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+//    
+//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btn.frame = CGRectMake(2, 5, 50, 25);
+//    [btn addTarget:self action:@selector(dismissKeyBoard) forControlEvents:UIControlEventTouchUpInside];
+//    [btn setImage:[UIImage imageNamed:@"shouqi"] forState:UIControlStateNormal];
+//    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
+//    NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneBtn,nil];
+//    [topView setItems:buttonsArray];
+//    [_searchBar setInputAccessoryView:topView];
     _searchBar.delegate = self;
     _searchBar.layer.cornerRadius = 2;
     //searchBar.layer.masksToBounds = YES;
     [titleView addSubview:_searchBar];
     self.navigationItem.titleView=titleView;
-
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
+}
+- (void)back{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   animationControllerForOperation:(UINavigationControllerOperation)operation
+                                                fromViewController:(UIViewController *)fromVC
+                                                  toViewController:(UIViewController *)toVC{
+    if (operation == UINavigationControllerOperationPop) {
+        if ([toVC isKindOfClass:[MenuHomeViewController class]]) {
+            FirstBackTransition *backTransion = [FirstBackTransition new];
+            return backTransion;
+        }
+        else{
+            
+            return nil;
+        }
+        
+        
+        
+    }
+    else{
+        return nil;
+    }
+    
+}
+- (void)dismissKeyBoard{
+   [_searchBar resignFirstResponder];
 }
 - (void)setupHistoryTableView{
     _histroyTableView = [[UITableView alloc]initWithFrame:self.view.bounds];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     _histroyTableView.delegate = self;
     _histroyTableView.dataSource = self;
     [self.view addSubview:_histroyTableView];
@@ -72,6 +124,7 @@
 - (void)setupClearButton{
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 50)];
     UIButton *btn_clear=[[UIButton alloc]initWithFrame:CGRectMake(50, 10, self.view.width -100, 40)];
+    btn_clear.layer.cornerRadius = 5.0f;
     [btn_clear setTitle:@"清除历史记录" forState:UIControlStateNormal];
     [btn_clear setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     btn_clear.backgroundColor = [UIColor orangeColor];
@@ -81,6 +134,8 @@
 }
 -(void)clearHistory:(UIButton *)button{
     NSLog(@"清除按钮被点击");
+  
+    
     SearchArray =[NSMutableArray array];
     [[NSUserDefaults standardUserDefaults] setObject:SearchArray forKey:@"search"];
     [_histroyTableView reloadData];
@@ -100,6 +155,7 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
   
     if (editingStyle==UITableViewCellEditingStyleDelete) {

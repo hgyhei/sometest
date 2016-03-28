@@ -31,7 +31,7 @@ NSString *const API_queryByTag=@"http://apis.juhe.cn/cook/index";
 NSString *const API_queryByID=@"http://apis.juhe.cn/cook/queryid";
 
 CGFloat  const  MarkCollectionItemWidth = 250;
-
+CGFloat  const  DetailTableViewHeaderViewHeight = 250;
 
 
 NSString *const MenuFirstViewControllerNotification=@"MenuFirstViewControllerNotification";

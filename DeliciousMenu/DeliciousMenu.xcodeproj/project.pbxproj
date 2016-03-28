@@ -14,6 +14,7 @@
 		850775991CA03AB8002D6ED8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850775971CA03AB8002D6ED8 /* LaunchScreen.storyboard */; };
 		850775A41CA03AB8002D6ED8 /* DeliciousMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 850775A31CA03AB8002D6ED8 /* DeliciousMenuTests.m */; };
 		850775AF1CA03AB8002D6ED8 /* DeliciousMenuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 850775AE1CA03AB8002D6ED8 /* DeliciousMenuUITests.m */; };
+		850D9E601CA8F68100CA3D8F /* MenuLucyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9E5F1CA8F68100CA3D8F /* MenuLucyViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72A71CA13D5F00FE674F /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72A61CA13D5F00FE674F /* MarkViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72A91CA13D6B00FE674F /* CalendarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72AD1CA1703400FE674F /* fmdbMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72AC1CA1703400FE674F /* fmdbMethod.m */; settings = {ASSET_TAGS = (); }; };
@@ -61,6 +62,8 @@
 		85DC17831CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85DC17811CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		85DC17861CA3BD980067EF5E /* UIImage+initWithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17851CA3BD980067EF5E /* UIImage+initWithColor.m */; settings = {ASSET_TAGS = (); }; };
 		85DC17891CA3C2340067EF5E /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DC17881CA3C2340067EF5E /* NSString+Extension.m */; settings = {ASSET_TAGS = (); }; };
+		85EF81BF1CA7A49700D9B083 /* FirstStyleTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF81BE1CA7A49700D9B083 /* FirstStyleTransition.m */; settings = {ASSET_TAGS = (); }; };
+		85EF81C21CA7ADFB00D9B083 /* FirstBackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EF81C11CA7ADFB00D9B083 /* FirstBackTransition.m */; settings = {ASSET_TAGS = (); }; };
 		85F291481CA4D59E00F08725 /* MenuHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F291471CA4D59E00F08725 /* MenuHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		85F2914C1CA4DA4600F08725 /* PingTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F2914B1CA4DA4600F08725 /* PingTransition.m */; settings = {ASSET_TAGS = (); }; };
 		85F291521CA4EA6F00F08725 /* PingInvertTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F291511CA4EA6F00F08725 /* PingInvertTransition.m */; settings = {ASSET_TAGS = (); }; };
@@ -101,6 +104,8 @@
 		850775AA1CA03AB8002D6ED8 /* DeliciousMenuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliciousMenuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		850775AE1CA03AB8002D6ED8 /* DeliciousMenuUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeliciousMenuUITests.m; sourceTree = "<group>"; };
 		850775B01CA03AB8002D6ED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		850D9E5E1CA8F68100CA3D8F /* MenuLucyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLucyViewController.h; sourceTree = "<group>"; };
+		850D9E5F1CA8F68100CA3D8F /* MenuLucyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLucyViewController.m; sourceTree = "<group>"; };
 		850F72A51CA13D5F00FE674F /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
 		850F72A61CA13D5F00FE674F /* MarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkViewController.m; sourceTree = "<group>"; };
 		850F72A81CA13D6B00FE674F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -184,6 +189,10 @@
 		85DC17851CA3BD980067EF5E /* UIImage+initWithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+initWithColor.m"; sourceTree = "<group>"; };
 		85DC17871CA3C2340067EF5E /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		85DC17881CA3C2340067EF5E /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		85EF81BD1CA7A49700D9B083 /* FirstStyleTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstStyleTransition.h; sourceTree = "<group>"; };
+		85EF81BE1CA7A49700D9B083 /* FirstStyleTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstStyleTransition.m; sourceTree = "<group>"; };
+		85EF81C01CA7ADFB00D9B083 /* FirstBackTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstBackTransition.h; sourceTree = "<group>"; };
+		85EF81C11CA7ADFB00D9B083 /* FirstBackTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstBackTransition.m; sourceTree = "<group>"; };
 		85F291461CA4D59E00F08725 /* MenuHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHomeViewController.h; sourceTree = "<group>"; };
 		85F291471CA4D59E00F08725 /* MenuHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHomeViewController.m; sourceTree = "<group>"; };
 		85F2914A1CA4DA4600F08725 /* PingTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingTransition.h; sourceTree = "<group>"; };
@@ -504,6 +513,10 @@
 				85F291511CA4EA6F00F08725 /* PingInvertTransition.m */,
 				85F2914A1CA4DA4600F08725 /* PingTransition.h */,
 				85F2914B1CA4DA4600F08725 /* PingTransition.m */,
+				85EF81BD1CA7A49700D9B083 /* FirstStyleTransition.h */,
+				85EF81BE1CA7A49700D9B083 /* FirstStyleTransition.m */,
+				85EF81C01CA7ADFB00D9B083 /* FirstBackTransition.h */,
+				85EF81C11CA7ADFB00D9B083 /* FirstBackTransition.m */,
 			);
 			name = transition;
 			sourceTree = "<group>";
@@ -528,6 +541,8 @@
 				851F3A4D1CA12DD400F33F9C /* SearchViewController.m */,
 				850F72A81CA13D6B00FE674F /* CalendarViewController.h */,
 				850F72A91CA13D6B00FE674F /* CalendarViewController.m */,
+				850D9E5E1CA8F68100CA3D8F /* MenuLucyViewController.h */,
+				850D9E5F1CA8F68100CA3D8F /* MenuLucyViewController.m */,
 			);
 			name = TabController;
 			sourceTree = "<group>";
@@ -741,6 +756,7 @@
 				85DC17661CA3855E0067EF5E /* MenuSecondViewController.m in Sources */,
 				850F72AD1CA1703400FE674F /* fmdbMethod.m in Sources */,
 				85A038091CA0D5C100432635 /* TagModel.m in Sources */,
+				85EF81C21CA7ADFB00D9B083 /* FirstBackTransition.m in Sources */,
 				85F2914C1CA4DA4600F08725 /* PingTransition.m in Sources */,
 				85DBDFEB1CA27438005C1297 /* MenufirstViewController.m in Sources */,
 				85A0382F1CA0F7AE00432635 /* InfoCollectionViewController.m in Sources */,
@@ -766,7 +782,9 @@
 				8507758B1CA03AB8002D6ED8 /* main.m in Sources */,
 				85DBDFF61CA2A18F005C1297 /* MenuSingleView.m in Sources */,
 				85F291521CA4EA6F00F08725 /* PingInvertTransition.m in Sources */,
+				850D9E601CA8F68100CA3D8F /* MenuLucyViewController.m in Sources */,
 				851F3A241CA10D1300F33F9C /* GYTabBarViewController.m in Sources */,
+				85EF81BF1CA7A49700D9B083 /* FirstStyleTransition.m in Sources */,
 				85F291481CA4D59E00F08725 /* MenuHomeViewController.m in Sources */,
 				85DC17721CA3A7300067EF5E /* InfoCollectionViewCell.m in Sources */,
 				859429191CA3F4D70049998C /* MarkCollectionLineLayout.m in Sources */,
@@ -915,6 +933,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0B468386333681591A26E7CB /* Pods.debug.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/tarena/Desktop/08-NSURLSession&AFN/sometest/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch";
 				INFOPLIST_FILE = DeliciousMenu/Info.plist;
@@ -932,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 876E373885A485D840CDC9FC /* Pods.release.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/tarena/Desktop/08-NSURLSession&AFN/sometest/DeliciousMenu/DeliciousMenu/Menu_PrefixHeader.pch";
 				INFOPLIST_FILE = DeliciousMenu/Info.plist;

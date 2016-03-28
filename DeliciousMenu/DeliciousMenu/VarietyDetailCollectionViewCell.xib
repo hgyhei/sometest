@@ -15,6 +15,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <animations/>
+            <color key="backgroundColor" red="1" green="0.52386561476599169" blue="0.099023846410916105" alpha="1" colorSpace="calibratedRGB"/>
             <size key="customSize" width="92" height="92"/>
             <point key="canvasLocation" x="343" y="315"/>
         </collectionViewCell>

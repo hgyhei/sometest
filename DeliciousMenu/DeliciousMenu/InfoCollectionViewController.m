@@ -14,24 +14,30 @@
 #import "infoModel.h"
 #import "UIImage+corner.h"
 #import "UIImageView+WebCache.h"
+
 @interface InfoCollectionViewController ()<UISearchBarDelegate>
-@property BOOL isSearch;
-@property NSString* tagId;
-@property NSString * searchText;
-@property NSMutableArray *dataSource;
-@property NSInteger refreshFlag;
+{
+    MJRefreshComponent *myRefreshView;
+    NSInteger page;
+    BOOL _isSearch;
+    NSString* _tagId;
+    NSString * _searchText;
+    NSMutableArray * _dataSource;
+    NSInteger _refreshFlag;
+}
+
 @end
 
 @implementation InfoCollectionViewController
 static int pn=0;
 
--(id)initWithTagId:(NSString* )tagId{
+- (id)initWithTagId:(NSString* )tagId{
     self= [super initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc]init]];
     _tagId = tagId;
     _isSearch = false;
     return self;
 }
--(id)initWithSearchText:(NSString *) searchText{
+- (id)initWithSearchText:(NSString *) searchText{
     self=[super initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc]init]];
     _searchText = searchText;
     _isSearch = true;
@@ -55,6 +61,7 @@ static int pn=0;
     [self.navigationController setNavigationBarHidden:NO];
 
 }
+
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
      [self setupRefresh];
@@ -117,21 +124,23 @@ static int pn=0;
         [self.collectionView.mj_header beginRefreshing];
           _refreshFlag = 1;
     }
-  
+   
     
     // 上拉刷新
 
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         pn += 10;
+        
         if(!_isSearch){
             [self getDataByTagId];
         }else{
             [self getDataBySearchText];
         }
-        // 结束刷新
-        [self.collectionView.mj_footer endRefreshing];
+ 
         
     }];
+   
+  
 
 }
 - (void)getDataByTagId{
@@ -174,6 +183,7 @@ static int pn=0;
         }
         [self.collectionView reloadData];
     }
+    
    }
 
 - (void)getDataBySearchText{

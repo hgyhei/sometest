@@ -50,7 +50,8 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     Tag_ListModel *listmodel = self.dataSource.list[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@"10001"];
+    NSString *iconname  = [NSString stringWithFormat:@"%ld",indexPath.row + 1];
+    cell.imageView.image = [UIImage imageNamed:iconname];
     
     cell.textLabel.text = listmodel.name;
     

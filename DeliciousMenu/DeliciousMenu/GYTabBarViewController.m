@@ -8,6 +8,7 @@
 
 #import "GYTabBarViewController.h"
 #import "MarkViewController.h"
+#import "MenuLucyViewController.h"
 #import "CalendarViewController.h"
 #import "UIButton+Extension.h"
 #import "SearchViewController.h"
@@ -48,8 +49,8 @@
     [self addChildVc:page title:@"主页" image:@"home" selectedImage:@"home"];
     _page = page;
  
-    SearchViewController *search = [[SearchViewController alloc]init];
-    [self addChildVc:search title:@"搜索" image:@"home" selectedImage:@"home"];
+    MenuLucyViewController *search = [[MenuLucyViewController alloc]init];
+    [self addChildVc:search title:@"推荐" image:@"home" selectedImage:@"home"];
     CalendarViewController *mark = [[CalendarViewController alloc]init];
     [self addChildVc:mark title:@"浏览" image:@"home" selectedImage:@"home"];
    
@@ -182,10 +183,10 @@
 - (MenuHomeViewController *)p_defaultController {
     NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
     NSMutableArray *titles = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 2; i++) {
         Class vcClass;
         NSString *title;
-        switch (i % 3) {
+        switch (i % 2) {
             case 0:
                 vcClass = [MenufirstViewController class];
                 
@@ -195,10 +196,8 @@
                 vcClass = [MenuSecondViewController class];
                 title = @"分类";
                 break;
-            default:
-                vcClass = [MarkViewController class];
-                title = @"Fluency";
-                break;
+         
+              
         }
         [viewControllers addObject:vcClass];
         [titles addObject:title];

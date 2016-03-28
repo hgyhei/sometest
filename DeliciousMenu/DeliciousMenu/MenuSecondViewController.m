@@ -29,6 +29,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     [self setHeaderView];
+    [self setFooterView];
     [self.tableView registerNib:[UINib nibWithNibName:SecondVarietyMenuIdentifier bundle:nil] forCellReuseIdentifier:SecondVarietyMenuIdentifier];
 }
 - (void)setHeaderView{
@@ -42,10 +43,11 @@
     TagModel *model = self.dataSource[0];
     UIButton *styleOneButton = [[UIButton alloc]initWithFrame:CGRectMake(margin, margin, buttonStyleOneWidth, buttonStyleOneWidth)];
    
-    [styleOneButton setBackgroundImage:[UIImage imageNamed:@"19b6d1d5524f58e6d29b60c1e2cf4fa5"] forState:UIControlStateNormal];
+    [styleOneButton setBackgroundImage:[UIImage imageNamed:@"v1"] forState:UIControlStateNormal];
     [styleOneButton addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-    [styleOneButton setTitle:model.name forState:UIControlStateNormal];
-    [styleOneButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [styleOneButton setTitle:model.name forState:UIControlStateNormal];
+//    [styleOneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+//    styleOneButton.titleLabel.font = [UIFont systemFontOfSize:15];
     __weak typeof (self)WeakSelf = self;
     
     styleOneButton.buttonClickBlock = ^(void){
@@ -64,7 +66,11 @@
         UIButton *styleTwoButton = [[UIButton alloc]initWithFrame:CGRectMake(x, y, buttonStyleTwoWidth, buttonStyleTwoWidth)];
        
          [styleTwoButton addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];
-        [styleTwoButton setImage:[UIImage imageNamed:@"55"] forState:UIControlStateNormal];
+//        [styleTwoButton setTitle:model.name forState:UIControlStateNormal];
+//        [styleTwoButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+//         styleTwoButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        NSString *iconnum = [NSString stringWithFormat:@"v%d",i+2];
+        [styleTwoButton setBackgroundImage:[UIImage imageNamed:iconnum] forState:UIControlStateNormal];
         styleTwoButton.buttonClickBlock = ^(void){
             VarietyDetailTableViewController *vc = [[VarietyDetailTableViewController alloc]initWithModel:model];
             vc.title = model.name;
@@ -73,13 +79,18 @@
             
         };
 
-       [styleTwoButton setTitle:model.name forState:UIControlStateNormal];
+      
           [headerView addSubview:styleTwoButton];
         
     }
     headerView.backgroundColor = BackGroundLineColor;
     self.tableView.tableHeaderView = headerView;
     
+
+}
+- (void)setFooterView{
+    UIView *footerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 64)];
+    self.tableView.tableFooterView = footerview;
 
 }
 - (void)ButtonClick:(UIButton *)btn{
@@ -121,10 +132,15 @@
     TagModel *leftmodel = self.dataSource[leftcount];
     TagModel *rightmodel = self.dataSource[rightcount];
      SecondVarityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SecondVarietyMenuIdentifier forIndexPath:indexPath];
-
-   
     [cell.leftHalfButton setTitle:leftmodel.name forState:UIControlStateNormal];
     [cell.rightHalfButton setTitle:rightmodel.name forState:UIControlStateNormal];
+    
+    NSUInteger leftimgNum = (indexPath.row * 2) + 1;
+    NSUInteger rightimgNum = (indexPath.row * 2) + 2;
+    NSString *leftimgName = [NSString stringWithFormat:@"s%ld",leftimgNum];
+    NSString *rightimgName = [NSString stringWithFormat:@"s%ld",rightimgNum];
+    cell.leftHalfImg.image = [UIImage imageNamed:leftimgName];
+    cell.rightHalfImg.image = [UIImage imageNamed:rightimgName];
     
     __weak typeof (self)WeakSelf = self;
     [cell.leftHalfButton addTarget:self action:@selector(ButtonClick:) forControlEvents:UIControlEventTouchUpInside];

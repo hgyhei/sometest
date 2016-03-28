@@ -76,7 +76,7 @@
 }
 
 /** 有效距离:当item的中间x距离屏幕的中间x在HMActiveDistance以内,才会开始放大, 其它情况都是缩小 */
-static CGFloat const MarkActiveDistance = 150;
+static CGFloat const MarkActiveDistance = 250;
 /** 缩放因素: 值越大, item就会越大 */
 static CGFloat const MarkScaleFactor = 0.6;
 

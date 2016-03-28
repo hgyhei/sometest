@@ -45,6 +45,10 @@
    
     [self setTableView];
 }
+- (void)viewWillAppear:(BOOL)animated{
+      [super viewWillAppear:YES];
+   [self.navigationController setNavigationBarHidden:NO];
+}
 #pragma -mark 配置
 - (void)setTableView{
     [self.tableView registerNib:[UINib nibWithNibName:FirstVarietyMenuIdentifier bundle:nil] forCellReuseIdentifier:FirstVarietyMenuIdentifier];
@@ -57,9 +61,10 @@
 - (void)setHeaderView{
     
     UIView *headerView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
-    NSArray *images = @[@"19b6d1d5524f58e6d29b60c1e2cf4fa5",@"19b6d1d5524f58e6d29b60c1e2cf4fa5",@"19b6d1d5524f58e6d29b60c1e2cf4fa5"];
-    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) images:images autoPlay:YES delay:3.0];
+    NSArray *images = @[@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1",@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1",@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1"];
+    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) images:images autoPlay:YES delay:5.0];
     loopView.delegate = self;
+    
     [headerView addSubview:loopView];
     
     
@@ -77,7 +82,9 @@
         CGFloat x = (margin + i *(margin * 2 + btnwidth));
         MenuSingleView *singleView = [[MenuSingleView alloc]initWithFrame:CGRectMake(x, 10, btnwidth, 90)];
         singleView.descText = listmodel.name;
-        singleView.buttonImg = @"place";
+        NSString *buttonImgNum = [NSString stringWithFormat:@"s%d",(i+1)];
+       
+        singleView.buttonImg = buttonImgNum;
         __weak typeof(self) WeakSelf = self;
         singleView.menuSingleViewButtonClickBlock = ^(void){
             InfoCollectionViewController *vc=[[InfoCollectionViewController alloc]initWithTagId:listmodel.id];
@@ -96,7 +103,8 @@
 
 }
 - (void)setfooterView{
-    UIView *footerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 100)];
+    
+    UIView *footerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 164)];
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
     line.backgroundColor = BackGroundLineColor;
     [footerview addSubview:line];

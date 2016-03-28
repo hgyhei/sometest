@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MarkViewController : UIViewController<UINavigationControllerDelegate>
+@interface MarkViewController : UICollectionViewController<UINavigationControllerDelegate>
 
 @end
