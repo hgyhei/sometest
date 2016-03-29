@@ -30,7 +30,7 @@
                             <constraint firstAttribute="height" constant="1" id="isW-aZ-sS2"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="txl-6A-Lqm">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s1" translatesAutoresizingMaskIntoConstraints="NO" id="txl-6A-Lqm">
                         <rect key="frame" x="30" y="10" width="30" height="30"/>
                         <animations/>
                         <constraints>
@@ -38,7 +38,7 @@
                             <constraint firstAttribute="width" constant="30" id="aNl-1b-f9Y"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place" translatesAutoresizingMaskIntoConstraints="NO" id="dr6-CN-8Ah">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s1" translatesAutoresizingMaskIntoConstraints="NO" id="dr6-CN-8Ah">
                         <rect key="frame" x="191" y="10" width="30" height="30"/>
                         <animations/>
                         <constraints>
@@ -110,6 +110,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="place" width="152" height="150"/>
+        <image name="s1" width="171" height="171"/>
     </resources>
 </document>

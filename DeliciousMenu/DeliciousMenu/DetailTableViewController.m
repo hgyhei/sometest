@@ -7,11 +7,8 @@
 //
 
 #import "DetailTableViewController.h"
-#import "infoModel.h"
-#import <UIImageView+WebCache.h>
 #import "StepTableViewCell.h"
 #import "BurTableViewCell.h"
-#import "MenuConst.h"
 #import "NSString+Extension.h"
 #import "UIImage+initWithColor.h"
 @interface DetailTableViewController ()
@@ -22,7 +19,12 @@
 @end
 
 @implementation DetailTableViewController
-
+- (id)initWithInfoModel:(infoModel *)model
+{
+    self = [super init];
+    _dataSource = model;
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setData];
@@ -34,6 +36,14 @@
 
    
 }
+- (void)viewWillAppear:(BOOL)animated{
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
+    self.navigationController.navigationBar.translucent = YES;
+    
+}
+
+
 - (void)setData{
 
     _materialModel = [[NSMutableArray alloc]init];
@@ -56,37 +66,19 @@
     }
    
     //缓存历史浏览
-    dispatch_queue_t queue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    
-    dispatch_async(queue, ^{
+   
         if (_dataSource.steps == nil) {
             _dataSource.steps = [fmdbMethod getStepsCacheWithCookId:_dataSource.id];
             
         }
         [fmdbMethod setCacheWithInfoModel:_dataSource];
-    });
+  
     
 
 }
-- (void)viewWillAppear:(BOOL)animated{
-  self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
-      self.navigationController.navigationBar.translucent = YES;
 
-}
-- (void)back{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:YES];
-    
-    self.navigationController.navigationBar.translucent = NO;
- [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:1.0f]] forBarMetrics:UIBarMetricsDefault];
-}
-- (void)alphaNavChontroller:(CGFloat)barAlpha{
-    
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:barAlpha]] forBarMetrics:UIBarMetricsDefault];
-    
-}
+
+
 - (void)setupTableView{
     
     [self.tableView registerNib:[UINib nibWithNibName:StepViewreuseIdentifier bundle:nil] forCellReuseIdentifier:StepViewreuseIdentifier];
@@ -128,6 +120,7 @@
     self.tableView.tableFooterView = footerView;
 
 }
+#pragma mark -导航栏按钮设置
 - (void)setupNavButtonItem{
     _favButton = [UIBarButtonItem itemWithTarget:self action:@selector(addInFavSource) image:@"iconfont-weishoucang"highImage:@"iconfont-shanchu"];
    
@@ -144,34 +137,29 @@
 }
 -(void)addInFavSource{
     
-  
-  
-        [favModels insertObject:_dataSource atIndex:0];
-        [favSource insertObject:[NSKeyedArchiver archivedDataWithRootObject:_dataSource] atIndex:0];//归档
-        [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
-    
-        self.navigationItem.rightBarButtonItem=_delButton;
-    
-    
+    [favModels insertObject:_dataSource atIndex:0];
+    [favSource insertObject:[NSKeyedArchiver archivedDataWithRootObject:_dataSource] atIndex:0];//归档
+    [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
+    self.navigationItem.rightBarButtonItem=_delButton;
     ALERT_MESSAGE(@"已加入我的收藏");
     
 }
 
 -(void)deleteFromFavSource{
+    
     NSUInteger index = [favModels indexOfObject:_dataSource];
     [favModels removeObjectAtIndex:index];
     [favSource removeObjectAtIndex:index];
     [[NSUserDefaults standardUserDefaults] setObject:favSource forKey:@"fav"];//更新离线数据
     self.navigationItem.rightBarButtonItem = _favButton;
-   
     ALERT_MESSAGE(@"已从我的收藏中删除");
 }
 
-- (id)initWithInfoModel:(infoModel *)model
-{
-    self = [super init];
-    _dataSource = model;
-            return self;
+
+- (void)alphaNavChontroller:(CGFloat)barAlpha{
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:barAlpha]] forBarMetrics:UIBarMetricsDefault];
+    
 }
 //解决group的headerview粘性
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -203,6 +191,7 @@
     }
   
 }
+#pragma mark -tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1 + _dataSource.steps.count;
 }

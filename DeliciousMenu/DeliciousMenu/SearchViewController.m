@@ -8,9 +8,8 @@
 
 #import "SearchViewController.h"
 #import "MenuHomeViewController.h"
-#import "FirstBackTransition.h"
-#import "UIBarButtonItem+Extension.h"
 #import "InfoCollectionViewController.h"
+#import "FirstBackTransition.h"
 @interface SearchViewController ()<UISearchBarDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UISearchBar *searchBar;
 @property (nonatomic,strong) UITableView *histroyTableView;
@@ -29,7 +28,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     self.navigationController.delegate = self;
-     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(dissmissKeyboard) image:@"iconfont-bohaojianpanzhankai"highImage:@"iconfont-bohaojianpanzhankai"];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(dissmissKeyboard) image:@"iconfont-bohaojianpanzhankai"highImage:@"iconfont-bohaojianpanzhankai"];
 }
 - (void)dissmissKeyboard{
     [_searchBar resignFirstResponder];
@@ -59,22 +58,8 @@
         }
     }
     
-//    UIToolbar * topView = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 30)];
-//    [topView setBarStyle:UIBarStyleBlackTranslucent];
-//    
-//    UIBarButtonItem * btnSpace = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-//    
-//    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    btn.frame = CGRectMake(2, 5, 50, 25);
-//    [btn addTarget:self action:@selector(dismissKeyBoard) forControlEvents:UIControlEventTouchUpInside];
-//    [btn setImage:[UIImage imageNamed:@"shouqi"] forState:UIControlStateNormal];
-//    UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc]initWithCustomView:btn];
-//    NSArray * buttonsArray = [NSArray arrayWithObjects:btnSpace,doneBtn,nil];
-//    [topView setItems:buttonsArray];
-//    [_searchBar setInputAccessoryView:topView];
     _searchBar.delegate = self;
     _searchBar.layer.cornerRadius = 2;
-    //searchBar.layer.masksToBounds = YES;
     [titleView addSubview:_searchBar];
     self.navigationItem.titleView=titleView;
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
@@ -117,7 +102,7 @@
 }
 - (void)getData{
     NSArray *array = [[NSUserDefaults standardUserDefaults] arrayForKey:@"search"];
-   SearchArray = [NSMutableArray arrayWithArray:array];
+    SearchArray = [NSMutableArray arrayWithArray:array];
     [_histroyTableView reloadData];
    
 }
@@ -132,7 +117,7 @@
     [footerView addSubview:btn_clear];
     _histroyTableView.tableFooterView = footerView;
 }
--(void)clearHistory:(UIButton *)button{
+- (void)clearHistory:(UIButton *)button{
     NSLog(@"清除按钮被点击");
   
     
@@ -156,7 +141,7 @@
     
 }
 
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
   
     if (editingStyle==UITableViewCellEditingStyleDelete) {
      
@@ -166,14 +151,14 @@
     }
 }
 //点击历史记录直接搜索
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     _searchBar.text=[SearchArray objectAtIndex:indexPath.row];
     [self searchBarSearchButtonClicked:_searchBar];
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return SearchArray.count;
 }
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell * cell=[[UITableViewCell alloc]init];
     cell.textLabel.text=[SearchArray objectAtIndex:indexPath.row];
     return cell;

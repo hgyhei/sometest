@@ -7,23 +7,22 @@
 //
 
 #import "GYTabBarViewController.h"
-#import "MarkViewController.h"
 #import "MenuLucyViewController.h"
 #import "CalendarViewController.h"
-#import "UIButton+Extension.h"
-#import "SearchViewController.h"
-#import "JHAPISDK.h"
-#import "JHOpenidSupplier.h"
 #import <WMPageController.h>
+#import "MenuHomeViewController.h"
 #import "MenufirstViewController.h"
 #import "MenuSecondViewController.h"
+#import "JHAPISDK.h"
+#import "JHOpenidSupplier.h"
+#import "UIButton+Extension.h"
 #import "UIBarButtonItem+Extension.h"
-#import "MenuHomeViewController.h"
 @interface GYTabBarViewController ()
 @property (nonatomic,strong) WMPageController *page;
 @property (nonatomic,strong) NSMutableArray *controllersArray;
 @end
 @implementation GYTabBarViewController
+#pragma mark -懒加载
 - (NSMutableArray *)controllersArray{
     if (!_controllersArray) {
         _controllersArray = [NSMutableArray array];
@@ -36,26 +35,24 @@
 {
    
     [super viewDidLoad];
-    
+     self.view.backgroundColor = [UIColor whiteColor];
     [self initConst];
     [self initDB];
     [self initNotificationCenter];
     [self setupTabBar];
-    
+   
     [[JHOpenidSupplier shareSupplier] registerJuheAPIByOpenId:OpenID];
+    [self setContainControllers];
 
-    self.view.backgroundColor = [UIColor whiteColor];
-    MenuHomeViewController *page = [self p_defaultController];
-    [self addChildVc:page title:@"主页" image:@"home" selectedImage:@"home"];
-    _page = page;
- 
-    MenuLucyViewController *search = [[MenuLucyViewController alloc]init];
-    [self addChildVc:search title:@"推荐" image:@"home" selectedImage:@"home"];
-    CalendarViewController *mark = [[CalendarViewController alloc]init];
-    [self addChildVc:mark title:@"浏览" image:@"home" selectedImage:@"home"];
    
    
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+    [self.tabBar setHidden:YES];
+}
+#pragma mark -初始化配置
 - (void)initConst{
     defaultImage = [UIImage imageNamed:@"coffee"];
     //收藏数据
@@ -132,7 +129,6 @@
     }
     [db close];
 }
-
 // 判断是否存在表
 - (BOOL) isTableOK:(NSString *)tableName
 {
@@ -158,29 +154,54 @@
 - (void)initNotificationCenter{
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MenuFirstViewFooterClick) name:MenuFirstViewControllerNotification object:nil];
 }
+//第一分页底部点击触发
+- (void)MenuFirstViewFooterClick{
+    _page.selectIndex = 1;
+}
+
+#pragma mark -自定义TabBar
 - (void)setupTabBar
 {
-    CGFloat buttonWidth = 60;
-    
-    CGFloat margin = (self.view.width - 3 * (buttonWidth)) / 4;
+
+    CGFloat margin = (Width - 3 * (TabViewControllerTabBarWidth)) / 4;
     for (int i= 0; i < 3; i++) {
         UIButton *btn = [[UIButton alloc]init];
-        CGFloat btnx = (margin) * (i + 1)+  buttonWidth * i;
-        CGFloat btny = self.view.height - buttonWidth - 10;
+        CGFloat btnx = (margin) * (i + 1)+  TabViewControllerTabBarWidth * i;
+        CGFloat btny = Height - TabViewControllerTabBarWidth - 10;
         
         [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"btn%d",i]] forState:UIControlStateNormal];
         btn.tag = i;
-        btn.frame = CGRectMake(btnx, btny, buttonWidth, buttonWidth);
+        btn.frame = CGRectMake(btnx, btny, TabViewControllerTabBarWidth, TabViewControllerTabBarWidth);
         [self.view addSubview:btn];
-        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(TabBarbtnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     
 }
-- (void)MenuFirstViewFooterClick{
-    _page.selectIndex = 1;
+
+- (void)TabBarbtnClick:(UIButton *)btn
+
+{
+    UINavigationController *nav = [self.controllersArray objectAtIndex:btn.tag];
+    
+    [nav popToRootViewControllerAnimated:YES];
+    self.selectedIndex = btn.tag;
 }
+#pragma mark - 设置控制器
+- (void)setContainControllers{
+    
+    MenuHomeViewController *page = [self p_defaultController];
+    [self addChildVc:page title:@"主页" image:@"home" selectedImage:@"home"];
+    _page = page;
+    
+    MenuLucyViewController *search = [[MenuLucyViewController alloc]init];
+    [self addChildVc:search title:@"推荐" image:@"home" selectedImage:@"home"];
+    CalendarViewController *mark = [[CalendarViewController alloc]init];
+    [self addChildVc:mark title:@"浏览" image:@"home" selectedImage:@"home"];
+}
+
 - (MenuHomeViewController *)p_defaultController {
+    
     NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
     NSMutableArray *titles = [[NSMutableArray alloc] init];
     for (int i = 0; i < 2; i++) {
@@ -204,8 +225,6 @@
     }
     MenuHomeViewController *pageVC = [[MenuHomeViewController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
     
-  
-   
     pageVC.menuItemWidth = 85;
     pageVC.postNotification = YES;
     pageVC.bounces = YES;
@@ -227,35 +246,8 @@
     [self.controllersArray addObject:nav];
 }
 
-- (void)btnClick:(UIButton *)btn
-
-{
-    UINavigationController *nav = [self.controllersArray objectAtIndex:btn.tag];
-   
-    [nav popToRootViewControllerAnimated:YES];
-    self.selectedIndex = btn.tag;
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    
-    [self.tabBar setHidden:YES];
-}
 
 
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//   [super viewWillAppear:animated];
-//    UIView *statusBarView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 20)];
-//    
-//    statusBarView.backgroundColor=[UIColor redColor];
-//    
-//    [self.view addSubview:statusBarView];
-//    
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-//   
-//}
-//- (UIStatusBarStyle)preferredStatusBarStyle
-//{
-//    return UIStatusBarStyleBlackOpaque;
-//}
+
+
 @end

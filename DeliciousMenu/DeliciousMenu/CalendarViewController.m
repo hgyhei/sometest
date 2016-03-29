@@ -7,8 +7,9 @@
 //
 
 #import "CalendarViewController.h"
-#import <UIImageView+WebCache.h>
 #import "DetailTableViewController.h"
+#import <UIImageView+WebCache.h>
+
 @interface CalendarViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (strong,nonatomic) UITableView * tableView;
 @property (strong,nonatomic) NSMutableArray * dataSource;
@@ -30,11 +31,11 @@
     
     [self getData];
 }
--(void)getData{
+- (void)getData{
     _dataSource=[NSMutableArray arrayWithArray:[fmdbMethod getHistoryCache] ];
     [_tableView reloadData];
 }
--(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"可以删除了");
@@ -48,17 +49,17 @@
 
 
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailTableViewController *vc = [[DetailTableViewController alloc]initWithInfoModel:(infoModel *)[_dataSource objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:vc animated:YES];
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 65;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _dataSource.count;
 }
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString * Identifier=@"cell";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:Identifier];
     if (cell==nil) {

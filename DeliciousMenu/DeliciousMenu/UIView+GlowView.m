@@ -135,13 +135,13 @@ static char glowDurationFlag;
                         
                         if (self.glowLayerOpacity != nil) {
                             
-                            animation.fromValue = @(0.f);
+                            animation.fromValue = @(0.5f);
                             animation.toValue   = [NSNumber numberWithFloat:self.glowLayerOpacity.floatValue];
                             layer.opacity       = self.glowLayerOpacity.floatValue;
                             
                         } else {
                             
-                            animation.fromValue = @(0.f);
+                            animation.fromValue = @(0.5f);
                             animation.toValue   = @(0.8f);
                             layer.opacity       = 0.8;
                             

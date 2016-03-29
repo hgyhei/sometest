@@ -10,7 +10,7 @@
 
 @implementation MenuConst
 
-NSString * const OpenID=@"JHdb05e45abe21dab35da0661d7bb1397d";
+NSString * const OpenID=@"JHc20a521e328149b833e9fd79aa1dae15";
 NSString * const APPID=@"46";
 NSString * const Method_Get=@"GET";
 NSString * const Method_Post=@"POST";
@@ -29,11 +29,13 @@ NSString *const API_category=@"http://apis.juhe.cn/cook/category";
 NSString *const API_queryByTag=@"http://apis.juhe.cn/cook/index";
 //按菜谱ID查看详细
 NSString *const API_queryByID=@"http://apis.juhe.cn/cook/queryid";
-
+CGFloat  const  TabViewControllerTabBarWidth = 60;
 CGFloat  const  MarkCollectionItemWidth = 250;
 CGFloat  const  DetailTableViewHeaderViewHeight = 250;
-
-
+CGFloat  const  MenuFirstViewHeaderViewHeight = 250;
+CGFloat  const  MenuFirstViewHeaderloopViewHeight = 150;
+CGFloat  const  MenuFirstViewHeaderScrollViewHeight = 100;
+CGFloat  const  MenuFirstViewFooterViewHeight = 164;
 NSString *const MenuFirstViewControllerNotification=@"MenuFirstViewControllerNotification";
 NSString *const MenuLeftReuseIdentifier = @"MenuLeftTableViewCell";
 NSString *const InfoCollectionreuseIdentifier = @"InfoCollectionViewCell";

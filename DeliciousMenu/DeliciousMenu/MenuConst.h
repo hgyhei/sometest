@@ -29,10 +29,13 @@ extern NSString *const API_queryByTag;//http://apis.juhe.cn/cook/index
 //按菜谱ID查看详细
 extern NSString *const API_queryByID;//http://apis.juhe.cn/cook/queryid
 extern NSString *const MenuFirstViewControllerNotification;
-
+extern CGFloat  const TabViewControllerTabBarWidth;
 extern CGFloat  const MarkCollectionItemWidth;
 extern CGFloat  const DetailTableViewHeaderViewHeight;
-
+extern CGFloat  const MenuFirstViewHeaderViewHeight;
+extern CGFloat  const MenuFirstViewHeaderloopViewHeight;
+extern CGFloat  const MenuFirstViewHeaderScrollViewHeight;
+extern CGFloat  const MenuFirstViewFooterViewHeight;
 extern NSString *const MenuLeftReuseIdentifier;
 extern NSString *const InfoCollectionreuseIdentifier;
 extern NSString *const StepViewreuseIdentifier;

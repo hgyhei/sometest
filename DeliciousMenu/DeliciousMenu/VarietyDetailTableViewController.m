@@ -8,7 +8,6 @@
 
 #import "VarietyDetailTableViewController.h"
 #import "InfoCollectionViewController.h"
-#import "TagModel.h"
 @interface VarietyDetailTableViewController ()
 @property (nonatomic,strong) TagModel *dataSource;
 @end
@@ -23,14 +22,15 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-     self.tableView.tableFooterView = [[UIView alloc]init];
+    //取消多余分割线
+    self.tableView.tableFooterView = [[UIView alloc]init];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
 }
 
 #pragma mark - Table view data source
 
 - (void)back{
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -61,7 +61,7 @@
     return 60;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  Tag_ListModel *listmodel = self.dataSource.list[indexPath.row];
+    Tag_ListModel *listmodel = self.dataSource.list[indexPath.row];
     InfoCollectionViewController * vc=[[InfoCollectionViewController alloc]initWithTagId:listmodel.id];
     vc.title = listmodel.name;
     [self.navigationController pushViewController:vc animated:YES];

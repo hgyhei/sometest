@@ -15,6 +15,14 @@
 		850775A41CA03AB8002D6ED8 /* DeliciousMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 850775A31CA03AB8002D6ED8 /* DeliciousMenuTests.m */; };
 		850775AF1CA03AB8002D6ED8 /* DeliciousMenuUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 850775AE1CA03AB8002D6ED8 /* DeliciousMenuUITests.m */; };
 		850D9E601CA8F68100CA3D8F /* MenuLucyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9E5F1CA8F68100CA3D8F /* MenuLucyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		850D9ED21CA941ED00CA3D8F /* EmitterLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9ECB1CA941ED00CA3D8F /* EmitterLayerView.m */; settings = {ASSET_TAGS = (); }; };
+		850D9ED31CA941ED00CA3D8F /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9ECD1CA941ED00CA3D8F /* SnowView.m */; settings = {ASSET_TAGS = (); }; };
+		850D9ED41CA941ED00CA3D8F /* FadeBlackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9ECF1CA941ED00CA3D8F /* FadeBlackView.m */; settings = {ASSET_TAGS = (); }; };
+		850D9ED51CA941ED00CA3D8F /* UpdatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9ED11CA941ED00CA3D8F /* UpdatingView.m */; settings = {ASSET_TAGS = (); }; };
+		850D9EE01CA9422B00CA3D8F /* GCDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9ED91CA9422B00CA3D8F /* GCDGroup.m */; settings = {ASSET_TAGS = (); }; };
+		850D9EE11CA9422B00CA3D8F /* GCDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9EDB1CA9422B00CA3D8F /* GCDQueue.m */; settings = {ASSET_TAGS = (); }; };
+		850D9EE21CA9422B00CA3D8F /* GCDSemaphore.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9EDD1CA9422B00CA3D8F /* GCDSemaphore.m */; settings = {ASSET_TAGS = (); }; };
+		850D9EE31CA9422B00CA3D8F /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 850D9EDF1CA9422B00CA3D8F /* GCDTimer.m */; settings = {ASSET_TAGS = (); }; };
 		850F72A71CA13D5F00FE674F /* MarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72A61CA13D5F00FE674F /* MarkViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72A91CA13D6B00FE674F /* CalendarViewController.m */; settings = {ASSET_TAGS = (); }; };
 		850F72AD1CA1703400FE674F /* fmdbMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 850F72AC1CA1703400FE674F /* fmdbMethod.m */; settings = {ASSET_TAGS = (); }; };
@@ -106,6 +114,23 @@
 		850775B01CA03AB8002D6ED8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		850D9E5E1CA8F68100CA3D8F /* MenuLucyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuLucyViewController.h; sourceTree = "<group>"; };
 		850D9E5F1CA8F68100CA3D8F /* MenuLucyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuLucyViewController.m; sourceTree = "<group>"; };
+		850D9ECA1CA941ED00CA3D8F /* EmitterLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmitterLayerView.h; sourceTree = "<group>"; };
+		850D9ECB1CA941ED00CA3D8F /* EmitterLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmitterLayerView.m; sourceTree = "<group>"; };
+		850D9ECC1CA941ED00CA3D8F /* SnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowView.h; sourceTree = "<group>"; };
+		850D9ECD1CA941ED00CA3D8F /* SnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnowView.m; sourceTree = "<group>"; };
+		850D9ECE1CA941ED00CA3D8F /* FadeBlackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeBlackView.h; sourceTree = "<group>"; };
+		850D9ECF1CA941ED00CA3D8F /* FadeBlackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeBlackView.m; sourceTree = "<group>"; };
+		850D9ED01CA941ED00CA3D8F /* UpdatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatingView.h; sourceTree = "<group>"; };
+		850D9ED11CA941ED00CA3D8F /* UpdatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatingView.m; sourceTree = "<group>"; };
+		850D9ED71CA9422B00CA3D8F /* GCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCD.h; sourceTree = "<group>"; };
+		850D9ED81CA9422B00CA3D8F /* GCDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDGroup.h; sourceTree = "<group>"; };
+		850D9ED91CA9422B00CA3D8F /* GCDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDGroup.m; sourceTree = "<group>"; };
+		850D9EDA1CA9422B00CA3D8F /* GCDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDQueue.h; sourceTree = "<group>"; };
+		850D9EDB1CA9422B00CA3D8F /* GCDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDQueue.m; sourceTree = "<group>"; };
+		850D9EDC1CA9422B00CA3D8F /* GCDSemaphore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSemaphore.h; sourceTree = "<group>"; };
+		850D9EDD1CA9422B00CA3D8F /* GCDSemaphore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDSemaphore.m; sourceTree = "<group>"; };
+		850D9EDE1CA9422B00CA3D8F /* GCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTimer.h; sourceTree = "<group>"; };
+		850D9EDF1CA9422B00CA3D8F /* GCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTimer.m; sourceTree = "<group>"; };
 		850F72A51CA13D5F00FE674F /* MarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkViewController.h; sourceTree = "<group>"; };
 		850F72A61CA13D5F00FE674F /* MarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkViewController.m; sourceTree = "<group>"; };
 		850F72A81CA13D6B00FE674F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -242,6 +267,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8505F8501CAA0F0F002B0CCF /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				851F3A381CA1115600F33F9C /* JuheApisSDK */,
+				850D9ED61CA9422B00CA3D8F /* YXGCD */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		8507757D1CA03AB8002D6ED8 = {
 			isa = PBXGroup;
 			children = (
@@ -267,12 +301,12 @@
 		850775881CA03AB8002D6ED8 /* DeliciousMenu */ = {
 			isa = PBXGroup;
 			children = (
+				8505F8501CAA0F0F002B0CCF /* Vendor */,
 				851F3A341CA10FAE00F33F9C /* controller */,
 				85A0380D1CA0DA1100432635 /* view */,
 				85A038061CA0D59F00432635 /* Model */,
 				850F73081CA2710700FE674F /* variety */,
 				851F3A211CA10D0800F33F9C /* main */,
-				851F3A381CA1115600F33F9C /* JuheApisSDK */,
 				850775891CA03AB8002D6ED8 /* Supporting Files */,
 			);
 			path = DeliciousMenu;
@@ -308,6 +342,22 @@
 			path = DeliciousMenuUITests;
 			sourceTree = "<group>";
 		};
+		850D9ED61CA9422B00CA3D8F /* YXGCD */ = {
+			isa = PBXGroup;
+			children = (
+				850D9ED71CA9422B00CA3D8F /* GCD.h */,
+				850D9ED81CA9422B00CA3D8F /* GCDGroup.h */,
+				850D9ED91CA9422B00CA3D8F /* GCDGroup.m */,
+				850D9EDA1CA9422B00CA3D8F /* GCDQueue.h */,
+				850D9EDB1CA9422B00CA3D8F /* GCDQueue.m */,
+				850D9EDC1CA9422B00CA3D8F /* GCDSemaphore.h */,
+				850D9EDD1CA9422B00CA3D8F /* GCDSemaphore.m */,
+				850D9EDE1CA9422B00CA3D8F /* GCDTimer.h */,
+				850D9EDF1CA9422B00CA3D8F /* GCDTimer.m */,
+			);
+			path = YXGCD;
+			sourceTree = "<group>";
+		};
 		850F73081CA2710700FE674F /* variety */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,10 +376,10 @@
 				850F72A61CA13D5F00FE674F /* MarkViewController.m */,
 				85DBDFE91CA27438005C1297 /* MenufirstViewController.h */,
 				85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */,
-				85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */,
-				85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */,
 				85DC17641CA3855E0067EF5E /* MenuSecondViewController.h */,
 				85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */,
+				85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */,
+				85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -341,18 +391,8 @@
 				851F3A331CA10F9600F33F9C /* other */,
 				85A037FA1CA0D4BD00432635 /* category */,
 				851F3A321CA10F8300F33F9C /* const */,
-				851F3A311CA10F7B00F33F9C /* controller */,
 			);
 			name = main;
-			sourceTree = "<group>";
-		};
-		851F3A311CA10F7B00F33F9C /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A221CA10D1300F33F9C /* GYTabBarViewController.h */,
-				851F3A231CA10D1300F33F9C /* GYTabBarViewController.m */,
-			);
-			name = controller;
 			sourceTree = "<group>";
 		};
 		851F3A321CA10F8300F33F9C /* const */ = {
@@ -459,6 +499,14 @@
 				85DC176F1CA3A7300067EF5E /* InfoCollectionViewCell.h */,
 				85DC17701CA3A7300067EF5E /* InfoCollectionViewCell.m */,
 				85DC17711CA3A7300067EF5E /* InfoCollectionViewCell.xib */,
+				850D9ECA1CA941ED00CA3D8F /* EmitterLayerView.h */,
+				850D9ECB1CA941ED00CA3D8F /* EmitterLayerView.m */,
+				850D9ECC1CA941ED00CA3D8F /* SnowView.h */,
+				850D9ECD1CA941ED00CA3D8F /* SnowView.m */,
+				850D9ECE1CA941ED00CA3D8F /* FadeBlackView.h */,
+				850D9ECF1CA941ED00CA3D8F /* FadeBlackView.m */,
+				850D9ED01CA941ED00CA3D8F /* UpdatingView.h */,
+				850D9ED11CA941ED00CA3D8F /* UpdatingView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -535,6 +583,8 @@
 		85F291541CA5121300F08725 /* TabController */ = {
 			isa = PBXGroup;
 			children = (
+				851F3A221CA10D1300F33F9C /* GYTabBarViewController.h */,
+				851F3A231CA10D1300F33F9C /* GYTabBarViewController.m */,
 				85F291461CA4D59E00F08725 /* MenuHomeViewController.h */,
 				85F291471CA4D59E00F08725 /* MenuHomeViewController.m */,
 				851F3A4C1CA12DD400F33F9C /* SearchViewController.h */,
@@ -763,18 +813,23 @@
 				851F3A371CA10FFC00F33F9C /* MenuConst.m in Sources */,
 				85DC176A1CA38B300067EF5E /* SecondVarityTableViewCell.m in Sources */,
 				85A038031CA0D4D100432635 /* UIView+SetRect.m in Sources */,
+				850D9EE21CA9422B00CA3D8F /* GCDSemaphore.m in Sources */,
 				85DC17861CA3BD980067EF5E /* UIImage+initWithColor.m in Sources */,
 				85DBDFF91CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m in Sources */,
 				859429271CA41F0C0049998C /* MenuLoopView.m in Sources */,
 				854DE0F21CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m in Sources */,
+				850D9ED21CA941ED00CA3D8F /* EmitterLayerView.m in Sources */,
 				85A0380C1CA0D5CD00432635 /* infoModel.m in Sources */,
 				850F72A71CA13D5F00FE674F /* MarkViewController.m in Sources */,
+				850D9ED41CA941ED00CA3D8F /* FadeBlackView.m in Sources */,
+				850D9ED31CA941ED00CA3D8F /* SnowView.m in Sources */,
 				851F3A2C1CA10D3B00F33F9C /* UIBarButtonItem+Extension.m in Sources */,
 				8507758E1CA03AB8002D6ED8 /* AppDelegate.m in Sources */,
 				851F3A2D1CA10D3B00F33F9C /* UIButton+Extension.m in Sources */,
 				8594291D1CA3F6700049998C /* MarkCollectionViewCell.m in Sources */,
 				85DC17891CA3C2340067EF5E /* NSString+Extension.m in Sources */,
 				85DC17631CA371970067EF5E /* UIButton+ClickBlock.m in Sources */,
+				850D9EE01CA9422B00CA3D8F /* GCDGroup.m in Sources */,
 				851F3A411CA11DBE00F33F9C /* DetailTableViewController.m in Sources */,
 				851F3A4E1CA12DD400F33F9C /* SearchViewController.m in Sources */,
 				85A038021CA0D4D100432635 /* UIView+GlowView.m in Sources */,
@@ -786,11 +841,14 @@
 				851F3A241CA10D1300F33F9C /* GYTabBarViewController.m in Sources */,
 				85EF81BF1CA7A49700D9B083 /* FirstStyleTransition.m in Sources */,
 				85F291481CA4D59E00F08725 /* MenuHomeViewController.m in Sources */,
+				850D9EE11CA9422B00CA3D8F /* GCDQueue.m in Sources */,
 				85DC17721CA3A7300067EF5E /* InfoCollectionViewCell.m in Sources */,
+				850D9ED51CA941ED00CA3D8F /* UpdatingView.m in Sources */,
 				859429191CA3F4D70049998C /* MarkCollectionLineLayout.m in Sources */,
 				850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */,
 				851F3A4A1CA1250800F33F9C /* BurTableViewCell.m in Sources */,
 				85A038011CA0D4D100432635 /* CALayer+MaskLayer.m in Sources */,
+				850D9EE31CA9422B00CA3D8F /* GCDTimer.m in Sources */,
 				85DC17821CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m in Sources */,
 				851F3A481CA1250800F33F9C /* StepTableViewCell.m in Sources */,
 			);

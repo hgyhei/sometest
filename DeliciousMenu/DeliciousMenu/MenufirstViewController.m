@@ -11,8 +11,6 @@
 #import "VarietyDetailTableViewController.h"
 #import "MarkViewController.h"
 #import "SearchViewController.h"
-#import "TagModel.h"
-#import "infoModel.h"
 #import "MenuSingleView.h"
 #import "MenuLoopView.h"
 #import "FirstVarietyMenuTableViewCell.h"
@@ -49,7 +47,7 @@
       [super viewWillAppear:YES];
    [self.navigationController setNavigationBarHidden:NO];
 }
-#pragma -mark 配置
+#pragma -mark Tableview配置
 - (void)setTableView{
     [self.tableView registerNib:[UINib nibWithNibName:FirstVarietyMenuIdentifier bundle:nil] forCellReuseIdentifier:FirstVarietyMenuIdentifier];
     
@@ -60,30 +58,29 @@
 
 - (void)setHeaderView{
     
-    UIView *headerView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 250)];
-    NSArray *images = @[@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1",@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1",@"19b6d1d5524f58e6d29b60c1e2cf4fa5-1"];
-    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) images:images autoPlay:YES delay:5.0];
+    UIView *headerView =[[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, MenuFirstViewHeaderViewHeight)];
+   
+    NSArray *images = @[@"42c0061b4fe6b64d20c4538d29f70566",@"97ab63ea103a168d82e2732a6523a715",@"b086f27228bd59c7a13522b694853faf"];
+    MenuLoopView *loopView = [[MenuLoopView alloc] initWithFrame:CGRectMake(0, 0, Width, MenuFirstViewHeaderloopViewHeight) images:images autoPlay:YES delay:5.0];
     loopView.delegate = self;
-    
     [headerView addSubview:loopView];
     
     
 
     TagModel *firstmodel = (TagModel *)self.dataSource[0];
     NSUInteger number = firstmodel.list.count;
-    UIScrollView *firstitemScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 150, self.view.width, 100)];
+    UIScrollView *firstitemScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, MenuFirstViewHeaderloopViewHeight, Width, MenuFirstViewHeaderScrollViewHeight)];
     firstitemScrollView.contentSize = CGSizeMake(100 * number, 0);
     firstitemScrollView.showsHorizontalScrollIndicator = NO;
    
     CGFloat margin = 20;
-     CGFloat btnwidth = (self.view.width - 8 * margin) / 4;
+    CGFloat btnwidth = (Width - 8 * margin) / 4;
     for (int i = 0; i < number; i++) {
         Tag_ListModel *listmodel = firstmodel.list[i];
         CGFloat x = (margin + i *(margin * 2 + btnwidth));
-        MenuSingleView *singleView = [[MenuSingleView alloc]initWithFrame:CGRectMake(x, 10, btnwidth, 90)];
+        MenuSingleView *singleView = [[MenuSingleView alloc]initWithFrame:CGRectMake(x, MenuFirstViewHeaderScrollViewHeight*0.1, btnwidth, MenuFirstViewHeaderScrollViewHeight*0.9)];
         singleView.descText = listmodel.name;
         NSString *buttonImgNum = [NSString stringWithFormat:@"s%d",(i+1)];
-       
         singleView.buttonImg = buttonImgNum;
         __weak typeof(self) WeakSelf = self;
         singleView.menuSingleViewButtonClickBlock = ^(void){
@@ -104,12 +101,12 @@
 }
 - (void)setfooterView{
     
-    UIView *footerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 164)];
-    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 10)];
+    UIView *footerview = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, MenuFirstViewFooterViewHeight)];
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, 0, Width, 10)];
     line.backgroundColor = BackGroundLineColor;
     [footerview addSubview:line];
     
-    UIButton *footerButton = [[UIButton alloc]initWithFrame:CGRectMake(20, 20, self.view.width - 40, 40)];
+    UIButton *footerButton = [[UIButton alloc]initWithFrame:CGRectMake(Width*0.1, Width * 0.1, Width * 0.8, 40)];
     footerButton.layer.cornerRadius = 5.0f;
     footerButton.layer.masksToBounds = YES;
     footerButton.backgroundColor = [UIColor orangeColor];
@@ -122,7 +119,7 @@
     self.tableView.tableFooterView = footerview;
 
 }
-#pragma -mark tableview
+#pragma -mark tableview协议
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
 
     return self.dataSource.count-1;

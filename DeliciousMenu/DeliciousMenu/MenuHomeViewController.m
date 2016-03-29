@@ -12,12 +12,11 @@
 #import "PingTransition.h"
 #import "FirstStyleTransition.h"
 #import "UIImage+initWithColor.h"
-#import "UIBarButtonItem+Extension.h"
+
 @implementation MenuHomeViewController
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     self.navigationController.delegate = self;
-//  self.navigationController.navigationBarHidden = YES;
     
     
 }
@@ -36,7 +35,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:YES];
- [self setupNarItem];
+    [self setupNarItem];
 
 }
 //转场按钮

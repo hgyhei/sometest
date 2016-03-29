@@ -11,14 +11,11 @@
 #import "DetailTableViewController.h"
 #import "JHAPISDK.h"
 #import "JHOpenidSupplier.h"
-#import "infoModel.h"
 #import "UIImage+corner.h"
-#import "UIImageView+WebCache.h"
+
 
 @interface InfoCollectionViewController ()<UISearchBarDelegate>
 {
-    MJRefreshComponent *myRefreshView;
-    NSInteger page;
     BOOL _isSearch;
     NSString* _tagId;
     NSString * _searchText;
@@ -47,7 +44,6 @@ static int pn=0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNav];
-   
     [self.collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.collectionView registerNib:[UINib nibWithNibName:InfoCollectionreuseIdentifier bundle:nil] forCellWithReuseIdentifier:InfoCollectionreuseIdentifier];
      self.navigationController.navigationBar.translucent = NO;
@@ -107,7 +103,7 @@ static int pn=0;
       self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
 }
 
--(void)setupRefresh{
+- (void)setupRefresh{
     
     // 下拉刷新
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -143,6 +139,7 @@ static int pn=0;
   
 
 }
+#pragma mark - 数据请求
 - (void)getDataByTagId{
      NSString *url = [NSString stringWithFormat:@"%@?cid=%@&pn=%d&rn=%d",API_queryByTag,_tagId,pn,10];
     if (![fmdbMethod urlContains:url]) {
@@ -224,7 +221,7 @@ static int pn=0;
     
 
 }
-
+#pragma Mark -CollectionView
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat margin  = 15;
@@ -256,12 +253,14 @@ static int pn=0;
     cell.infolabel.font = [UIFont systemFontOfSize:15];
     return cell;
 }
+/*
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-//    cell.layer.transform=CATransform3DMakeScale(0.8, 0.8, 1);
-//    [UIView animateWithDuration:1.25 animations:^{
-//        cell.layer.transform=CATransform3DMakeScale(1, 1, 1);
-//    }];
+    cell.layer.transform=CATransform3DMakeScale(0.8, 0.8, 1);
+    [UIView animateWithDuration:1.25 animations:^{
+        cell.layer.transform=CATransform3DMakeScale(1, 1, 1);
+    }];
 }
+ */
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
    
     DetailTableViewController * vc=[[DetailTableViewController alloc]initWithInfoModel:(infoModel *)[_dataSource objectAtIndex:indexPath.row]];

@@ -9,3 +9,4 @@ pod 'FMDB'
 pod 'WMPageController'
 pod 'iCarousel'
 pod 'pop', '~> 1.0'
+pod "MDCSwipeToChoose"
