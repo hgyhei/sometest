@@ -7,7 +7,7 @@
 //
 
 #import "fmdbMethod.h"
-#import "infoModel.h"
+
 
 @implementation fmdbMethod
 + (fmdbMethod *)sharedInstance

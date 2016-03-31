@@ -37,12 +37,20 @@
    
 }
 - (void)viewWillAppear:(BOOL)animated{
-    
+    [super viewWillAppear:YES];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"iconfont-fanhui"highImage:@"iconfont-fanhui"];
     self.navigationController.navigationBar.translucent = YES;
     
 }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    self.navigationController.navigationBar.translucent = NO;
 
+}
+- (void)back{
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 - (void)setData{
 
