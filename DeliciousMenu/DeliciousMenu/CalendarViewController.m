@@ -38,7 +38,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSLog(@"可以删除了");
+//        NSLog(@"可以删除了");
         [ fmdbMethod deleteHistoryWithCookId:((infoModel *)[_dataSource objectAtIndex:indexPath.row]).id];
         
         [_dataSource removeObjectAtIndex:indexPath.row];

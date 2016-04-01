@@ -16,7 +16,7 @@
     self = [super initWithFrame:CGRectMake(0, 0, Width, Height)];
     if (self) {
         
-        self.backgroundColor = [UIColor colorWithRed:236.0f/255.0f green:172.0f/255.0f blue:199.0f/255.0f alpha:1.0f];
+        self.backgroundColor = [UIColor colorWithRed:200.0F/255.0f green:200.0F/255.0f blue:99.0f/255.0f alpha:1.0f];
         self.alpha           = 0.f;
     }
     

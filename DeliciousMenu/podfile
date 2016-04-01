@@ -4,9 +4,6 @@ pod 'MJExtension'
 pod "SDWebImage"
 pod 'MJRefresh'
 pod "MBProgressHUD"
-pod 'Reachability'
 pod 'FMDB'
 pod 'WMPageController'
-pod 'iCarousel'
-pod 'pop', '~> 1.0'
 pod "MDCSwipeToChoose"

@@ -72,9 +72,11 @@
     UIScrollView *firstitemScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, MenuFirstViewHeaderloopViewHeight, Width, MenuFirstViewHeaderScrollViewHeight)];
     firstitemScrollView.contentSize = CGSizeMake(100 * number, 0);
     firstitemScrollView.showsHorizontalScrollIndicator = NO;
-   
+
     CGFloat margin = 20;
     CGFloat btnwidth = (Width - 8 * margin) / 4;
+
+    
     for (int i = 0; i < number; i++) {
         Tag_ListModel *listmodel = firstmodel.list[i];
         CGFloat x = (margin + i *(margin * 2 + btnwidth));
@@ -142,7 +144,8 @@
          UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
             Tag_ListModel *listmodel = firstmodel.list[indexPath.row];
             cell.textLabel.text = listmodel.name;
-         cell.imageView.image = defaultImage;
+         NSString *imgNum = [NSString stringWithFormat:@"v%ld",indexPath.row + 1];
+         cell.imageView.image = [UIImage imageNamed:imgNum];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
@@ -165,7 +168,8 @@
         if ([obj isKindOfClass:[UIButton class]]) {
             UIButton *btn = obj;
             Tag_ListModel *listmodel = firstmodel.list[j];
-            [btn setImage:defaultImage forState:UIControlStateNormal];
+            
+            [btn setImage:[UIImage imageNamed:@"m2"] forState:UIControlStateNormal];
             __weak typeof (self)WeakSelf = self;
             btn.buttonClickBlock = ^(void){
                 InfoCollectionViewController *vc=[[InfoCollectionViewController alloc]initWithTagId:listmodel.id];

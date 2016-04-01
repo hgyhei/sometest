@@ -49,6 +49,7 @@
 }
 - (void)viewDidLoad{
     [super viewDidLoad];
+   
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"lucyMenu"]];
 
      // 变黑
@@ -59,15 +60,18 @@
     self.upDatingView        = [[UpdatingView alloc] initWithFrame:CGRectZero];
     self.upDatingView.center = self.view.center;
     [self.view addSubview:self.upDatingView];
+    [self refreshMenu];
     
 }
 - (void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:YES];
     self.navigationController.navigationBar.translucent = YES;
      [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.0f]] forBarMetrics:UIBarMetricsDefault];
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(refreshMenu) image:@"iconfont-shuaxin"highImage:@"iconfont-shuaxin-heigh"];
 }
+
 - (void)refreshMenu{
     [self.fadeBlackView show];
     [self.upDatingView show];
@@ -130,7 +134,7 @@
     
 
 - (void)setSwipView{
-    [GCDQueue executeInMainQueue:^{
+   
         
        
        
@@ -175,7 +179,7 @@
         }
         
         
-    } afterDelaySecs:1.f];
+ 
    
     
 }
@@ -194,7 +198,7 @@
 
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     if (direction == MDCSwipeDirectionRight) {
-        NSLog(@"MDCSwipeDirectionLeft");
+//        NSLog(@"MDCSwipeDirectionLeft");
         infoModel *model = self.imgData[_index];
         DetailTableViewController * vc=[[DetailTableViewController alloc]initWithInfoModel:model];
       

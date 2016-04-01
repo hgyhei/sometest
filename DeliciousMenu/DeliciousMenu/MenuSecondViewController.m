@@ -132,6 +132,7 @@
     TagModel *leftmodel = self.dataSource[leftcount];
     TagModel *rightmodel = self.dataSource[rightcount];
      SecondVarityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SecondVarietyMenuIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell.leftHalfButton setTitle:leftmodel.name forState:UIControlStateNormal];
     [cell.rightHalfButton setTitle:rightmodel.name forState:UIControlStateNormal];
     

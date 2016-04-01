@@ -152,7 +152,9 @@
     return NO;
 }
 - (void)initNotificationCenter{
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(MenuFirstViewFooterClick) name:MenuFirstViewControllerNotification object:nil];
+    
 }
 //第一分页底部点击触发
 - (void)MenuFirstViewFooterClick{
@@ -170,6 +172,7 @@
         CGFloat btny = Height - TabViewControllerTabBarWidth - 10;
         
         [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"btn%d",i]] forState:UIControlStateNormal];
+        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"btnheight%d",i]] forState:UIControlStateHighlighted];
         btn.tag = i;
         btn.frame = CGRectMake(btnx, btny, TabViewControllerTabBarWidth, TabViewControllerTabBarWidth);
         [self.view addSubview:btn];
@@ -182,10 +185,13 @@
 - (void)TabBarbtnClick:(UIButton *)btn
 
 {
+    self.selectedIndex = btn.tag;
+    
     UINavigationController *nav = [self.controllersArray objectAtIndex:btn.tag];
     
     [nav popToRootViewControllerAnimated:YES];
-    self.selectedIndex = btn.tag;
+  
+   
 }
 #pragma mark - 设置控制器
 - (void)setContainControllers{

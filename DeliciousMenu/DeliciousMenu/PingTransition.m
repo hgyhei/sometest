@@ -133,13 +133,7 @@
 }
 
 
-- (void)pop_animationDidStop:(POPAnimation *)anim finished:(BOOL)finished{
-    //告诉 iOS 这个 transition 完成
-    [self.transitionContext completeTransition:![self. transitionContext transitionWasCancelled]];
-    //清除 fromVC 的 mask
-    [self.transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey].view.layer.mask = nil;
-    [self.transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view.layer.mask = nil;
-}
+
 #pragma mark - CABasicAnimation的Delegate
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
 

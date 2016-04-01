@@ -65,7 +65,7 @@
             for (int i = 0; i<item.steps.count; i++) {
                 StepModel *model = [item.steps objectAtIndex:i];
                 NSString *sql_stepModel = [NSString stringWithFormat:@"insert into T_Step (img,step,xh,cookId) values ('%@','%@',%d,'%@')",model.img,model.step,i,item.id];
-                   NSLog(@"%@",sql_stepModel);
+//                   NSLog(@"%@",sql_stepModel);
                 result = [db executeUpdate:sql_stepModel];
                 if (!result) {
 //                    NSLog(@"插入失败 sql:%@  %@",item.title,model.step);
@@ -140,7 +140,7 @@
             NSString *sql_infomodel = [NSString stringWithFormat:@"insert into T_Cook (id,uid,title,tags,imtro,ingredients,burden,albums) values ('%@',%d,'%@','%@','%@','%@','%@','%@')",infoModel.id,0,infoModel.title,infoModel.tags,infoModel.imtro,infoModel.ingredients,infoModel.burden,[infoModel.albums objectAtIndex:0]];
             result = [db executeUpdate:sql_infomodel];
             if (!result) {
-                NSLog(@"插入失败 sql:%@",sql_infomodel);
+//                NSLog(@"插入失败 sql:%@",sql_infomodel);
             }
             //插入步骤信息
             for (int i = 0; i<infoModel.steps.count; i++) {
@@ -149,7 +149,7 @@
                 // NSLog(@"%@",sql_stepModel);
                 result = [db executeUpdate:sql_stepModel];
                 if (!result) {
-                    NSLog(@"插入失败 sql:%@  %@",infoModel.title,model.step);
+//                    NSLog(@"插入失败 sql:%@  %@",infoModel.title,model.step);
                 }
             }
             
@@ -165,7 +165,7 @@
         NSString * sql_history = [NSString stringWithFormat:@"insert into T_History (cookId) values ('%@')",infoModel.id];
         result = [db executeUpdate:sql_history];
         if (!result) {
-            NSLog(@"插入历史记录表失败 sql=%@",sql_history);
+//            NSLog(@"插入历史记录表失败 sql=%@",sql_history);
         }
         
     }
@@ -210,7 +210,7 @@
     NSString * sql = [NSString stringWithFormat:@"delete from T_History where cookId='%@'",cookId];
     BOOL result = [db executeUpdate:sql];
     if (!result) {
-        NSLog(@"删除浏览记录失败");
+//        NSLog(@"删除浏览记录失败");
     }
     [db close];
     return result;
