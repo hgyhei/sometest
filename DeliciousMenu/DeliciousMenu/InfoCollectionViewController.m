@@ -242,16 +242,8 @@ static int pn=0;
     InfoCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:InfoCollectionreuseIdentifier forIndexPath:indexPath];
     infoModel *model = [_dataSource objectAtIndex:indexPath.row];
     // Configure the cell
-   
-    [cell.infoimg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:defaultImage ];
-   
-    
-  
-    cell.infolabel.text = model.title;
-    cell.infolabel.textColor = [UIColor blackColor];
-    
-    cell.infolabel.font = [UIFont systemFontOfSize:15];
-    return cell;
+    cell.model = model;
+      return cell;
 }
 /*
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

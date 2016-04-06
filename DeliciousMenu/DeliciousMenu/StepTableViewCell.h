@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @property (nonatomic, strong) UIFont *currFont;
+@property (nonatomic,strong) StepModel *stepmodel;
 -(void)initText;
 @end

@@ -14,5 +14,4 @@
 @property (weak, nonatomic) IBOutlet UIImageView *leftHalfImg;
 @property (weak, nonatomic) IBOutlet UIImageView *rightHalfImg;
 
-
 @end

@@ -98,6 +98,7 @@
 }
 
 - (void)setupHeaderView{
+    
     UIView *headerView = [[UIView alloc]init];
     UIImageView *img = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, DetailTableViewHeaderViewHeight)];
       [img sd_setImageWithURL:[_dataSource.albums objectAtIndex:0] placeholderImage:defaultImage];
@@ -130,6 +131,7 @@
 }
 #pragma mark -导航栏按钮设置
 - (void)setupNavButtonItem{
+    
     _favButton = [UIBarButtonItem itemWithTarget:self action:@selector(addInFavSource) image:@"iconfont-weishoucang"highImage:@"iconfont-shanchu"];
    
     _delButton = [UIBarButtonItem itemWithTarget:self action:@selector(deleteFromFavSource) image:@"iconfont-shanchu"highImage:@"iconfont-weishoucang"];
@@ -255,10 +257,7 @@
     else {
         StepTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:StepViewreuseIdentifier forIndexPath:indexPath];
         StepModel* model=((StepModel*)[_dataSource.steps objectAtIndex:indexPath.section -1]);
-        [cell.imgView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:defaultImage];
-        [cell.textView setText:model.step];
-        cell.currFont=[UIFont systemFontOfSize:16];
-        [cell initText];
+        cell.stepmodel = model;
         return cell;
     }
     

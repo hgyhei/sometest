@@ -11,4 +11,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *infoimg;
 
 @property (weak, nonatomic) IBOutlet UILabel *infolabel;
+@property (nonatomic,strong) infoModel *model;
 @end

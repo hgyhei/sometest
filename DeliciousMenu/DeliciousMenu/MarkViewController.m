@@ -100,15 +100,8 @@ static NSString *const ID = @"image";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
      MarkCollectionViewCell  *cell = [collectionView dequeueReusableCellWithReuseIdentifier:MarkCollectionViewIdentifier forIndexPath:indexPath];
-   
-    
     infoModel * model=(infoModel*)[favModels objectAtIndex:indexPath.row];
-    [ cell.markImg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"tran"]];
-    cell.markName.text = model.title;
-//
-//    cell.textLabel.text=model.title;
-//    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
-//    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    cell.model = model;
     return cell;
 }
 

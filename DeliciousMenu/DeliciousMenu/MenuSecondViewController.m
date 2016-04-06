@@ -158,7 +158,6 @@
         vc.title = rightmodel.name;
         [WeakSelf.navigationController pushViewController:vc animated:YES];
         
-        
     };
 
     return cell;

@@ -12,7 +12,14 @@
 - (void)awakeFromNib {
     // Initialization code
 }
+- (void)setStepmodel:(StepModel *)stepmodel{
+    _stepmodel = stepmodel;
+    [_imgView sd_setImageWithURL:[NSURL URLWithString:_stepmodel.img] placeholderImage:defaultImage];
+    [_textView setText:_stepmodel.step];
+    _currFont=[UIFont systemFontOfSize:16];
+    [self initText];
 
+}
 -(void)initText{
     CGRect textViewRect = CGRectInset(self.contentView.frame, 15, 0);
     //需要显示的文字信息

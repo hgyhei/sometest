@@ -13,5 +13,9 @@
 - (void)awakeFromNib {
     // Initialization code
 }
-
+- (void)setModel:(infoModel *)model{
+    _model = model;
+    [_markImg sd_setImageWithURL:[NSURL URLWithString:[model.albums objectAtIndex:0]] placeholderImage:[UIImage imageNamed:@"tran"]];
+    _markName.text = model.title;
+}
 @end
