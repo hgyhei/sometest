@@ -302,11 +302,11 @@
 			isa = PBXGroup;
 			children = (
 				8505F8501CAA0F0F002B0CCF /* Vendor */,
-				851F3A341CA10FAE00F33F9C /* controller */,
-				85A0380D1CA0DA1100432635 /* view */,
+				851F3A341CA10FAE00F33F9C /* Controller */,
+				85A0380D1CA0DA1100432635 /* View */,
 				85A038061CA0D59F00432635 /* Model */,
-				850F73081CA2710700FE674F /* variety */,
-				851F3A211CA10D0800F33F9C /* main */,
+				850F73081CA2710700FE674F /* Variety */,
+				851F3A211CA10D0800F33F9C /* Main */,
 				850775891CA03AB8002D6ED8 /* Supporting Files */,
 			);
 			path = DeliciousMenu;
@@ -358,7 +358,7 @@
 			path = YXGCD;
 			sourceTree = "<group>";
 		};
-		850F73081CA2710700FE674F /* variety */ = {
+		850F73081CA2710700FE674F /* Variety */ = {
 			isa = PBXGroup;
 			children = (
 				85EF81BC1CA794D400D9B083 /* layout */,
@@ -366,12 +366,14 @@
 				85DBDFEE1CA2A071005C1297 /* view */,
 				850F73091CA2713500FE674F /* controller */,
 			);
-			name = variety;
+			name = Variety;
 			sourceTree = "<group>";
 		};
 		850F73091CA2713500FE674F /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				851F3A4C1CA12DD400F33F9C /* SearchViewController.h */,
+				851F3A4D1CA12DD400F33F9C /* SearchViewController.m */,
 				850F72A51CA13D5F00FE674F /* MarkViewController.h */,
 				850F72A61CA13D5F00FE674F /* MarkViewController.m */,
 				85DBDFE91CA27438005C1297 /* MenufirstViewController.h */,
@@ -384,7 +386,7 @@
 			name = controller;
 			sourceTree = "<group>";
 		};
-		851F3A211CA10D0800F33F9C /* main */ = {
+		851F3A211CA10D0800F33F9C /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				85EF81BB1CA794B800D9B083 /* fmdb */,
@@ -392,7 +394,7 @@
 				85A037FA1CA0D4BD00432635 /* category */,
 				851F3A321CA10F8300F33F9C /* const */,
 			);
-			name = main;
+			name = Main;
 			sourceTree = "<group>";
 		};
 		851F3A321CA10F8300F33F9C /* const */ = {
@@ -416,13 +418,13 @@
 			name = other;
 			sourceTree = "<group>";
 		};
-		851F3A341CA10FAE00F33F9C /* controller */ = {
+		851F3A341CA10FAE00F33F9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				85F291541CA5121300F08725 /* TabController */,
-				85F291531CA511EA00F08725 /* loadController */,
+				85F291531CA511EA00F08725 /* LoadController */,
 			);
-			name = controller;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		851F3A381CA1115600F33F9C /* JuheApisSDK */ = {
@@ -487,7 +489,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		85A0380D1CA0DA1100432635 /* view */ = {
+		85A0380D1CA0DA1100432635 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				851F3A421CA1250800F33F9C /* StepTableViewCell.h */,
@@ -508,7 +510,7 @@
 				850D9ED01CA941ED00CA3D8F /* UpdatingView.h */,
 				850D9ED11CA941ED00CA3D8F /* UpdatingView.m */,
 			);
-			name = view;
+			name = View;
 			sourceTree = "<group>";
 		};
 		85DBDFEE1CA2A071005C1297 /* view */ = {
@@ -569,7 +571,7 @@
 			name = transition;
 			sourceTree = "<group>";
 		};
-		85F291531CA511EA00F08725 /* loadController */ = {
+		85F291531CA511EA00F08725 /* LoadController */ = {
 			isa = PBXGroup;
 			children = (
 				85A0382D1CA0F7AE00432635 /* InfoCollectionViewController.h */,
@@ -577,7 +579,7 @@
 				851F3A3F1CA11DBE00F33F9C /* DetailTableViewController.h */,
 				851F3A401CA11DBE00F33F9C /* DetailTableViewController.m */,
 			);
-			name = loadController;
+			name = LoadController;
 			sourceTree = "<group>";
 		};
 		85F291541CA5121300F08725 /* TabController */ = {
@@ -587,8 +589,6 @@
 				851F3A231CA10D1300F33F9C /* GYTabBarViewController.m */,
 				85F291461CA4D59E00F08725 /* MenuHomeViewController.h */,
 				85F291471CA4D59E00F08725 /* MenuHomeViewController.m */,
-				851F3A4C1CA12DD400F33F9C /* SearchViewController.h */,
-				851F3A4D1CA12DD400F33F9C /* SearchViewController.m */,
 				850F72A81CA13D6B00FE674F /* CalendarViewController.h */,
 				850F72A91CA13D6B00FE674F /* CalendarViewController.m */,
 				850D9E5E1CA8F68100CA3D8F /* MenuLucyViewController.h */,
