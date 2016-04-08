@@ -40,7 +40,6 @@
 		851F3A4E1CA12DD400F33F9C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A4D1CA12DD400F33F9C /* SearchViewController.m */; settings = {ASSET_TAGS = (); }; };
 		854DE0F21CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 854DE0F01CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		854DE0F31CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854DE0F11CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		859429191CA3F4D70049998C /* MarkCollectionLineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 859429181CA3F4D70049998C /* MarkCollectionLineLayout.m */; settings = {ASSET_TAGS = (); }; };
 		8594291D1CA3F6700049998C /* MarkCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8594291B1CA3F6700049998C /* MarkCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		8594291E1CA3F6700049998C /* MarkCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8594291C1CA3F6700049998C /* MarkCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		859429271CA41F0C0049998C /* MenuLoopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 859429261CA41F0C0049998C /* MenuLoopView.m */; settings = {ASSET_TAGS = (); }; };
@@ -162,8 +161,6 @@
 		854DE0EF1CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVarietyMenuTableViewCell.h; sourceTree = "<group>"; };
 		854DE0F01CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVarietyMenuTableViewCell.m; sourceTree = "<group>"; };
 		854DE0F11CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstVarietyMenuTableViewCell.xib; sourceTree = "<group>"; };
-		859429171CA3F4D70049998C /* MarkCollectionLineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkCollectionLineLayout.h; sourceTree = "<group>"; };
-		859429181CA3F4D70049998C /* MarkCollectionLineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkCollectionLineLayout.m; sourceTree = "<group>"; };
 		8594291A1CA3F6700049998C /* MarkCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkCollectionViewCell.h; sourceTree = "<group>"; };
 		8594291B1CA3F6700049998C /* MarkCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkCollectionViewCell.m; sourceTree = "<group>"; };
 		8594291C1CA3F6700049998C /* MarkCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -301,12 +298,16 @@
 		850775881CA03AB8002D6ED8 /* DeliciousMenu */ = {
 			isa = PBXGroup;
 			children = (
+				85789B821CB73BAD000A5120 /* Resource */,
+				85789B801CB73B58000A5120 /* Transition */,
+				85789B7E1CB73AB2000A5120 /* FMDBMethod */,
+				85789B7D1CB73A70000A5120 /* Other */,
+				85789B7C1CB73A42000A5120 /* Const */,
+				85789B7B1CB73A1D000A5120 /* Category */,
 				8505F8501CAA0F0F002B0CCF /* Vendor */,
 				851F3A341CA10FAE00F33F9C /* Controller */,
 				85A0380D1CA0DA1100432635 /* View */,
 				85A038061CA0D59F00432635 /* Model */,
-				850F73081CA2710700FE674F /* Variety */,
-				851F3A211CA10D0800F33F9C /* Main */,
 				850775891CA03AB8002D6ED8 /* Supporting Files */,
 			);
 			path = DeliciousMenu;
@@ -315,10 +316,7 @@
 		850775891CA03AB8002D6ED8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				850775951CA03AB8002D6ED8 /* Assets.xcassets */,
 				8507758A1CA03AB8002D6ED8 /* main.m */,
-				85A038041CA0D4DD00432635 /* TagList.plist */,
-				85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */,
 				85A037F91CA0D48500432635 /* Menu_PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
@@ -358,69 +356,10 @@
 			path = YXGCD;
 			sourceTree = "<group>";
 		};
-		850F73081CA2710700FE674F /* Variety */ = {
-			isa = PBXGroup;
-			children = (
-				85EF81BC1CA794D400D9B083 /* layout */,
-				85F291491CA4DA3600F08725 /* transition */,
-				85DBDFEE1CA2A071005C1297 /* view */,
-				850F73091CA2713500FE674F /* controller */,
-			);
-			name = Variety;
-			sourceTree = "<group>";
-		};
-		850F73091CA2713500FE674F /* controller */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A4C1CA12DD400F33F9C /* SearchViewController.h */,
-				851F3A4D1CA12DD400F33F9C /* SearchViewController.m */,
-				850F72A51CA13D5F00FE674F /* MarkViewController.h */,
-				850F72A61CA13D5F00FE674F /* MarkViewController.m */,
-				85DBDFE91CA27438005C1297 /* MenufirstViewController.h */,
-				85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */,
-				85DC17641CA3855E0067EF5E /* MenuSecondViewController.h */,
-				85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */,
-				85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */,
-				85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */,
-			);
-			name = controller;
-			sourceTree = "<group>";
-		};
-		851F3A211CA10D0800F33F9C /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				85EF81BB1CA794B800D9B083 /* fmdb */,
-				851F3A331CA10F9600F33F9C /* other */,
-				85A037FA1CA0D4BD00432635 /* category */,
-				851F3A321CA10F8300F33F9C /* const */,
-			);
-			name = Main;
-			sourceTree = "<group>";
-		};
-		851F3A321CA10F8300F33F9C /* const */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A351CA10FFC00F33F9C /* MenuConst.h */,
-				851F3A361CA10FFC00F33F9C /* MenuConst.m */,
-			);
-			name = const;
-			sourceTree = "<group>";
-		};
-		851F3A331CA10F9600F33F9C /* other */ = {
-			isa = PBXGroup;
-			children = (
-				8507758C1CA03AB8002D6ED8 /* AppDelegate.h */,
-				8507758D1CA03AB8002D6ED8 /* AppDelegate.m */,
-				850775921CA03AB8002D6ED8 /* Main.storyboard */,
-				8507759A1CA03AB8002D6ED8 /* Info.plist */,
-				850775971CA03AB8002D6ED8 /* LaunchScreen.storyboard */,
-			);
-			name = other;
-			sourceTree = "<group>";
-		};
 		851F3A341CA10FAE00F33F9C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				85789B811CB73B73000A5120 /* VarietyController */,
 				85F291541CA5121300F08725 /* TabController */,
 				85F291531CA511EA00F08725 /* LoadController */,
 			);
@@ -453,7 +392,7 @@
 			path = JuheApisSDK;
 			sourceTree = "<group>";
 		};
-		85A037FA1CA0D4BD00432635 /* category */ = {
+		85789B7B1CB73A1D000A5120 /* Category */ = {
 			isa = PBXGroup;
 			children = (
 				85DC17871CA3C2340067EF5E /* NSString+Extension.h */,
@@ -475,7 +414,87 @@
 				85DC17771CA3AF640067EF5E /* UIImage+corner.h */,
 				85DC17781CA3AF640067EF5E /* UIImage+corner.m */,
 			);
-			name = category;
+			name = Category;
+			sourceTree = "<group>";
+		};
+		85789B7C1CB73A42000A5120 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				851F3A351CA10FFC00F33F9C /* MenuConst.h */,
+				851F3A361CA10FFC00F33F9C /* MenuConst.m */,
+			);
+			name = Const;
+			sourceTree = "<group>";
+		};
+		85789B7D1CB73A70000A5120 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8507758C1CA03AB8002D6ED8 /* AppDelegate.h */,
+				8507758D1CA03AB8002D6ED8 /* AppDelegate.m */,
+				850775921CA03AB8002D6ED8 /* Main.storyboard */,
+				8507759A1CA03AB8002D6ED8 /* Info.plist */,
+				850775971CA03AB8002D6ED8 /* LaunchScreen.storyboard */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		85789B7E1CB73AB2000A5120 /* FMDBMethod */ = {
+			isa = PBXGroup;
+			children = (
+				850F72AB1CA1703400FE674F /* fmdbMethod.h */,
+				850F72AC1CA1703400FE674F /* fmdbMethod.m */,
+			);
+			name = FMDBMethod;
+			sourceTree = "<group>";
+		};
+		85789B801CB73B58000A5120 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				85F291501CA4EA6F00F08725 /* PingInvertTransition.h */,
+				85F291511CA4EA6F00F08725 /* PingInvertTransition.m */,
+				85F2914A1CA4DA4600F08725 /* PingTransition.h */,
+				85F2914B1CA4DA4600F08725 /* PingTransition.m */,
+				85EF81BD1CA7A49700D9B083 /* FirstStyleTransition.h */,
+				85EF81BE1CA7A49700D9B083 /* FirstStyleTransition.m */,
+				85EF81C01CA7ADFB00D9B083 /* FirstBackTransition.h */,
+				85EF81C11CA7ADFB00D9B083 /* FirstBackTransition.m */,
+			);
+			name = Transition;
+			sourceTree = "<group>";
+		};
+		85789B811CB73B73000A5120 /* VarietyController */ = {
+			isa = PBXGroup;
+			children = (
+				851F3A4C1CA12DD400F33F9C /* SearchViewController.h */,
+				851F3A4D1CA12DD400F33F9C /* SearchViewController.m */,
+				850F72A51CA13D5F00FE674F /* MarkViewController.h */,
+				850F72A61CA13D5F00FE674F /* MarkViewController.m */,
+				85DBDFE91CA27438005C1297 /* MenufirstViewController.h */,
+				85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */,
+				85DC17641CA3855E0067EF5E /* MenuSecondViewController.h */,
+				85DC17651CA3855E0067EF5E /* MenuSecondViewController.m */,
+				85DBDFFA1CA2BD57005C1297 /* VarietyDetailTableViewController.h */,
+				85DBDFFB1CA2BD57005C1297 /* VarietyDetailTableViewController.m */,
+			);
+			name = VarietyController;
+			sourceTree = "<group>";
+		};
+		85789B821CB73BAD000A5120 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				85789B831CB73BC6000A5120 /* Plist */,
+				850775951CA03AB8002D6ED8 /* Assets.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		85789B831CB73BC6000A5120 /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				85A038041CA0D4DD00432635 /* TagList.plist */,
+				85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */,
+			);
+			name = Plist;
 			sourceTree = "<group>";
 		};
 		85A038061CA0D59F00432635 /* Model */ = {
@@ -492,35 +511,18 @@
 		85A0380D1CA0DA1100432635 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				851F3A421CA1250800F33F9C /* StepTableViewCell.h */,
-				851F3A431CA1250800F33F9C /* StepTableViewCell.m */,
-				851F3A441CA1250800F33F9C /* StepTableViewCell.xib */,
 				851F3A451CA1250800F33F9C /* BurTableViewCell.h */,
 				851F3A461CA1250800F33F9C /* BurTableViewCell.m */,
 				851F3A471CA1250800F33F9C /* BurTableViewCell.xib */,
+				851F3A421CA1250800F33F9C /* StepTableViewCell.h */,
+				851F3A431CA1250800F33F9C /* StepTableViewCell.m */,
+				851F3A441CA1250800F33F9C /* StepTableViewCell.xib */,
 				85DC176F1CA3A7300067EF5E /* InfoCollectionViewCell.h */,
 				85DC17701CA3A7300067EF5E /* InfoCollectionViewCell.m */,
 				85DC17711CA3A7300067EF5E /* InfoCollectionViewCell.xib */,
-				850D9ECA1CA941ED00CA3D8F /* EmitterLayerView.h */,
-				850D9ECB1CA941ED00CA3D8F /* EmitterLayerView.m */,
-				850D9ECC1CA941ED00CA3D8F /* SnowView.h */,
-				850D9ECD1CA941ED00CA3D8F /* SnowView.m */,
-				850D9ECE1CA941ED00CA3D8F /* FadeBlackView.h */,
-				850D9ECF1CA941ED00CA3D8F /* FadeBlackView.m */,
-				850D9ED01CA941ED00CA3D8F /* UpdatingView.h */,
-				850D9ED11CA941ED00CA3D8F /* UpdatingView.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
-		85DBDFEE1CA2A071005C1297 /* view */ = {
-			isa = PBXGroup;
-			children = (
 				8594291A1CA3F6700049998C /* MarkCollectionViewCell.h */,
 				8594291B1CA3F6700049998C /* MarkCollectionViewCell.m */,
 				8594291C1CA3F6700049998C /* MarkCollectionViewCell.xib */,
-				85DBDFF41CA2A18F005C1297 /* MenuSingleView.h */,
-				85DBDFF51CA2A18F005C1297 /* MenuSingleView.m */,
 				85DBDFF71CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.h */,
 				85DBDFF81CA2B30A005C1297 /* MenuVarietyBaseTableViewCell.m */,
 				854DE0EF1CA2C9BD00B65658 /* FirstVarietyMenuTableViewCell.h */,
@@ -532,43 +534,20 @@
 				85DC177F1CA3B8480067EF5E /* VarietyDetailCollectionViewCell.h */,
 				85DC17801CA3B8480067EF5E /* VarietyDetailCollectionViewCell.m */,
 				85DC17811CA3B8480067EF5E /* VarietyDetailCollectionViewCell.xib */,
+				85DBDFF41CA2A18F005C1297 /* MenuSingleView.h */,
+				85DBDFF51CA2A18F005C1297 /* MenuSingleView.m */,
 				859429251CA41F0C0049998C /* MenuLoopView.h */,
 				859429261CA41F0C0049998C /* MenuLoopView.m */,
+				850D9ECA1CA941ED00CA3D8F /* EmitterLayerView.h */,
+				850D9ECB1CA941ED00CA3D8F /* EmitterLayerView.m */,
+				850D9ECC1CA941ED00CA3D8F /* SnowView.h */,
+				850D9ECD1CA941ED00CA3D8F /* SnowView.m */,
+				850D9ECE1CA941ED00CA3D8F /* FadeBlackView.h */,
+				850D9ECF1CA941ED00CA3D8F /* FadeBlackView.m */,
+				850D9ED01CA941ED00CA3D8F /* UpdatingView.h */,
+				850D9ED11CA941ED00CA3D8F /* UpdatingView.m */,
 			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		85EF81BB1CA794B800D9B083 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				850F72AB1CA1703400FE674F /* fmdbMethod.h */,
-				850F72AC1CA1703400FE674F /* fmdbMethod.m */,
-			);
-			name = fmdb;
-			sourceTree = "<group>";
-		};
-		85EF81BC1CA794D400D9B083 /* layout */ = {
-			isa = PBXGroup;
-			children = (
-				859429171CA3F4D70049998C /* MarkCollectionLineLayout.h */,
-				859429181CA3F4D70049998C /* MarkCollectionLineLayout.m */,
-			);
-			name = layout;
-			sourceTree = "<group>";
-		};
-		85F291491CA4DA3600F08725 /* transition */ = {
-			isa = PBXGroup;
-			children = (
-				85F291501CA4EA6F00F08725 /* PingInvertTransition.h */,
-				85F291511CA4EA6F00F08725 /* PingInvertTransition.m */,
-				85F2914A1CA4DA4600F08725 /* PingTransition.h */,
-				85F2914B1CA4DA4600F08725 /* PingTransition.m */,
-				85EF81BD1CA7A49700D9B083 /* FirstStyleTransition.h */,
-				85EF81BE1CA7A49700D9B083 /* FirstStyleTransition.m */,
-				85EF81C01CA7ADFB00D9B083 /* FirstBackTransition.h */,
-				85EF81C11CA7ADFB00D9B083 /* FirstBackTransition.m */,
-			);
-			name = transition;
+			name = View;
 			sourceTree = "<group>";
 		};
 		85F291531CA511EA00F08725 /* LoadController */ = {
@@ -844,7 +823,6 @@
 				850D9EE11CA9422B00CA3D8F /* GCDQueue.m in Sources */,
 				85DC17721CA3A7300067EF5E /* InfoCollectionViewCell.m in Sources */,
 				850D9ED51CA941ED00CA3D8F /* UpdatingView.m in Sources */,
-				859429191CA3F4D70049998C /* MarkCollectionLineLayout.m in Sources */,
 				850F72AA1CA13D6B00FE674F /* CalendarViewController.m in Sources */,
 				851F3A4A1CA1250800F33F9C /* BurTableViewCell.m in Sources */,
 				85A038011CA0D4D100432635 /* CALayer+MaskLayer.m in Sources */,

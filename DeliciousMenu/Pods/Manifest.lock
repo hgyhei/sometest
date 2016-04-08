@@ -10,6 +10,7 @@ PODS:
     - SDWebImage/Core (= 3.7.5)
   - SDWebImage/Core (3.7.5)
   - WMPageController (1.4.0)
+  - YYModel (1.0.1)
 
 DEPENDENCIES:
   - FMDB
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - MJRefresh
   - SDWebImage
   - WMPageController
+  - YYModel
 
 SPEC CHECKSUMS:
   FMDB: c1968bab3ab0aed38f66cb778ae1e7fa9a652b6e
@@ -28,5 +30,6 @@ SPEC CHECKSUMS:
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
   WMPageController: 6515091ceca9ad834e52d041611d33cb8999ac83
+  YYModel: 794f0820a9a9703615bc166aa8e336abaf422c2b
 
 COCOAPODS: 0.39.0
