@@ -13,8 +13,7 @@
 #import "MenuHomeViewController.h"
 #import "MenufirstViewController.h"
 #import "MenuSecondViewController.h"
-#import "JHAPISDK.h"
-#import "JHOpenidSupplier.h"
+
 #import "UIButton+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 @interface GYTabBarViewController ()
@@ -41,7 +40,7 @@
     [self initNotificationCenter];
     [self setupTabBar];
    
-    [[JHOpenidSupplier shareSupplier] registerJuheAPIByOpenId:OpenID];
+
     [self setContainControllers];
 
    

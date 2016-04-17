@@ -8,8 +8,7 @@
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "MenuLucyViewController.h"
 #import "DetailTableViewController.h"
-#import "JHAPISDK.h"
-#import "JHOpenidSupplier.h"
+
 #import "GCD.h"
 #import "UIImage+initWithColor.h"
 #import "UpdatingView.h"
@@ -97,36 +96,39 @@
         NSUInteger secondNum = arc4random() % listCount;
         Tag_ListModel *list = model.list[secondNum];
         _listName = list.name;
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //让AF接受除了JSON以外的数据类型:
+    //Xcode, iOS: iPhone Operator System
+    //OC:Objective-C
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", @"text/json", @"text/javascript", @"application/json", nil];
     
     
-        
-        JHAPISDK *juheapi = [JHAPISDK shareJHAPISDK];
+
         NSDictionary *parms = @{
+                                @"key":@"ac43208232d31be1ec46040844b8d0a0",
                                 @"cid":list.id,
                                 @"pn":[NSString stringWithFormat:@"%d",0],
                                 @"rn":@"10"
                                 };
-        [juheapi executeWorkWithAPI:API_queryByTag APIID:APPID Parameters:parms Method:Method_Get Success:^(id responseObject) {
-            int error_code = [[responseObject objectForKey:@"error_code"] intValue];
-          
-            if (!error_code) {
-               
-                    self.imgData = [infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
-                
-                  [self setSwipView];
-                
-              
-                
-            }
+    [manager GET:API_queryByTag parameters:parms success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        int error_code = [[responseObject objectForKey:@"error_code"] intValue];
+        
+        if (!error_code) {
+            
+            self.imgData = [infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
+            
+            [self setSwipView];
             
             
-        } Failure:^(NSError *error) {
-            NSLog(@"error: %@",error.description);
-            [self.upDatingView showFailed];
-        }];
+            
+        }
 
-    }
-   
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error: %@",error.description);
+        [self.upDatingView showFailed];
+    }];
+}
+
     
     
        

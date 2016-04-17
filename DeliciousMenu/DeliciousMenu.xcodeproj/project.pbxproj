@@ -31,7 +31,6 @@
 		851F3A2C1CA10D3B00F33F9C /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A291CA10D3B00F33F9C /* UIBarButtonItem+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A2D1CA10D3B00F33F9C /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A2B1CA10D3B00F33F9C /* UIButton+Extension.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A371CA10FFC00F33F9C /* MenuConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A361CA10FFC00F33F9C /* MenuConst.m */; settings = {ASSET_TAGS = (); }; };
-		851F3A3E1CA1115600F33F9C /* JuheApisSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 851F3A3D1CA1115600F33F9C /* JuheApisSDK.a */; settings = {ASSET_TAGS = (); }; };
 		851F3A411CA11DBE00F33F9C /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A401CA11DBE00F33F9C /* DetailTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A481CA1250800F33F9C /* StepTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 851F3A431CA1250800F33F9C /* StepTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		851F3A491CA1250800F33F9C /* StepTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 851F3A441CA1250800F33F9C /* StepTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -49,9 +48,6 @@
 		85A038051CA0D4DD00432635 /* TagList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85A038041CA0D4DD00432635 /* TagList.plist */; settings = {ASSET_TAGS = (); }; };
 		85A038091CA0D5C100432635 /* TagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A038081CA0D5C100432635 /* TagModel.m */; settings = {ASSET_TAGS = (); }; };
 		85A0380C1CA0D5CD00432635 /* infoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A0380B1CA0D5CD00432635 /* infoModel.m */; settings = {ASSET_TAGS = (); }; };
-		85A038281CA0F55800432635 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A038271CA0F55800432635 /* AdSupport.framework */; };
-		85A0382A1CA0F56300432635 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A038291CA0F56300432635 /* CoreLocation.framework */; };
-		85A0382C1CA0F56C00432635 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85A0382B1CA0F56C00432635 /* CoreTelephony.framework */; };
 		85A0382F1CA0F7AE00432635 /* InfoCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A0382E1CA0F7AE00432635 /* InfoCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		85DBDFEB1CA27438005C1297 /* MenufirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85DBDFEA1CA27438005C1297 /* MenufirstViewController.m */; settings = {ASSET_TAGS = (); }; };
 		85DBDFED1CA274F1005C1297 /* FirstMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DBDFEC1CA274F1005C1297 /* FirstMenu.plist */; settings = {ASSET_TAGS = (); }; };
@@ -145,9 +141,6 @@
 		851F3A2B1CA10D3B00F33F9C /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
 		851F3A351CA10FFC00F33F9C /* MenuConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuConst.h; sourceTree = "<group>"; };
 		851F3A361CA10FFC00F33F9C /* MenuConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuConst.m; sourceTree = "<group>"; };
-		851F3A3B1CA1115600F33F9C /* JHAPISDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHAPISDK.h; sourceTree = "<group>"; };
-		851F3A3C1CA1115600F33F9C /* JHOpenidSupplier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHOpenidSupplier.h; sourceTree = "<group>"; };
-		851F3A3D1CA1115600F33F9C /* JuheApisSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = JuheApisSDK.a; sourceTree = "<group>"; };
 		851F3A3F1CA11DBE00F33F9C /* DetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		851F3A401CA11DBE00F33F9C /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
 		851F3A421CA1250800F33F9C /* StepTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepTableViewCell.h; sourceTree = "<group>"; };
@@ -178,9 +171,6 @@
 		85A038081CA0D5C100432635 /* TagModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagModel.m; sourceTree = "<group>"; };
 		85A0380A1CA0D5CD00432635 /* infoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = infoModel.h; sourceTree = "<group>"; };
 		85A0380B1CA0D5CD00432635 /* infoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = infoModel.m; sourceTree = "<group>"; };
-		85A038271CA0F55800432635 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		85A038291CA0F56300432635 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		85A0382B1CA0F56C00432635 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		85A0382D1CA0F7AE00432635 /* InfoCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCollectionViewController.h; sourceTree = "<group>"; };
 		85A0382E1CA0F7AE00432635 /* InfoCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCollectionViewController.m; sourceTree = "<group>"; };
 		85DBDFE91CA27438005C1297 /* MenufirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenufirstViewController.h; sourceTree = "<group>"; };
@@ -230,10 +220,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				851F3A1B1CA1050D00F33F9C /* libc++.tbd in Frameworks */,
-				851F3A3E1CA1115600F33F9C /* JuheApisSDK.a in Frameworks */,
-				85A0382C1CA0F56C00432635 /* CoreTelephony.framework in Frameworks */,
-				85A0382A1CA0F56300432635 /* CoreLocation.framework in Frameworks */,
-				85A038281CA0F55800432635 /* AdSupport.framework in Frameworks */,
 				BDDE41538180F04465F5477C /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,7 +253,6 @@
 		8505F8501CAA0F0F002B0CCF /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				851F3A381CA1115600F33F9C /* JuheApisSDK */,
 				850D9ED61CA9422B00CA3D8F /* YXGCD */,
 			);
 			name = Vendor;
@@ -364,32 +349,6 @@
 				85F291531CA511EA00F08725 /* LoadController */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		851F3A381CA1115600F33F9C /* JuheApisSDK */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A391CA1115600F33F9C /* include */,
-				851F3A3D1CA1115600F33F9C /* JuheApisSDK.a */,
-			);
-			path = JuheApisSDK;
-			sourceTree = "<group>";
-		};
-		851F3A391CA1115600F33F9C /* include */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A3A1CA1115600F33F9C /* JuheApisSDK */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		851F3A3A1CA1115600F33F9C /* JuheApisSDK */ = {
-			isa = PBXGroup;
-			children = (
-				851F3A3B1CA1115600F33F9C /* JHAPISDK.h */,
-				851F3A3C1CA1115600F33F9C /* JHOpenidSupplier.h */,
-			);
-			path = JuheApisSDK;
 			sourceTree = "<group>";
 		};
 		85789B7B1CB73A1D000A5120 /* Category */ = {
@@ -580,9 +539,6 @@
 			isa = PBXGroup;
 			children = (
 				851F3A1A1CA1050D00F33F9C /* libc++.tbd */,
-				85A0382B1CA0F56C00432635 /* CoreTelephony.framework */,
-				85A038291CA0F56300432635 /* CoreLocation.framework */,
-				85A038271CA0F55800432635 /* AdSupport.framework */,
 				6A39EA96AE99457D52B6E881 /* libPods.a */,
 			);
 			name = Frameworks;

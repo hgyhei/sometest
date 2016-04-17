@@ -16,8 +16,7 @@
 #import "FirstVarietyMenuTableViewCell.h"
 #import "UIButton+ClickBlock.h"
 #import "UIImageView+WebCache.h"
-#import "JHAPISDK.h"
-#import "JHOpenidSupplier.h"
+
 
 @interface MenufirstViewController ()<MenuLoopViewDelegate>
 @property (nonatomic,strong) NSArray * dataSource;

@@ -9,8 +9,6 @@
 #import "InfoCollectionViewController.h"
 #import "InfoCollectionViewCell.h"
 #import "DetailTableViewController.h"
-#import "JHAPISDK.h"
-#import "JHOpenidSupplier.h"
 #import "UIImage+corner.h"
 
 
@@ -143,13 +141,18 @@ static int pn=0;
 - (void)getDataByTagId{
      NSString *url = [NSString stringWithFormat:@"%@?cid=%@&pn=%d&rn=%d",API_queryByTag,_tagId,pn,10];
     if (![fmdbMethod urlContains:url]) {
-        JHAPISDK *juheapi = [JHAPISDK shareJHAPISDK];
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", @"text/json", @"text/javascript", @"application/json", nil];
+        
+   
         NSDictionary *parms = @{
+                                @"key":@"ac43208232d31be1ec46040844b8d0a0",
                                 @"cid":_tagId,
                                 @"pn":[NSString stringWithFormat:@"%d",pn],
                                 @"rn":@"10"
                                 };
-        [juheapi executeWorkWithAPI:API_queryByTag APIID:APPID Parameters:parms Method:Method_Get Success:^(id responseObject) {
+        [manager GET:API_queryByTag parameters:parms success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             int error_code = [[responseObject objectForKey:@"error_code"] intValue];
             if (!error_code) {
                 if (pn == 0) {
@@ -160,13 +163,13 @@ static int pn=0;
                     NSArray *array = [infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
                     [fmdbMethod setCacheWithUrl:url :array];
                     [_dataSource addObjectsFromArray:array];
-                
+                    
                 }
                 [self.collectionView reloadData];
             }
-           
-        } Failure:^(NSError *error) {
-            NSLog(@"error: %@",error.description);
+
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              NSLog(@"error: %@",error.description);
         }];
     }
     else{
@@ -184,40 +187,39 @@ static int pn=0;
    }
 
 - (void)getDataBySearchText{
-    JHAPISDK *juheapi = [JHAPISDK shareJHAPISDK];
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/plain", @"text/json", @"text/javascript", @"application/json", nil];
     NSDictionary *parms = @{
+                          @"key":@"ac43208232d31be1ec46040844b8d0a0",
                           @"menu":_searchText,
                           @"pn": [NSString stringWithFormat:@"%d",pn],
                           @"rn":@"10"
                           };
-    [juheapi executeWorkWithAPI:API_query
-                          APIID:APPID
-                     Parameters:parms
-                         Method:Method_Get
-                        Success:^(id responseObject){
-                            int error_code = [[responseObject objectForKey:@"error_code"] intValue];
-                            if (!error_code) {
-                              
-                                
-                                if (pn==0) {
-                                    _dataSource=[infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
-                                    
-                                }else{
-                                    NSArray* arry=[infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
-                                    
-                                    [_dataSource addObjectsFromArray:arry];
-                                }
-                                
-                                [self.collectionView reloadData];
-                                
-                            }else{
-                              
-                                ALERT_MESSAGE(@"没有搜索到相关菜谱")
-                            }
-                            
-                        } Failure:^(NSError *error) {
-                            NSLog(@"error:   %@",error.description);
-                        }];
+    [manager GET:API_query parameters:parms success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        int error_code = [[responseObject objectForKey:@"error_code"] intValue];
+        if (!error_code) {
+            
+            
+            if (pn==0) {
+                _dataSource=[infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
+                
+            }else{
+                NSArray* arry=[infoModel mj_objectArrayWithKeyValuesArray:[[responseObject objectForKey:@"result"] objectForKey:@"data"]];
+                
+                [_dataSource addObjectsFromArray:arry];
+            }
+            
+            [self.collectionView reloadData];
+            
+        }else{
+            
+            ALERT_MESSAGE(@"没有搜索到相关菜谱")
+        }
+
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error:   %@",error.description);
+    }];
     
 
 }
